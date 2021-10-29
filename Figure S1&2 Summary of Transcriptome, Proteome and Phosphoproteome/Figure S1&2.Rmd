@@ -1,0 +1,342 @@
+---
+title: "Figure S1&2 Summary of Transcriptome, Proteome and Phosphoproteome"
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(ape)) # CRAN v5.5
+suppressPackageStartupMessages(library(clusterProfiler)) # Bioconductor v4.0.5
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0
+suppressPackageStartupMessages(library(reshape2)) # CRAN v1.4.4
+suppressPackageStartupMessages(library(ggplot2)) # CRAN v3.3.5
+suppressPackageStartupMessages(library(viridis)) # CRAN v0.6.2
+suppressPackageStartupMessages(library(ggsci)) # CRAN v2.9
+suppressPackageStartupMessages(library(scales)) # CRAN v1.1.1
+suppressPackageStartupMessages(library(ggpubr)) # CRAN v0.4.0
+suppressPackageStartupMessages(library(RColorBrewer)) # CRAN v1.1-2
+
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure S1
+Hierarchical clustering of transcriptome
+```{r echo=TRUE}
+# Load data
+load("../SourceData/omic_data.Rds")
+# Normalization
+test_data <- mmu_heart_trs
+test_data <- test_data[,-1]
+mean1 <- apply(test_data[,seq(1,30,3)],1,mean)
+mean2 <- apply(test_data[,seq(2,30,3)],1,mean)
+mean3 <- apply(test_data[,seq(3,30,3)],1,mean)
+test_data[,seq(1,30,3)] <- sweep(test_data[,seq(1,30,3)],1,mean1,FUN = "/")
+test_data[,seq(2,30,3)] <- sweep(test_data[,seq(2,30,3)],1,mean2,FUN = "/")
+test_data[,seq(3,30,3)] <- sweep(test_data[,seq(3,30,3)],1,mean3,FUN = "/")
+test_data <- test_data[!is.na(test_data[,1]),]
+test_data <- test_data[!is.na(test_data[,2]),]
+test_data <- test_data[!is.na(test_data[,3]),]
+test_data <- t(test_data)
+# Clustering
+set.seed(777)
+result <- dist(test_data)
+result_hc <- hclust(d = result)
+# Plotting
+plot(as.phylo(result_hc), cex = 1, label.offset = 1)
+```
+
+Hierarchical clustering of proteome
+```{r echo=TRUE}
+# Load data
+load("../SourceData/omic_data.Rds")
+# Normalization
+test_data <- mmu_heart_pro[,1:31]
+test_data <- test_data[,-1]
+mean1 <- apply(test_data[,seq(1,30,3)],1,mean)
+mean2 <- apply(test_data[,seq(2,30,3)],1,mean)
+mean3 <- apply(test_data[,seq(3,30,3)],1,mean)
+test_data[,seq(1,30,3)] <- sweep(test_data[,seq(1,30,3)],1,mean1,FUN = "/")
+test_data[,seq(2,30,3)] <- sweep(test_data[,seq(2,30,3)],1,mean2,FUN = "/")
+test_data[,seq(3,30,3)] <- sweep(test_data[,seq(3,30,3)],1,mean3,FUN = "/")
+test_data <- test_data[!is.na(test_data[,1]),]
+test_data <- test_data[!is.na(test_data[,2]),]
+test_data <- test_data[!is.na(test_data[,3]),]
+test_data <- t(test_data)
+rownames(test_data) <- c(paste("E10.5",1:3,sep = "-"),paste("E12.5",1:3,sep = "-"),
+                         paste("E14.5",1:3,sep = "-"),paste("E16.5",1:3,sep = "-"),
+                         paste("E18.5",1:3,sep = "-"),paste("P1",1:3,sep = "-"),
+                         paste("1W",1:3,sep = "-"),paste("2W",1:3,sep = "-"),
+                         paste("4W",1:3,sep = "-"),paste("8W",1:3,sep = "-"))
+# Clustering
+set.seed(777)
+result <- dist(test_data)
+result_hc <- hclust(d = result)
+# Plotting
+plot(as.phylo(result_hc), cex = 1, label.offset = 1) 
+```
+
+Hierarchical clustering of phosphoproteome
+```{r echo=TRUE}
+# Load data
+load("../SourceData/omic_data.Rds")
+# Normalization
+test_data <- mmu_heart_phos[,c(1,3:32)]
+test_data <- test_data[,-1]
+mean1 <- apply(test_data[,seq(1,30,3)],1,mean)
+mean2 <- apply(test_data[,seq(2,30,3)],1,mean)
+mean3 <- apply(test_data[,seq(3,30,3)],1,mean)
+test_data[,seq(1,30,3)] <- sweep(test_data[,seq(1,30,3)],1,mean1,FUN = "/")
+test_data[,seq(2,30,3)] <- sweep(test_data[,seq(2,30,3)],1,mean2,FUN = "/")
+test_data[,seq(3,30,3)] <- sweep(test_data[,seq(3,30,3)],1,mean3,FUN = "/")
+rm(mean1,mean2,mean3)
+test_data <- test_data[!is.na(test_data[,1]),]
+test_data <- test_data[!is.na(test_data[,2]),]
+test_data <- test_data[!is.na(test_data[,3]),]
+test_data <- t(test_data)
+rownames(test_data) <- c(paste("E10.5",1:3,sep = "-"),paste("E12.5",1:3,sep = "-"),
+                         paste("E14.5",1:3,sep = "-"),paste("E16.5",1:3,sep = "-"),
+                         paste("E18.5",1:3,sep = "-"),paste("P1",1:3,sep = "-"),
+                         paste("1W",1:3,sep = "-"),paste("2W",1:3,sep = "-"),
+                         paste("4W",1:3,sep = "-"),paste("8W",1:3,sep = "-"))
+# Clustering
+set.seed(777)
+result <- dist(test_data)
+result_hc <- hclust(d = result)
+# Plotiing
+plot(as.phylo(result_hc), cex = 1, label.offset = 1)
+```
+
+Figure S2A
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+t4p <- mmu_heart_trs
+# Annotate Genes
+tmp_ensemblid <- substr(t4p[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys=tmp_ensemblid,columns=c("ENSEMBL","SYMBOL"),keytype="ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+t4p[,1] <- geneinfo[,2]
+# Filtering & Statistics
+t4p <- t4p[!is.na(t4p$EnsembleID),]
+t4p <- melt(t4p)
+t4p <- t4p[!t4p$value == 0,]  # altogether detected 521674 genes in 30 samples
+nrow(t4p[t4p$value >= 1,])  # 70.38% of the genes satisfy FPKM >= 1 n = 367159
+# Plotting
+t4p$value <- log2(t4p$value)
+ggplot(t4p) + 
+  geom_histogram(aes(x = value,y = ..count../sum(..count..)),fill = "#E64B35B2",color = "#e9ecef") +
+  geom_vline(aes(xintercept = 0),size = 1,color = "black",linetype = "dashed") +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5)) +
+  scale_x_continuous(breaks = seq(-10,20,5)) +
+  labs(x = "log2(FPKM)",y = "Proportion")
+```
+
+Figure S2B
+```{r echo=TRUE}
+load("../SourceData/proteome_raw.Rds")
+t4p <- proteinGroups
+# Filtering & Statistics
+t4p <- t4p[,c(7,89:118)]
+t4p <- melt(t4p)
+t4p <- t4p[!t4p$value == 0,]  # altogether detected 278978 peptides in 30 samples
+nrow(t4p[t4p$value >= 20000,])  # 99.11% of the peptides satisfy Intensity >= 20000 n = 276488
+# Plotting
+t4p$value <- log10(t4p$value)
+ggplot(t4p) + 
+  geom_histogram(aes(x = value,y = ..count../sum(..count..)),fill = "#4DBBD5B2",color = "#e9ecef") +
+  geom_vline(aes(xintercept = log10(20000)),size = 1,color = "black",linetype = "dashed") +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5)) +
+  labs(x = "log10(Intensity)",y = "Proportion")
+```
+
+Figure S2C
+```{r echo=TRUE}
+load("../SourceData/phosphoproteome_raw.Rds")
+t4p <- phos_raw
+# Filtering & Statistics
+t4p <- melt(t4p)
+t4p <- t4p[!t4p$value == 0,]  # altogether detected 195889 phospho-peptides in 30 samples
+nrow(t4p[t4p$value >= 20000,])  # 95.02% of the peptides satisfy Intensity >= 20000 n = 186138
+# Plotting
+t4p$value <- log10(t4p$value)
+ggplot(t4p) + 
+  geom_histogram(aes(x = value,y = ..count../sum(..count..)),fill = "#00A087B2",color = "#e9ecef") +
+  geom_vline(aes(xintercept = log10(20000)),size = 1,color = "black",linetype = "dashed") +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5)) +
+  labs(x = "log10(Intensity)",y = "Proportion")
+```
+
+Figure S2D
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+prosum <- c()
+pSer <- c()
+pThr <- c()
+pTyr <- c()
+for (i in 13:42) {
+  temp <- mmu_heart_phos_raw[,c(2,10,i)]
+  temp <- na.omit(temp)
+  prosum <- c(prosum,nrow(temp[!duplicated(temp$UniprotID),]))
+  pSer <- c(pSer,nrow(temp[which(temp$Amino.acid=="S"),]))
+  pThr <- c(pThr,nrow(temp[which(temp$Amino.acid=="T"),]))
+  pTyr <- c(pTyr,nrow(temp[which(temp$Amino.acid=="Y"),]))
+  rm(temp)
+}
+time <- c(paste("E10.5",1:3,sep = "-"),paste("E12.5",1:3,sep = "-"),
+          paste("E14.5",1:3,sep = "-"),paste("E16.5",1:3,sep = "-"),
+          paste("E18.5",1:3,sep = "-"),paste("P1",1:3,sep = "-"),
+          paste("1W",1:3,sep = "-"),paste("2W",1:3,sep = "-"),
+          paste("4W",1:3,sep = "-"),paste("8W",1:3,sep = "-"))
+phos_summary <- data.frame(time,prosum,pSer,pThr,pTyr)
+# Plotting
+phos_summary_melt <- melt(phos_summary,id.vars = "time")
+mypal =pal_nejm("default", alpha =0.7)(8)
+colorpalette <- c("#BC3C29B2","#0072B5B2","#E18727B2","#7876B1B2")
+ggplot(phos_summary_melt,aes(x=time,y=value,fill=variable))+
+  geom_bar(stat="identity",width = 0.8,position =position_stack(reverse = T),color="black")+
+  theme(axis.title.x =element_blank(),
+        axis.title.y  =element_blank(),
+        panel.grid.major =element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text = element_text(color = "black",size = 12),
+        axis.text.x = element_text(angle = 60, hjust = 1),
+        legend.text = element_text(size = 14),
+        plot.title = element_text(size=14,hjust = 0.5))+
+  scale_x_discrete(limits=time)+
+  scale_fill_discrete(breaks=c("prosum","pSer","pThr","pTyr"),labels=c("Pro","S","T","Y"))+
+  scale_fill_manual(values = colorpalette)
+```
+
+Figure S2E
+Merge transcriptome and proteome data
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+tmp <- mmu_heart_trs
+temp_ensemble <- substr(tmp[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+tmp[,1] <- geneinfo[,2];rm(temp_ensemble,geneinfo)
+tmp <- tmp[!duplicated(tmp[,1]),]
+names(tmp)[1] <- "Gene_Symbol"
+
+mmu_heart_trs_pro <- merge(mmu_heart_pro[,-(32:41)],tmp) # merged triplicates
+tmp <- c(paste("E10.5",1:3,sep = "-"),paste("E12.5",1:3,sep = "-"),
+         paste("E14.5",1:3,sep = "-"),paste("E16.5",1:3,sep = "-"),
+         paste("E18.5",1:3,sep = "-"),paste("P1",1:3,sep = "-"),
+         paste("1W",1:3,sep = "-"),paste("2W",1:3,sep = "-"),
+         paste("4W",1:3,sep = "-"),paste("8W",1:3,sep = "-"))
+# Rename data
+tmp1 <- tmp
+for (i in 1:30) {
+  tmp1[i] <- paste("Pro",tmp[i],sep = "-")
+};rm(i)
+tmp2 <- tmp
+for (i in 1:30) {
+  tmp2[i] <- paste("Trs",tmp[i],sep = "-")
+};rm(i)
+names(mmu_heart_trs_pro) <- c("Symbol",tmp1,tmp2)
+# Calculate timepoint mean
+trs_pro_ave <- data.frame(Symbol = mmu_heart_trs_pro[,1])
+for (i in seq(2,ncol(mmu_heart_trs_pro),3)) {
+  trs_pro_ave <- cbind(trs_pro_ave,rowMeans(mmu_heart_trs_pro[,i:(i+2)]))
+};rm(i)
+names(trs_pro_ave) <- c("Symbol",paste("Pro",c("E10.5","E12.5","E14.5","E16.5",
+                                               "E18.5","P1","1W","2W","4W","8W"),
+                                       sep = "-"),
+                        paste("Trs",c("E10.5","E12.5","E14.5","E16.5","E18.5",
+                                      "P1","1W","2W","4W","8W"),sep = "-"))
+mmu_heart_trs_pro <- trs_pro_ave
+```
+
+Plotting
+```{r echo=TRUE}
+time.list <- c("E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+plist <- list()
+for (i in 1:9) {
+  idx.trs <- i+2 # Index of transcriptome
+  idx.pro <- i+12 # Index of Proteome
+  temp_cor <- data.frame(trs = mmu_heart_trs_pro[,idx.trs]/mmu_heart_trs_pro[,2],pro = mmu_heart_trs_pro[,idx.pro]/mmu_heart_trs_pro[,12]) # Matrix to calculate correlation
+  temp_cor <- temp_cor[!temp_cor[,1] == 0 & !temp_cor[,2] == 0,]
+  temp_cor <- temp_cor[!temp_cor[,1] == Inf & !temp_cor[,2] == Inf,]
+  temp_cor <- temp_cor[!is.na(temp_cor[,1]) & !is.na(temp_cor[,2]) ,]
+  temp_cor <- log2(temp_cor)
+  rho <- cor(x = temp_cor[,1],y = temp_cor[,2],method = "pearson") # Claculate Pearson correlation
+  rho <- paste("R = ",round(rho,2),sep = "")
+
+  g <- ggplot(temp_cor,aes(x = trs, y = pro)) +
+  geom_point(size = 3,shape = 19,alpha = 1/2) +
+  geom_smooth(color = "lightpink",method = "lm",size = 2,se = FALSE,fullrange = TRUE) +
+  annotate("text",x = Inf,y = Inf,label = rho,hjust = 1.5,vjust = 1.5,size = 5) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5),
+        legend.position = "None") +
+  labs(x = "mRNA Foldchange (log2)",y = "Protein Foldchange (log2)",title = paste0(time.list[i]," vs E10.5"))
+  plist[[i]] <- g
+}
+ggarrange(plotlist = plist,ncol = 5,nrow = 2)
+```
+
+Figure S2F
+```{r echo=TRUE}
+corlist <- c()
+for (i in 1:9) {
+  temp_cor <- data.frame(trs = mmu_heart_trs_pro[,i+2]/mmu_heart_trs_pro[,2],pro = mmu_heart_trs_pro[,i+12]/mmu_heart_trs_pro[,12])
+  temp_cor <- temp_cor[!temp_cor[,1] == 0 & !temp_cor[,2] == 0,]
+  temp_cor <- temp_cor[!temp_cor[,1] == Inf & !temp_cor[,2] == Inf,]
+  temp_cor <- temp_cor[!is.na(temp_cor[,1]) & !is.na(temp_cor[,2]) ,]
+  temp_cor <- log2(temp_cor)
+  rho <- cor(x = temp_cor[,1],y = temp_cor[,2],method = "pearson")
+  corlist <- c(corlist,rho)
+};rm(i,temp_cor,rho)
+
+time1 <- factor(c("E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),ordered = TRUE,
+               levels = c("E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"))
+time2 <- seq(1,9,1)
+corlist <- data.frame(corlist,time1,time2)
+# Plotting
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+color3 <- brewer.pal(9,"YlGn")
+colorpalette <- c(color1[c(9,8,7,5,3)],color3[c(5,7)],color2[c(5,7,9)])
+ggplot(corlist,aes(color = time1)) +
+  geom_point(aes(x = time1,y = corlist),size = 7,shape = 19,alpha = 1/2) +
+  geom_smooth(aes(x = time2,y = corlist),color = "lightpink",method = "loess",size = 3,se = FALSE,fullrange = TRUE) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Correlation between mRNA and \nProtein Fold Change (Comparing to E10.5)")
+```
+

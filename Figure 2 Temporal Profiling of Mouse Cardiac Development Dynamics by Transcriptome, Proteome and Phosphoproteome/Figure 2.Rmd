@@ -1,0 +1,552 @@
+---
+title: Figure 2 Temporal Profiling of Mouse Cardiac Development Dynamics by Transcriptome,
+  Proteome and Phosphoproteome
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(clusterProfiler)) # Bioconductor v4.0.5
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0
+suppressPackageStartupMessages(library(reshape2)) # CRAN v1.4.4
+suppressPackageStartupMessages(library(ggplot2)) # CRAN v3.3.5
+suppressPackageStartupMessages(library(viridis)) # CRAN v0.6.2
+suppressPackageStartupMessages(library(VennDiagram)) # CRAN v1.6.20
+suppressPackageStartupMessages(library(ggsci)) # CRAN v2.9
+suppressPackageStartupMessages(library(scales)) # CRAN v1.1.1
+suppressPackageStartupMessages(library(ape)) # CRAN v5.5
+suppressPackageStartupMessages(library(RColorBrewer)) # CRAN v1.1-2
+suppressPackageStartupMessages(library(scatterplot3d)) # CRAN v0.3-41  
+suppressPackageStartupMessages(library(ggpubr)) # CRAN v0.4.0
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure 2A
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+temp_ensemble <- data.frame(Name = mmu_heart_trs[!duplicated(mmu_heart_trs[,1]),1])
+temp_ensemble <- substr(temp_ensemble[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL","ENTREZID"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+trs_symbol <- data.frame(Name = geneinfo$SYMBOL)
+pro_symbol <- data.frame(Name = mmu_heart_pro[!duplicated(mmu_heart_pro[,1]),1])
+phos_symbol <- data.frame(Name = mmu_heart_phos[!duplicated(mmu_heart_phos[,1]),1])
+grid.newpage()
+draw.triple.venn(area1 = nrow(trs_symbol),area2 = nrow(pro_symbol),area3 = nrow(phos_symbol),
+                 n12 = nrow(merge(trs_symbol,pro_symbol)),n13 = nrow(merge(trs_symbol,phos_symbol)),
+                 n23 = nrow(merge(pro_symbol,phos_symbol)),n123 = nrow(merge(merge(trs_symbol,pro_symbol),phos_symbol)),
+                 category = c("Transcriptome","Proteome","PhosphoProteome"),lwd = 2,
+                 fill = c("#E64B35B2","#4DBBD5B2","#00A087B2"),alpha = 1,label.col = "black",
+                 cex = 2,fontface = "bold",fontfamily = "serif",
+                 cat.pos = c(-50,90,30),cat.dist = c(0.1,0.15,-0.5),cat.cex = 2,
+                 cat.col = c("#E64B35B2","#4DBBD5B2","#00A087B2"),
+                 cat.fontface = "bold",cat.fontfamily = "serif",cat.just = list(c(-1, -1), c(1, 1),c(0,0)),
+                 ext.pos = 30,ext.dist = -0.05,ext.length = 0.85,ext.line.lwd = 2)
+```
+
+Figure 2B
+Merge trsancriptomic data with proteomic data
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+tmp <- mmu_heart_trs
+temp_ensemble <- substr(tmp[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+tmp[,1] <- geneinfo[,2];rm(temp_ensemble,geneinfo)
+tmp <- tmp[!duplicated(tmp[,1]),]
+names(tmp)[1] <- "Gene_Symbol"
+mmu_heart_trs_pro <- merge(mmu_heart_pro[,-(32:41)],tmp) # merged triplicates
+tmp <- c(paste("E10.5",1:3,sep = "-"),paste("E12.5",1:3,sep = "-"),
+         paste("E14.5",1:3,sep = "-"),paste("E16.5",1:3,sep = "-"),
+         paste("E18.5",1:3,sep = "-"),paste("P1",1:3,sep = "-"),
+         paste("1W",1:3,sep = "-"),paste("2W",1:3,sep = "-"),
+         paste("4W",1:3,sep = "-"),paste("8W",1:3,sep = "-"))
+tmp1 <- tmp
+for (i in 1:30) {
+  tmp1[i] <- paste("Pro",tmp[i],sep = "-")
+};rm(i)
+tmp2 <- tmp
+for (i in 1:30) {
+  tmp2[i] <- paste("Trs",tmp[i],sep = "-")
+};rm(i)
+names(mmu_heart_trs_pro) <- c("Symbol",tmp1,tmp2)
+
+# Normalization of transcriptome as proteome
+temp <- mmu_heart_trs_pro
+
+mean1 <- apply(temp[,seq(32,61,3)],1,mean)
+mean2 <- apply(temp[,seq(33,61,3)],1,mean)
+mean3 <- apply(temp[,seq(34,61,3)],1,mean)
+temp[,seq(32,61,3)] <- sweep(temp[,seq(32,61,3)],1,mean1,FUN = "/")
+temp[,seq(33,61,3)] <- sweep(temp[,seq(33,61,3)],1,mean2,FUN = "/")
+temp[,seq(34,61,3)] <- sweep(temp[,seq(34,61,3)],1,mean3,FUN = "/")
+temp <- temp[!is.na(temp[,2]),]
+temp <- temp[!is.na(temp[,3]),]
+temp <- temp[!is.na(temp[,4]),]
+temp <- temp[!is.na(temp[,32]),]
+temp <- temp[!is.na(temp[,33]),]
+temp <- temp[!is.na(temp[,34]),]
+
+tmp <- data.frame(Symbol = temp[,1]) # merged mean
+for (i in seq(2,ncol(temp),3)) {
+  tmp <- cbind(tmp,rowMeans(temp[,i:(i+2)]))
+};rm(i)
+temp <- tmp;rm(tmp)
+names(temp) <- c("Symbol",
+                 paste("Pro",c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),sep = "-"),
+                 paste("Trs",c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),sep = "-"))
+```
+
+Statistics
+```{r echo=TRUE}
+# Statistics
+cor <- c()
+judge <- c()
+for (i in 1:nrow(temp)) {
+  temp_cor <- temp[i,2:21]
+  temp_cor <- cor.test(x = as.numeric(temp_cor[,1:10]),y = as.numeric(temp_cor[,11:20]),method = "spearman")
+  if (!is.nan(temp_cor$statistic)) {
+    temp_p <- temp_cor$p.value
+    temp_cor <- temp_cor$estimate
+    cor <- c(cor,temp_cor)
+    if (temp_cor > 0) {
+      if (temp_p < 0.05) {
+        judge <- c(judge,"Significant")
+      } else {
+        judge <- c(judge,"Positive")
+      }
+    } else {
+      judge <- c(judge,"Negative")
+    }
+  } else {
+    cor <- c(cor,NA)
+    judge <- c(judge,NA)
+  }
+}
+t4p <- data.frame(Symbol = temp$Symbol,Correlation = cor,Judge = judge)
+
+t4p <- t4p[!is.na(t4p$Correlation),]
+median(t4p$Correlation) # Median 0.6242424
+nrow(t4p[t4p$Judge == "Negative",])/nrow(t4p) # Negative 19.81%
+nrow(t4p[t4p$Judge == "Positive",])/nrow(t4p) # Positive 80.19%
+nrow(t4p[t4p$Judge == "Significant",])/nrow(t4p) # Significant 48.42%
+```
+
+Plotting
+```{r echo=TRUE}
+# Plotting
+ggplot(t4p) + 
+  geom_histogram(aes(x = Correlation,y = ..count../sum(..count..),fill = Judge),binwidth = 0.05,color = "#e9ecef") +
+  geom_vline(aes(xintercept = 0.6242424),size = 1,color = "black",linetype = "dashed") +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5)) +
+  scale_x_continuous(breaks = seq(-1,1,0.5)) +
+  scale_fill_manual(values = c("#21908C","#440154","#FDE725")) +
+  labs(x = "Spearman Correlation",y = "Number of Protein-Coding Genes")
+```
+
+Figure 2C
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+t <- nrow(mmu_heart_phos_raw[which(mmu_heart_phos_raw$Amino.acid=="T"),])  #T:1591 (11.8%)
+y <- nrow(mmu_heart_phos_raw[which(mmu_heart_phos_raw$Amino.acid=="Y"),])  #Y:64 (0.5%)
+s <- nrow(mmu_heart_phos_raw[which(mmu_heart_phos_raw$Amino.acid=="S"),])  #S:11785 (87.7%)
+print(c(t,y,s))
+```
+
+Figure 2D
+Annotate Omic Data
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+# Transcriptome
+trs <- data.frame(mmu_heart_trs[,1])
+for (i in seq(2,31,3)) {
+  trs <- cbind(trs,rowMeans(mmu_heart_trs[,i:(i+2)]))  
+};rm(i)
+temp_ensemble <- substr(trs[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL","ENTREZID"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+trs <- cbind(geneinfo,trs[,-1]);rm(temp_ensemble,geneinfo)
+trs <- trs[!duplicated(trs[,2]),]
+
+# Proteome
+pro <- mmu_heart_pro[,c(1,32:41)]
+temp_symbol <- pro[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+pro <- cbind(geneinfo,pro[,-1]);rm(temp_symbol,geneinfo)
+
+# PhosphoProteome
+phos <- data.frame(
+  SYMBOL = as.vector(mmu_heart_phos[,1]),
+  PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+  mmu_heart_phos[,33:42],stringsAsFactors = FALSE
+)
+phos <- phos[!phos[,1] == "",]
+tmp <- phos[1,]# split merged gene names by ";"
+for (i in 1:nrow(phos)) {
+  a <- data.frame(strsplit(phos[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(phos[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,phos[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(phos)
+  tmp <- rbind(tmp,temp)
+}
+phos <- tmp[!duplicated(tmp[,2]),];rm(tmp,i,a,b,temp,j)
+
+temp_symbol <- phos[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+phos <- merge(phos,geneinfo);rm(temp_symbol,geneinfo)
+phos <- cbind(phos[,1],phos[,13:14],phos[,2:12])
+```
+
+Calculate FoldChange & Define Dynamic
+```{r echo=TRUE}
+# Transcriptome
+trs.all <- nrow(trs)
+fc <- c()
+for (i in 1:trs.all) {
+  t.max <- max(trs[i,4:13])
+  t.min <- min(trs[i,4:13])
+  t.fc <- t.max/t.min
+  fc <- c(fc,t.fc)
+}
+trs.dynamic <- nrow(trs[(fc >= 2) & (! fc == Inf),])
+# Proteome
+pro.all <- nrow(pro)
+fc <- c()
+for (i in 1:pro.all) {
+  t.max <- max(pro[i,4:13])
+  t.min <- min(pro[i,4:13])
+  t.fc <- t.max/t.min
+  fc <- c(fc,t.fc)
+}
+pro <- cbind(pro,fc)
+temp <- pro[fc >= 2,]
+pro.dynamic <- nrow(pro[(fc >= 2) & (! fc == Inf),])
+# PhosphoProteome
+phos.all <- nrow(phos)
+fc <- c()
+for (i in 1:phos.all) {
+  t.max <- max(phos[i,5:14])
+  t.min <- min(phos[i,5:14])
+  t.fc <- t.max/t.min
+  fc <- c(fc,t.fc)
+}
+phos.dynamic <- nrow(phos[(fc >= 2) & (! fc == Inf),])
+```
+
+Plotting
+```{r echo=TRUE}
+# Transcriptome
+grid.newpage()
+draw.pairwise.venn(area1 = trs.all,area2 = trs.dynamic,cross.area = trs.dynamic,
+                   category = c("All","Dynamic"),lwd = 2,
+                   fill = c("#E64B35B2","#4DBBD5B2"),alpha = 1,label.col = "black",
+                   cex = 2,fontface = "bold",fontfamily = "serif",
+                   cat.pos = c(-50,90),cat.dist = c(0.1,0.15),cat.cex = 2,
+                   cat.col = c("#E64B35B2","#4DBBD5B2"),
+                   cat.fontface = "bold",cat.fontfamily = "serif",cat.just = list(c(-1, -1), c(1, 1)),
+                   ext.pos = 30,ext.dist = -0.05,ext.length = 0.85,ext.line.lwd = 2)
+# Proteome
+grid.newpage()
+draw.pairwise.venn(area1 = pro.all,area2 = pro.dynamic,cross.area = pro.dynamic,
+                   category = c("All","Dynamic"),lwd = 2,
+                   fill = c("#E64B35B2","#4DBBD5B2"),alpha = 1,label.col = "black",
+                   cex = 2,fontface = "bold",fontfamily = "serif",
+                   cat.pos = c(-50,90),cat.dist = c(0.1,0.15),cat.cex = 2,
+                   cat.col = c("#E64B35B2","#4DBBD5B2"),
+                   cat.fontface = "bold",cat.fontfamily = "serif",cat.just = list(c(-1, -1), c(1, 1)),
+                   ext.pos = 30,ext.dist = -0.05,ext.length = 0.85,ext.line.lwd = 2)
+# PhosphoProteome
+grid.newpage()
+draw.pairwise.venn(area1 = phos.all,area2 = phos.dynamic,cross.area = phos.dynamic,
+                   category = c("All","Dynamic"),lwd = 2,
+                   fill = c("#E64B35B2","#4DBBD5B2"),alpha = 1,label.col = "black",
+                   cex = 2,fontface = "bold",fontfamily = "serif",
+                   cat.pos = c(-50,90),cat.dist = c(0.1,0.15),cat.cex = 2,
+                   cat.col = c("#E64B35B2","#4DBBD5B2"),
+                   cat.fontface = "bold",cat.fontfamily = "serif",cat.just = list(c(-1, -1), c(1, 1)),
+                   ext.pos = 30,ext.dist = -0.05,ext.length = 0.85,ext.line.lwd = 2)
+```
+
+Figure 2E
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+# PCA of Transcriptome
+temp <- mmu_heart_trs[,-1]
+temp <- temp[!rowSums(temp) == 0,]
+temp <- t(temp)
+trs_pcar <- prcomp(temp,scale. = TRUE)
+trs_pcar_pred <- data.frame(predict(trs_pcar))
+# PCA of Proteome
+temp <- mmu_heart_pro[,1:31]
+temp <- temp[!duplicated(temp[,1]),]
+for (i in 2:31) {
+  temp <- temp[!is.na(temp[,i]),]
+};rm(i)
+temp <- t(temp[,-1])
+pro_pcar <- prcomp(temp,scale. = TRUE)
+pro_pcar_pred <- data.frame(predict(pro_pcar))
+# PCA of PhosphoProteome
+temp <- mmu_heart_phos[,1:32] # filter genes have both RNA and Protein data
+for (i in 3:32) {
+  temp <- temp[!is.na(temp[,i]),]
+};rm(i)
+temp <- t(temp[,-(1:2)])
+phos_pcar <- prcomp(temp,scale. = TRUE)
+phos_pcar_pred <- data.frame(predict(phos_pcar))
+# Integration of 3 Omics
+temp <- data.frame(Trs = trs_pcar_pred[,1],
+  Pro = pro_pcar_pred[,1],
+  Phos = phos_pcar_pred[,1])
+group <- factor(c(rep("E10.5",3),rep("E12.5",3),rep("E14.5",3),rep("E16.5",3),
+                  rep("E18.5",3),rep("P1",3),rep("1W",3),rep("2W",3),rep("4W",3),
+                  rep("8W",3)),ordered = TRUE,
+                levels = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"))
+temp <- data.frame(time=c(rep("E10.5",3),rep("E12.5",3),rep("E14.5",3),rep("E16.5",3),
+                          rep("E18.5",3),rep("P1",3),rep("1W",3),rep("2W",3),rep("4W",3),
+                          rep("8W",3)),temp)
+multiomic_3D <- temp
+# Plotting
+set.seed(777)
+clust <- kmeans(multiomic_3D[,2:4],4) # Cluster into 4 Stages
+clust <- as.character(clust$cluster)
+multiomic_3D <- data.frame(multiomic_3D,clust)
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+color3 <- brewer.pal(9,"YlGn")
+colorpalette <- c(color1[c(9,8,7,5,3)],color3[c(5,7)],color2[c(5,7,9)])
+color_3D <- c()
+for (i in colorpalette) {
+  color_3D <- c(color_3D,rep(i,3))
+}
+plot3d <- scatterplot3d(multiomic_3D$Trs,multiomic_3D$Pro,multiomic_3D$Phos,
+                        color = color_3D,angle=45,pch = 16,
+                        cex.symbols = 4, font.lab = 2, font.axis = 2,
+                        xlab = "Transcriptome",ylab = "Proteome",zlab = "PhosphoProteome")
+```
+
+Figure 2F
+Annotate Omic Data
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+# Transcriptome
+trs <- data.frame(mmu_heart_trs[,1],stringsAsFactors = FALSE)
+for (i in seq(2,31,3)) {
+  trs <- cbind(trs,rowMeans(mmu_heart_trs[,i:(i+2)]))  
+}
+# Proteome
+pro <- mmu_heart_pro[,c(1,32:41)]
+# PhosphoProteome
+phos <- data.frame(
+  SYMBOL = as.vector(mmu_heart_phos[,1]),
+  PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+  mmu_heart_phos[,33:42],stringsAsFactors = FALSE
+)
+phos <- phos[!phos[,1] == "",]
+tmp <- phos[1,]# split merged gene names by ";"
+for (i in 1:nrow(phos)) {
+  a <- data.frame(strsplit(phos[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(phos[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,phos[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(phos)
+  tmp <- rbind(tmp,temp)
+}
+phos <- tmp[!duplicated(tmp[,2]),];rm(tmp,i,a,b,temp,j)
+phos <- phos[,-1]
+```
+
+Calculate Stage SPM
+```{r echo=TRUE}
+modulus <- function(v) {
+  sqrt(sum(v^2))
+}
+# Transcriptome
+
+spm_trs <- data.frame()
+for (i in 1:nrow(trs)) {
+  v1 <- as.numeric(round(trs[i,2:11],5))
+  # S1
+  v2 <- c(rep(0,10))
+  v2[1:3] <- as.numeric(trs[i,2:4])
+  spm1 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S2
+  v2 <- c(rep(0,10))
+  v2[4:6] <- as.numeric(trs[i,5:7])
+  spm2 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S3
+  v2 <- c(rep(0,10))
+  v2[7:8] <- as.numeric(trs[i,8:9])
+  spm3 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S4
+  v2 <- c(rep(0,10))
+  v2[9:10] <- as.numeric(trs[i,10:11])
+  spm4 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  temp <- cbind(trs[i,1],spm1,spm2,spm3,spm4)
+  spm_trs <- rbind(spm_trs,temp)
+}
+spm_trs[,1] <- trs[,1];rm(trs)
+for (i in 1:4) {
+  spm_trs <- spm_trs[!is.na(spm_trs[,i+1]),]
+  spm_trs <- spm_trs[!spm_trs[,i+1] == "NaN",]
+  spm_trs[,i+1] <- as.numeric(as.character(spm_trs[,i+1]))
+};rm(i)
+names(spm_trs) <- c("Name","S1","S2","S3","S4")
+# Proteome
+spm_pro <- data.frame()
+for (i in 1:nrow(pro)) {
+  v1 <- as.numeric(round(pro[i,2:11],5))
+  # S1
+  v2 <- c(rep(0,10))
+  v2[1:3] <- as.numeric(pro[i,2:4])
+  spm1 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S2
+  v2 <- c(rep(0,10))
+  v2[4:6] <- as.numeric(pro[i,5:7])
+  spm2 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S3
+  v2 <- c(rep(0,10))
+  v2[7:8] <- as.numeric(pro[i,8:9])
+  spm3 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S4
+  v2 <- c(rep(0,10))
+  v2[9:10] <- as.numeric(pro[i,10:11])
+  spm4 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  temp <- cbind(pro[i,1],spm1,spm2,spm3,spm4)
+  spm_pro <- rbind(spm_pro,temp)
+}
+for (i in 1:4) {
+  spm_pro <- spm_pro[!is.na(spm_pro[,i+1]),]
+  spm_pro <- spm_pro[!spm_pro[,i+1] == "NaN",]
+  spm_pro[,i+1] <- as.numeric(as.character(spm_pro[,i+1]))
+}
+names(spm_pro) <- c("Name","S1","S2","S3","S4")
+# PhosphoProteome
+spm_phos <- data.frame()
+for (i in 1:nrow(phos)) {
+  v1 <- as.numeric(round(phos[i,2:11],5))
+  # S1
+  v2 <- c(rep(0,10))
+  v2[1:3] <- as.numeric(phos[i,2:4])
+  spm1 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S2
+  v2 <- c(rep(0,10))
+  v2[4:6] <- as.numeric(phos[i,5:7])
+  spm2 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S3
+  v2 <- c(rep(0,10))
+  v2[7:8] <- as.numeric(phos[i,8:9])
+  spm3 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  # S4
+  v2 <- c(rep(0,10))
+  v2[9:10] <- as.numeric(phos[i,10:11])
+  spm4 <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+  temp <- cbind(phos[i,1],spm1,spm2,spm3,spm4)
+  spm_phos <- rbind(spm_phos,temp)
+}
+for (i in 1:4) {
+  spm_phos <- spm_phos[!is.na(spm_phos[,i+1]),]
+  spm_phos <- spm_phos[!spm_phos[,i+1] == "NaN",]
+  spm_phos[,i+1] <- as.numeric(as.character(spm_phos[,i+1]))
+}
+names(spm_phos) <- c("Name","S1","S2","S3","S4")
+```
+
+Plotting
+```{r echo=TRUE}
+# Trscriptome
+plist <- list()
+for (i in 1:4) {
+  time <- c("Stage 1","Stage 2","Stage 3","Stage 4")
+  temp1 <- spm_trs[,c(1,i+1)]
+  names(temp1) <- c("Name","Data")
+  temp2 <- spm_pro[,c(1,i+1)]
+  names(temp2) <- c("Name","Data")
+  temp3 <- spm_phos[,c(1,i+1)]
+  names(temp3) <- c("Name","Data")
+  p <- ggplot() +
+    geom_density(data = temp1,aes(x = Data),color = "#E64B35B2",fill = "#E64B35B2",size = 1.5,alpha = 0.5) +
+    theme_classic() +
+    theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+          axis.title.x = element_text(size = 20),
+          axis.title.y = element_text(size = 20),
+          axis.text.x = element_text(size = 20),
+          axis.text.y = element_text(size = 20),
+          plot.title = element_text(size = 20,hjust = 0.5),
+          legend.position = "None") +
+    labs(x = "SPM",y = "Density",title = time[i])
+  plist[[i]] <- p
+}
+ggarrange(plotlist = plist,ncol = 1,nrow = 4)
+# Proteome
+plist <- list()
+for (i in 1:4) {
+  time <- c("Stage 1","Stage 2","Stage 3","Stage 4")
+  temp1 <- spm_trs[,c(1,i+1)]
+  names(temp1) <- c("Name","Data")
+  temp2 <- spm_pro[,c(1,i+1)]
+  names(temp2) <- c("Name","Data")
+  temp3 <- spm_phos[,c(1,i+1)]
+  names(temp3) <- c("Name","Data")
+  p <- ggplot() +
+    geom_density(data = temp2,aes(x = Data),color = "#4DBBD5B2",fill = "#4DBBD5B2",size = 1.5,alpha = 0.5) +
+    theme_classic() +
+    theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+          axis.title.x = element_text(size = 20),
+          axis.title.y = element_text(size = 20),
+          axis.text.x = element_text(size = 20),
+          axis.text.y = element_text(size = 20),
+          plot.title = element_text(size = 20,hjust = 0.5),
+          legend.position = "None") +
+    labs(x = "SPM",y = "Density",title = time[i])
+  plist[[i]] <- p
+}
+ggarrange(plotlist = plist,ncol = 1,nrow = 4)
+# PhosphoProteome
+plist <- list()
+for (i in 1:4) {
+  time <- c("Stage 1","Stage 2","Stage 3","Stage 4")
+  temp1 <- spm_trs[,c(1,i+1)]
+  names(temp1) <- c("Name","Data")
+  temp2 <- spm_pro[,c(1,i+1)]
+  names(temp2) <- c("Name","Data")
+  temp3 <- spm_phos[,c(1,i+1)]
+  names(temp3) <- c("Name","Data")
+  p <- ggplot() +
+    geom_density(data = temp3,aes(x = Data),color = "#00A087B2",fill = "#00A087B2",size = 1.5,alpha = 0.5) +
+    theme_classic() +
+    theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+          axis.title.x = element_text(size = 20),
+          axis.title.y = element_text(size = 20),
+          axis.text.x = element_text(size = 20),
+          axis.text.y = element_text(size = 20),
+          plot.title = element_text(size = 20,hjust = 0.5),
+          legend.position = "None") +
+    labs(x = "SPM",y = "Density",title = time[i])
+  plist[[i]] <- p
+}
+ggarrange(plotlist = plist,ncol = 1,nrow = 4)
+```
+
+

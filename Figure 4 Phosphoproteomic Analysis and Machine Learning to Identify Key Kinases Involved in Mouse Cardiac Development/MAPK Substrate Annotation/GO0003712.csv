@@ -1,0 +1,844 @@
+Gene/product,Gene/product name,GO class (direct),PANTHER family,Reference
+Rbbp8,"retinoblastoma binding protein 8, endonuclease",transcription corepressor activity,retinoblastoma binding protein 8 pthr15107,MGI:MGI:4834177|GO_REF:0000096
+Calcoco1,calcium binding and coiled coil domain 1,transcription coregulator activity,family not named pthr31915,MGI:MGI:4834177|GO_REF:0000096
+Calcoco1,calcium binding and coiled coil domain 1,transcription coactivator activity,family not named pthr31915,MGI:MGI:4834177|GO_REF:0000096
+Calcoco1,calcium binding and coiled coil domain 1,transcription coactivator activity,family not named pthr31915,MGI:MGI:3530629|PMID:14690606
+Calcoco1,calcium binding and coiled coil domain 1,transcription coactivator activity,family not named pthr31915,MGI:MGI:5606145|PMID:24245781
+Calcoco1,calcium binding and coiled coil domain 1,nuclear receptor coactivator activity,family not named pthr31915,MGI:MGI:4834177|GO_REF:0000096
+Calcoco1,calcium binding and coiled coil domain 1,transcription coactivator activity,family not named pthr31915,PMID:21873635
+Wtip,WT1-interacting protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,MGI:MGI:3773767|PMID:17909014
+Wtip,WT1-interacting protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,PMID:21873635
+Actn1,"actinin, alpha 1",nuclear receptor coactivator activity,spectrin/filamin related cytoskeletal protein pthr11915,MGI:MGI:4834177|GO_REF:0000096
+Spen,spen family transcription repressor,transcription corepressor activity,rna recognition motif-containing pthr23189,MGI:MGI:4834177|GO_REF:0000096
+Spen,spen family transcription repressor,transcription corepressor activity,rna recognition motif-containing pthr23189,MGI:MGI:3584225|PMID:15778499
+Cnot9,"CCR4-NOT transcription complex, subunit 9",nuclear receptor coactivator activity,uncharacterized pthr12262,MGI:MGI:4834177|GO_REF:0000096
+Kdm3b,KDM3B lysine (K)-specific demethylase 3B,transcription coregulator activity,jmjc domain-containing histone demethylation protein pthr12549,PMID:21873635
+Kdm3a,lysine (K)-specific demethylase 3A,transcription coregulator activity,jmjc domain-containing histone demethylation protein pthr12549,MGI:MGI:3822125|PMID:17991879
+Kdm3a,lysine (K)-specific demethylase 3A,transcription coregulator activity,jmjc domain-containing histone demethylation protein pthr12549,PMID:21873635
+Sp4,trans-acting transcription factor 4,transcription coactivator activity,krueppel-like transcription factor pthr23235,MGI:MGI:2152098|GO_REF:0000002
+Kdm2b,lysine (K)-specific demethylase 2B,transcription coregulator activity,phd/f-box containing protein pthr23123,PMID:21873635
+Kdm2a,lysine (K)-specific demethylase 2A,transcription coregulator activity,phd/f-box containing protein pthr23123,PMID:21873635
+Jmjd1c,jumonji domain containing 1C,transcription coregulator activity,jmjc domain-containing histone demethylation protein pthr12549,PMID:21873635
+Sap30l,SAP30-like,transcription coregulator activity,sap30 pthr13286,PMID:21873635
+Jmy,junction-mediating and regulatory protein,transcription coactivator activity,p300 transcriptional cofactor jmy-related pthr23330,MGI:MGI:1891484|PMID:10518217
+Jmy,junction-mediating and regulatory protein,transcription coactivator activity,p300 transcriptional cofactor jmy-related pthr23330,PMID:21873635
+Rfpl4b,MCG1377,transcription corepressor activity,"bonus, isoform c-related pthr25462",PMID:21873635
+Tob2,"transducer of ERBB2, 2",transcription corepressor activity,transducer of erbb2  tob pthr17537,PMID:21873635
+Atxn7l3,ataxin 7-like 3,transcription coactivator activity,ataxin-7-like protein 3 pthr46367,MGI:MGI:4834177|GO_REF:0000096
+Atxn7l3,ataxin 7-like 3,nuclear receptor coactivator activity,ataxin-7-like protein 3 pthr46367,MGI:MGI:4834177|GO_REF:0000096
+Atxn7l3,ataxin 7-like 3,transcription coactivator activity,ataxin-7-like protein 3 pthr46367,PMID:21873635
+Hcfc1,host cell factor C1,transcription coactivator activity,host cell factor pthr46003,MGI:MGI:1098059|PMID:9334261
+Hcfc1,host cell factor C1,transcription coactivator activity,host cell factor pthr46003,MGI:MGI:4834177|GO_REF:0000096
+Hcfc1,host cell factor C1,transcription coactivator activity,host cell factor pthr46003,PMID:21873635
+Smyd1,SET and MYND domain containing 1,transcription corepressor activity,histone-lysine n-methyltransferase smyd pthr12197,MGI:MGI:2178868|PMID:11923873
+Cited4,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 4",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:2447223|PMID:12504852
+Cited4,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 4",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:2447223|PMID:12504852
+Cited4,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 4",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4412463|PMID:11581164
+Cited4,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 4",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,PMID:21873635
+Eny2,ENY2 transcription and export complex 2 subunit,transcription coactivator activity,enhancer of yellow 2 transcription factor pthr12514,MGI:MGI:4834177|GO_REF:0000096
+Eny2,ENY2 transcription and export complex 2 subunit,nuclear receptor coactivator activity,enhancer of yellow 2 transcription factor pthr12514,MGI:MGI:4834177|GO_REF:0000096
+Eny2,ENY2 transcription and export complex 2 subunit,transcription coactivator activity,enhancer of yellow 2 transcription factor pthr12514,PMID:21873635
+Arrb1,"arrestin, beta 1",transcription coactivator activity,arrestin pthr11792,MGI:MGI:4834177|GO_REF:0000096
+Ddx54,DEAD box helicase 54,transcription corepressor activity,rna helicase pthr24031,MGI:MGI:4834177|GO_REF:0000096
+Nfe2l1,"nuclear factor, erythroid derived 2,-like 1",transcription coactivator activity,nuclear factor erythroid 2-related factor pthr24411,MGI:MGI:5464962|PMID:23144760
+Vgll2,vestigial like family member 2,transcription coactivator activity,transcription cofactor vestigial-like protein pthr15950,MGI:MGI:2445678|PMID:12376544
+Vgll2,vestigial like family member 2,transcription coactivator activity,transcription cofactor vestigial-like protein pthr15950,MGI:MGI:3027696|PMID:14762206
+Pprc1,"peroxisome proliferative activated receptor, gamma, coactivator-related 1",transcription coregulator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:2152098|GO_REF:0000002
+Pprc1,"peroxisome proliferative activated receptor, gamma, coactivator-related 1",nuclear receptor coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,PMID:21873635
+Zfpm1,"zinc finger protein, multitype 1",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:4834177|GO_REF:0000096
+Zfpm1,"zinc finger protein, multitype 1",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:2673774|PMID:12923059
+Trim31,tripartite motif-containing 31,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Sra1,steroid receptor RNA activator 1,transcription coregulator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:1333984|PMID:10199399
+Sra1,steroid receptor RNA activator 1,transcription coactivator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:4834177|GO_REF:0000096
+Sra1,steroid receptor RNA activator 1,transcription coactivator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:4417868|GO_REF:0000096
+Sra1,steroid receptor RNA activator 1,nuclear receptor coactivator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:3053242|PMID:15327771
+Sra1,steroid receptor RNA activator 1,nuclear receptor coactivator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:3050934|PMID:15180993
+Sra1,steroid receptor RNA activator 1,nuclear receptor coactivator activity,steroid receptor rna activator 1 pthr18834,MGI:MGI:4417868|GO_REF:0000096
+Sra1,steroid receptor RNA activator 1,nuclear receptor coactivator activity,steroid receptor rna activator 1 pthr18834,PMID:21873635
+Prkn,parkin RBR E3 ubiquitin protein ligase,transcription corepressor activity,rbr family  ring finger and ibr domain-containing pthr11685,MGI:MGI:4834177|GO_REF:0000096
+Myocd,myocardin,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:2154458|GO_REF:0000008
+Myocd,myocardin,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:2136697|PMID:11439182
+Myocd,myocardin,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:4354665|PMID:19578358
+Myocd,myocardin,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,PMID:21873635
+Zmiz1,"zinc finger, MIZ-type containing 1",transcription coactivator activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:4834177|GO_REF:0000096
+Zmiz1,"zinc finger, MIZ-type containing 1",nuclear receptor coactivator activity,zinc finger miz domain-containing protein pthr10782,PMID:21873635
+Mms19,MMS19 cytosolic iron-sulfur assembly component,transcription coactivator activity,dna repair/transcription protein met18/mms19 pthr12891,MGI:MGI:4834177|GO_REF:0000096
+Smarca2,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily a, member 2",transcription coactivator activity,snf2/rad54 helicase family pthr10799,MGI:MGI:4834177|GO_REF:0000096
+Arid5b,AT rich interactive domain 5B (MRF1-like),transcription coactivator activity,rbp-related pthr13964,MGI:MGI:4834177|GO_REF:0000096
+Prpf6,pre-mRNA splicing factor 6,transcription coactivator activity,pre-mrna splicing factor pthr11246,MGI:MGI:3614729|PMID:16414017
+Supt20,SPT20 SAGA complex component,transcription coregulator activity,transcription factor spt20 homolog pthr13526,PMID:21873635
+Med20,mediator complex subunit 20,transcription coregulator activity,ubiquitin specific protease homolog 49 pthr12465,MGI:MGI:2152098|GO_REF:0000002
+Med20,mediator complex subunit 20,transcription coactivator activity,ubiquitin specific protease homolog 49 pthr12465,PMID:21873635
+Trerf1,transcriptional regulating factor 1,transcription coactivator activity,rest corepressor  corest  protein-related pthr16089,MGI:MGI:4834177|GO_REF:0000096
+Trerf1,transcriptional regulating factor 1,nuclear receptor coactivator activity,rest corepressor  corest  protein-related pthr16089,MGI:MGI:4834177|GO_REF:0000096
+Trerf1,transcriptional regulating factor 1,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,PMID:21873635
+Med12l,mediator complex subunit 12-like,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,MGI:MGI:2152098|GO_REF:0000002
+Med12l,mediator complex subunit 12-like,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,PMID:21873635
+Cbfa2t2,CBFA2/RUNX1 translocation partner 2,transcription corepressor activity,mtg8 eto  eight twenty one protein pthr10379,MGI:MGI:3607021|PMID:16227606
+Cbfa2t2,CBFA2/RUNX1 translocation partner 2,transcription corepressor activity,mtg8 eto  eight twenty one protein pthr10379,MGI:MGI:4834177|GO_REF:0000096
+Cbfa2t2,CBFA2/RUNX1 translocation partner 2,transcription corepressor activity,mtg8 eto  eight twenty one protein pthr10379,PMID:21873635
+Eid2b,EP300 interacting inhibitor of differentiation 2B,transcription corepressor activity,ep300-interacting inhibitor of differentiation 2-related pthr15556,PMID:21873635
+Cbfb,core binding factor beta,transcription coactivator activity,"core-binding factor, beta subunit pthr10276",PMID:21873635
+Tsg101,tumor susceptibility gene 101,transcription corepressor activity,tumor susceptibility gene 101 protein-related pthr23306,MGI:MGI:2448855|PMID:10888872
+Tsg101,tumor susceptibility gene 101,nuclear receptor coactivator activity,tumor susceptibility gene 101 protein-related pthr23306,MGI:MGI:4417868|GO_REF:0000096
+Tada2a,transcriptional adaptor 2A,transcription coactivator activity,transcriptional adaptor 2  ada2 -related pthr12374,PMID:21873635
+Kmt2d,lysine (K)-specific methyltransferase 2D,transcription coactivator activity,family not named pthr45888,PMID:21873635
+Trim5,tripartite motif-containing 5,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Pa2g4,proliferation-associated 2G4,transcription corepressor activity,"protease family m24  methionyl aminopeptidase, aminopeptidase p pthr10804",MGI:MGI:3045831|PMID:15073182
+Ldb2,LIM domain binding 2,transcription coregulator activity,lim domain-binding protein pthr10378,MGI:MGI:2152098|GO_REF:0000002
+Mta1,metastasis associated 1,transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:4834177|GO_REF:0000096
+Mta1,metastasis associated 1,transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:5582861|PMID:24089055
+Mta1,metastasis associated 1,transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:5582155|PMID:21965678
+Mta1,metastasis associated 1,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:4834177|GO_REF:0000096
+Mta1,metastasis associated 1,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Mta1,metastasis associated 1,transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Smarcb1,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily b, member 1",transcription coactivator activity,snf5 pthr10019,MGI:MGI:4834177|GO_REF:0000096
+Smarcb1,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily b, member 1",transcription coactivator activity,snf5 pthr10019,PMID:21873635
+Smarcb1,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily b, member 1",transcription coregulator activity,snf5 pthr10019,PMID:21873635
+Arid3a,AT rich interactive domain 3A (BRIGHT-like),transcription coregulator activity,at-rich interactive domain-containing protein  arid domain- containing protein   dead ringer protein   b-cell regulator of igh transcription   bright pthr15348,MGI:MGI:3525407|PMID:15456761
+Arid3a,AT rich interactive domain 3A (BRIGHT-like),transcription coregulator activity,at-rich interactive domain-containing protein  arid domain- containing protein   dead ringer protein   b-cell regulator of igh transcription   bright pthr15348,MGI:MGI:5295129|PMID:21955986
+Yap1,yes-associated protein 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:3700430|PMID:16332960
+Yap1,yes-associated protein 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:4834177|GO_REF:0000096
+Yap1,yes-associated protein 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:6116315|PMID:26902285
+Yap1,yes-associated protein 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:6116315|PMID:26902285
+Yap1,yes-associated protein 1,transcription corepressor activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:4834177|GO_REF:0000096
+Yap1,yes-associated protein 1,transcription corepressor activity,yes-associated protein yap1 family member pthr17616,PMID:21873635
+Yap1,yes-associated protein 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,PMID:21873635
+Strm,striamin,transcription corepressor activity,,MGI:MGI:2152098|GO_REF:0000002
+Sfmbt2,Scm-like with four mbt domains 2,transcription corepressor activity,polycomb group protein pthr12247,MGI:MGI:4834177|GO_REF:0000096
+Prkcb,"protein kinase C, beta",nuclear receptor coactivator activity,serine/threonine-protein kinase pthr24356,MGI:MGI:1202493|PMID:9524124
+Utf1,undifferentiated embryonic cell transcription factor 1,transcription coactivator activity,,MGI:MGI:4834177|GO_REF:0000096
+Utf1,undifferentiated embryonic cell transcription factor 1,transcription coactivator activity,,MGI:MGI:4834177|GO_REF:0000096
+Taf5l,TATA-box binding protein associated factor 5 like,transcription coactivator activity,transcription initiation factor tfiid pthr19879,MGI:MGI:4834177|GO_REF:0000096
+Cnot7,"CCR4-NOT transcription complex, subunit 7",transcription corepressor activity,ccr4-not transcription complex subunit pthr10797,MGI:MGI:5545994|PMID:19506020
+N4bp2l2,NEDD4 binding protein 2-like 2,transcription corepressor activity,uncharacterized pthr13308,PMID:21873635
+N4bp2l2,NEDD4 binding protein 2-like 2,transcription corepressor activity,uncharacterized pthr13308,MGI:MGI:2684511|PMID:14576337
+Cmtm2a,CKLF-like MARVEL transmembrane domain containing 2A,transcription corepressor activity,marvel-containing potential lipid raft-associated protein pthr22776,MGI:MGI:1267129|PMID:9628876
+Nsd1,nuclear receptor-binding SET-domain protein 1,transcription coregulator activity,set domain proteins pthr22884,MGI:MGI:4834177|GO_REF:0000096
+Nsd1,nuclear receptor-binding SET-domain protein 1,transcription coregulator activity,set domain proteins pthr22884,MGI:MGI:1267129|PMID:9628876
+Nsd1,nuclear receptor-binding SET-domain protein 1,transcription corepressor activity,set domain proteins pthr22884,MGI:MGI:4419083|PMID:14701728
+Basp1,"brain abundant, membrane attached signal protein 1",transcription corepressor activity,brain acid soluble protein 1 pthr23212,MGI:MGI:4834177|GO_REF:0000096
+Basp1,"brain abundant, membrane attached signal protein 1",transcription corepressor activity,brain acid soluble protein 1 pthr23212,PMID:21873635
+Basp1,"brain abundant, membrane attached signal protein 1",transcription corepressor activity,brain acid soluble protein 1 pthr23212,MGI:MGI:4834177|GO_REF:0000096
+Pex14,peroxisomal biogenesis factor 14,transcription corepressor activity,peroxisomal membrane protein pex14 pthr23058,PMID:21873635
+Tada2b,transcriptional adaptor 2B,transcription coactivator activity,transcriptional adaptor 2  ada2 -related pthr12374,MGI:MGI:3511603|PMID:15509787
+Fhl2,four and a half LIM domains 2,transcription corepressor activity,four and a half lim domains protein pthr24205,PMID:21873635
+Fhl2,four and a half LIM domains 2,transcription coregulator activity,four and a half lim domains protein pthr24205,PMID:21873635
+Bclaf1,BCL2-associated transcription factor 1,transcription coregulator activity,thrap3/bclaf1 pthr15268,MGI:MGI:5700293|PMID:21454521
+Gon4l,gon-4-like (C.elegans),transcription corepressor activity,yy1 associated protein-related pthr16088,PMID:21873635
+Gon4l,gon-4-like (C.elegans),transcription coregulator activity,yy1 associated protein-related pthr16088,MGI:MGI:3846030|PMID:18172164
+Usp21,ubiquitin specific peptidase 21,transcription coactivator activity,ubiquitin carboxyl-terminal hydrolase pthr21646,PMID:21873635
+Fus,fused in sarcoma,transcription coregulator activity,rna binding protein pthr23238,MGI:MGI:4441141|PMID:11390640
+Phf12,PHD finger protein 12,transcription corepressor activity,phd finger protein 12 pthr46309,PMID:21873635
+Phf12,PHD finger protein 12,transcription coregulator activity,phd finger protein 12 pthr46309,MGI:MGI:4834177|GO_REF:0000096
+Rap2c,"RAP2C, member of RAS oncogene family",transcription coactivator activity,"ras, di-ras, and rheb family members of small gtpase superfamily pthr24070",PMID:21873635
+Phf10,PHD finger protein 10,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:2152098|GO_REF:0000002
+Tfdp2,transcription factor Dp 2,transcription coregulator activity,transcription factor dp pthr12548,MGI:MGI:79975|PMID:7889570
+Sin3b,"transcriptional regulator, SIN3B (yeast)",transcription corepressor activity,sin3b-related pthr12346,PMID:21873635
+Sin3b,"transcriptional regulator, SIN3B (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:4834177|GO_REF:0000096
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription coactivator activity,sin3b-related pthr12346,MGI:MGI:79975|PMID:7889570
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:3582110|PMID:15998811
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:1354825|PMID:10734093
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:1354825|PMID:10734093
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:4834177|GO_REF:0000096
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,PMID:21873635
+Sin3a,"transcriptional regulator, SIN3A (yeast)",transcription corepressor activity,sin3b-related pthr12346,MGI:MGI:4834177|GO_REF:0000096
+Helz2,"helicase with zinc finger 2, transcriptional coactivator",nuclear receptor coactivator activity,dna2/nam7 helicase family pthr10887,MGI:MGI:4834177|GO_REF:0000096
+Mrtfb,myocardin related transcription factor B,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:2663933|PMID:12397177
+Mrtfb,myocardin related transcription factor B,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,PMID:21873635
+Mrtfb,myocardin related transcription factor B,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:4834177|GO_REF:0000096
+Kdm5b,lysine (K)-specific demethylase 5B,transcription corepressor activity,lysine-specific demethylase pthr10694,MGI:MGI:4834177|GO_REF:0000096
+Supt7l,"SPT7-like, STAGA complex gamma subunit",transcription coactivator activity,staga complex 65 subunit gamma pthr28598,PMID:21873635
+Supt7l,"SPT7-like, STAGA complex gamma subunit",transcription coactivator activity,staga complex 65 subunit gamma pthr28598,PMID:21873635
+Parp14,"poly (ADP-ribose) polymerase family, member 14",transcription corepressor activity,parp/zinc finger ccch type domain containing protein pthr14453,MGI:MGI:3584056|PMID:15990875
+Hdac5,histone deacetylase 5,transcription corepressor activity,histone deacetylase pthr45634,MGI:MGI:1889866|PMID:10640276
+Hdac5,histone deacetylase 5,transcription corepressor activity,histone deacetylase pthr45634,MGI:MGI:3840011|PMID:19323994
+Ssbp3,single-stranded DNA binding protein 3,transcription coactivator activity,single stranded dna binding protein pthr12610,MGI:MGI:4834177|GO_REF:0000096
+Mecp2,methyl CpG binding protein 2,transcription corepressor activity,methyl-cpg-binding protein pthr15074,MGI:MGI:5811980|PMID:25722434
+Mecp2,methyl CpG binding protein 2,transcription corepressor activity,methyl-cpg-binding protein pthr15074,MGI:MGI:4834177|GO_REF:0000096
+Rrp1b,ribosomal RNA processing 1B,transcription coactivator activity,nnp-1 protein  novel nuclear protein 1   nop52 pthr13026,PMID:21873635
+Nab1,Ngfi-A binding protein 1,transcription coregulator activity,ngfi-a binding protein pthr12623,PMID:21873635
+Nab2,Ngfi-A binding protein 2,transcription coregulator activity,ngfi-a binding protein pthr12623,MGI:MGI:4834177|GO_REF:0000096
+Cir1,"corepressor interacting with RBPJ, 1",transcription corepressor activity,cbf1 interacting corepressor cir pthr13151,PMID:21873635
+Cir1,"corepressor interacting with RBPJ, 1",transcription corepressor activity,cbf1 interacting corepressor cir pthr13151,MGI:MGI:2152098|GO_REF:0000002
+Ldb1,LIM domain binding 1,transcription coregulator activity,lim domain-binding protein pthr10378,MGI:MGI:4834177|GO_REF:0000096
+Hdgf,heparin binding growth factor,transcription corepressor activity,hepatoma-derived growth factor-related pthr12550,PMID:21873635
+Hdgf,heparin binding growth factor,transcription coregulator activity,hepatoma-derived growth factor-related pthr12550,PMID:21873635
+Hdgfl1,HDGF-like 1,transcription coregulator activity,hepatoma-derived growth factor-related pthr12550,MGI:MGI:1858286|PMID:10788465
+Ncoa6,nuclear receptor coactivator 6,transcription coactivator activity,nuclear receptor coactivator 6 pthr15690,PMID:21873635
+Ncoa6,nuclear receptor coactivator 6,nuclear receptor coactivator activity,nuclear receptor coactivator 6 pthr15690,PMID:21873635
+Mier3,MIER family member 3,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:3806432|PMID:18719582
+Prdm16,PR domain containing 16,transcription coactivator activity,zinc finger protein pthr24393,MGI:MGI:3770355|PMID:17618855
+Prdm16,PR domain containing 16,transcription coactivator activity,zinc finger protein pthr24393,PMID:21873635
+Prdm16,PR domain containing 16,transcription coregulator activity,zinc finger protein pthr24393,MGI:MGI:3820325|PMID:19056892
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:2386811|PMID:12235125
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:2446944|PMID:12464179
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:2386811|PMID:12235125
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:4834177|GO_REF:0000096
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:3690195|PMID:16678101
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:5699500|PMID:26371318
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:2675528|PMID:12949260
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,PMID:21873635
+Ctnnb1,"catenin (cadherin associated protein), beta 1",transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:3037537|PMID:15019995
+Maml1,mastermind like transcriptional coactivator 1,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:2388550|PMID:12370315
+Maml1,mastermind like transcriptional coactivator 1,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:4834177|GO_REF:0000096
+Maml1,mastermind like transcriptional coactivator 1,transcription coactivator activity,mastermind-like pthr15692,PMID:21873635
+Maml1,mastermind like transcriptional coactivator 1,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:86048|PMID:8999959
+Tcf4,transcription factor 4,transcription corepressor activity,basic helix-loop-helix transcription factor pthr11793,MGI:MGI:2159043|PMID:11823447
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coregulator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:1328647|PMID:9887100
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:3690196|PMID:16619037
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4834177|GO_REF:0000096
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:5009206|PMID:10593900
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:3790398|PMID:17537799
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:2179743|PMID:11694877
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4834177|GO_REF:0000096
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:3813432|PMID:17932483
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4834177|GO_REF:0000096
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription corepressor activity,melanocyte specific gene related  cited pthr17045,PMID:21873635
+Cited2,"Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 2",transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4834177|GO_REF:0000096
+Trrap,transformation/transcription domain-associated protein,transcription coregulator activity,ataxia telangiectasia mutated  atm -related pthr11139,MGI:MGI:2446944|PMID:12464179
+Trrap,transformation/transcription domain-associated protein,transcription coactivator activity,ataxia telangiectasia mutated  atm -related pthr11139,PMID:21873635
+Trrap,transformation/transcription domain-associated protein,transcription coregulator activity,ataxia telangiectasia mutated  atm -related pthr11139,MGI:MGI:3056014|PMID:15464984
+Ddx5,DEAD box helicase 5,transcription coregulator activity,atp-dependent rna helicase dbp3 pthr47958,MGI:MGI:4834177|GO_REF:0000096
+Zfp653,zinc finger protein 653,transcription corepressor activity,zinc finger protein pthr46179,MGI:MGI:2679396|PMID:12920234
+Zfp653,zinc finger protein 653,transcription corepressor activity,zinc finger protein pthr46179,PMID:21873635
+Zfp653,zinc finger protein 653,transcription coregulator activity,zinc finger protein pthr46179,MGI:MGI:4834177|GO_REF:0000096
+Kat2b,K(lysine) acetyltransferase 2B,transcription coregulator activity,gh11602p pthr45750,MGI:MGI:3576958|PMID:15647252
+Kat2b,K(lysine) acetyltransferase 2B,transcription coactivator activity,gh11602p pthr45750,MGI:MGI:3513590|PMID:15509593
+Kat2b,K(lysine) acetyltransferase 2B,transcription coactivator activity,gh11602p pthr45750,MGI:MGI:4834177|GO_REF:0000096
+Kat2b,K(lysine) acetyltransferase 2B,transcription coactivator activity,gh11602p pthr45750,MGI:MGI:4834177|GO_REF:0000096
+Hdac3,histone deacetylase 3,transcription corepressor activity,histone deacetylase pthr10625,MGI:MGI:87634|PMID:9111338
+Notch1,notch 1,transcription coactivator activity,slit homolog pthr45836,MGI:MGI:3701380|PMID:17336907
+Notch1,notch 1,transcription coactivator activity,slit homolog pthr45836,MGI:MGI:3718933|PMID:17658278
+Notch1,notch 1,transcription coactivator activity,slit homolog pthr45836,MGI:MGI:5318024|PMID:18331720
+Ajuba,ajuba LIM protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,MGI:MGI:4834177|GO_REF:0000096
+Ajuba,ajuba LIM protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,MGI:MGI:3773767|PMID:17909014
+Ajuba,ajuba LIM protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,PMID:21873635
+Ajuba,ajuba LIM protein,transcription corepressor activity,lim domain-containing protein jub pthr24219,MGI:MGI:4834177|GO_REF:0000096
+Nr0b2,"nuclear receptor subfamily 0, group B, member 2",transcription corepressor activity,nuclear receptor subfamily 0 group b pthr24081,PMID:21873635
+Nr0b2,"nuclear receptor subfamily 0, group B, member 2",transcription corepressor activity,nuclear receptor subfamily 0 group b pthr24081,MGI:MGI:4834177|GO_REF:0000096
+Fgf2,fibroblast growth factor 2,nuclear receptor coactivator activity,fibroblast growth factor pthr11486,PMID:21873635
+Ccar2,cell cycle activator and apoptosis regulator 2,nuclear receptor coactivator activity,cell division cycle and apoptosis regulator protein pthr14304,MGI:MGI:1303245|PMID:9748262
+Hipk3,homeodomain interacting protein kinase 3,transcription corepressor activity,dual specificity protein kinase pthr24058,MGI:MGI:1303245|PMID:9748262
+Hipk1,homeodomain interacting protein kinase 1,transcription corepressor activity,dual specificity protein kinase pthr24058,MGI:MGI:4834177|GO_REF:0000096
+Tacc1,"transforming, acidic coiled-coil containing protein 1",nuclear receptor coactivator activity,transforming acidic coiled-coil containing protein 1/2 pthr13924,MGI:MGI:4834177|GO_REF:0000096
+Trim37,tripartite motif-containing 37,transcription coactivator activity,e3 ubiquitin-protein ligase trim37 pthr36754,MGI:MGI:2182264|PMID:12050133
+Tle5,"TLE family member 5, transcriptional modulator",transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4834177|GO_REF:0000096
+Tle5,"TLE family member 5, transcriptional modulator",transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Tle5,"TLE family member 5, transcriptional modulator",transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4834177|GO_REF:0000096
+Med16,mediator complex subunit 16,transcription coactivator activity,thyroid hormone receptor-associated protein-related pthr13224,PMID:21873635
+Pias2,protein inhibitor of activated STAT 2,transcription coregulator activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:4834177|GO_REF:0000096
+Uxt,ubiquitously expressed prefoldin like chaperone,transcription corepressor activity,mediator of rna polymerase ii transcription subunit 10 pthr13345,PMID:21873635
+Uxt,ubiquitously expressed prefoldin like chaperone,transcription corepressor activity,mediator of rna polymerase ii transcription subunit 10 pthr13345,PMID:21873635
+Uxt,ubiquitously expressed prefoldin like chaperone,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 10 pthr13345,MGI:MGI:2154458|GO_REF:0000008
+Jade1,jade family PHD finger 1,transcription coactivator activity,phd finger proteins pthr13793,MGI:MGI:3616918|PMID:16254014
+Ube3a,ubiquitin protein ligase E3A,transcription coactivator activity,ubiquitin-protein ligase e3a-related pthr45622,PMID:21873635
+Kat6b,K(lysine) acetyltransferase 6B,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:4834177|GO_REF:0000096
+Trip4,thyroid hormone receptor interactor 4,transcription coactivator activity,thyroid receptor interacting protein related pthr12963,PMID:21873635
+Trip4,thyroid hormone receptor interactor 4,transcription coactivator activity,thyroid receptor interacting protein related pthr12963,MGI:MGI:2152098|GO_REF:0000002
+Bcl9l,B cell CLL/lymphoma 9-like,transcription coactivator activity,bcl9 pthr15185,MGI:MGI:3688031|PMID:11799127
+Daxx,Fas death domain-associated protein,transcription coactivator activity,death domain-associated protein 6 daxx pthr12766,MGI:MGI:4834177|GO_REF:0000096
+Daxx,Fas death domain-associated protein,transcription coactivator activity,death domain-associated protein 6 daxx pthr12766,MGI:MGI:4834177|GO_REF:0000096
+Daxx,Fas death domain-associated protein,transcription corepressor activity,death domain-associated protein 6 daxx pthr12766,MGI:MGI:3688031|PMID:11799127
+Daxx,Fas death domain-associated protein,transcription corepressor activity,death domain-associated protein 6 daxx pthr12766,PMID:21873635
+Daxx,Fas death domain-associated protein,transcription corepressor activity,death domain-associated protein 6 daxx pthr12766,MGI:MGI:4834177|GO_REF:0000096
+Birc2,baculoviral IAP repeat-containing 2,transcription coactivator activity,inhibitor of apoptosis pthr10044,MGI:MGI:5288521|PMID:21960634
+Kdm5a,lysine (K)-specific demethylase 5A,transcription coactivator activity,lysine-specific demethylase pthr10694,MGI:MGI:1861161|PMID:10854042
+Pias4,protein inhibitor of activated STAT 4,transcription corepressor activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:2154657|PMID:11731474
+Pias4,protein inhibitor of activated STAT 4,transcription corepressor activity,zinc finger miz domain-containing protein pthr10782,PMID:21873635
+Pias4,protein inhibitor of activated STAT 4,transcription coregulator activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:4834177|GO_REF:0000096
+Tcerg1,transcription elongation regulator 1 (CA150),transcription corepressor activity,transcription elongation regulator 1 pthr15377,PMID:21873635
+Tcerg1,transcription elongation regulator 1 (CA150),transcription coregulator activity,transcription elongation regulator 1 pthr15377,MGI:MGI:1930397|PMID:11221845
+Insm2,insulinoma-associated 2,transcription corepressor activity,insulinoma-associated 1 pthr15065,MGI:MGI:1355392|PMID:10777215
+Atf7ip,activating transcription factor 7 interacting protein,transcription corepressor activity,activating transcription factor 7 interacting protein pthr23210,MGI:MGI:2152098|GO_REF:0000002
+Crebbp,CREB binding protein,transcription coregulator activity,cbp/p300-related pthr13808,MGI:MGI:3687828|PMID:10733899
+Crebbp,CREB binding protein,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4834177|GO_REF:0000096
+Crebbp,CREB binding protein,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:67494|PMID:7913207
+Crebbp,CREB binding protein,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4834177|GO_REF:0000096
+Crebbp,CREB binding protein,transcription corepressor activity,cbp/p300-related pthr13808,PMID:21873635
+Crebbp,CREB binding protein,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4834177|GO_REF:0000096
+Zfpm2,"zinc finger protein, multitype 2",transcription coactivator activity,friend of gata2-related pthr12958,MGI:MGI:1333319|PMID:9927675
+Zfpm2,"zinc finger protein, multitype 2",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:2653650|PMID:12606418
+Zfpm2,"zinc finger protein, multitype 2",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:3711633|PMID:17445768
+Zfpm2,"zinc finger protein, multitype 2",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:3711633|PMID:17445768
+Zfpm2,"zinc finger protein, multitype 2",transcription corepressor activity,friend of gata2-related pthr12958,MGI:MGI:3850304|PMID:19350017
+Scai,suppressor of cancer cell invasion,transcription corepressor activity,protein scai pthr21243,MGI:MGI:4834177|GO_REF:0000096
+Scai,suppressor of cancer cell invasion,transcription corepressor activity,protein scai pthr21243,PMID:21873635
+Scai,suppressor of cancer cell invasion,transcription corepressor activity,protein scai pthr21243,MGI:MGI:2152098|GO_REF:0000002
+Hsbp1,heat shock factor binding protein 1,transcription corepressor activity,heat shock factor binding protein 1 pthr19424,MGI:MGI:3028428|PMID:15062575
+Map3k10,mitogen-activated protein kinase kinase kinase 10,transcription corepressor activity,serine/threonine-protein kinase tnni3k-related pthr44329,PMID:21873635
+Mpnd,MPN domain containing,transcription coactivator activity,swi/snf complex-related pthr12802,PMID:21873635
+Med8,mediator complex subunit 8,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 8 pthr13074,MGI:MGI:4834177|GO_REF:0000096
+Nme2,NME/NM23 nucleoside diphosphate kinase 2,transcription coactivator activity,nucleoside diphosphate kinase pthr11349,MGI:MGI:2152098|GO_REF:0000002
+Med9,mediator complex subunit 9,transcription coregulator activity,"mediator of rna polymerase ii transcription, subunit 9 pthr20844",MGI:MGI:2152098|GO_REF:0000002
+Skor1,SKI family transcriptional corepressor 1,transcription corepressor activity,ski oncogene-related pthr10005,MGI:MGI:4834177|GO_REF:0000096
+Kmt5a,lysine methyltransferase 5A,transcription corepressor activity,n-lysine methyltransferase kmt5a pthr46167,MGI:MGI:1930091|PMID:11084035
+Maged1,MAGE family member D1,transcription coactivator activity,melanoma-associated antigen  mage antigen pthr11736,PMID:21873635
+Fhl3,four and a half LIM domains 3,transcription coregulator activity,four and a half lim domains protein pthr24205,MGI:MGI:3708423|PMID:17150957
+Rere,arginine glutamic acid dipeptide (RE) repeats,transcription coactivator activity,atrophin-related pthr13859,MGI:MGI:3708423|PMID:17150957
+Rere,arginine glutamic acid dipeptide (RE) repeats,transcription corepressor activity,atrophin-related pthr13859,PMID:21873635
+Rere,arginine glutamic acid dipeptide (RE) repeats,transcription corepressor activity,atrophin-related pthr13859,MGI:MGI:4834177|GO_REF:0000096
+Kat5,K(lysine) acetyltransferase 5,transcription coactivator activity,histone acetyltransferase pthr10615,MGI:MGI:2446944|PMID:12464179
+Kat5,K(lysine) acetyltransferase 5,transcription coactivator activity,histone acetyltransferase pthr10615,PMID:21873635
+Kat5,K(lysine) acetyltransferase 5,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:4834177|GO_REF:0000096
+Prmt2,protein arginine N-methyltransferase 2,transcription coactivator activity,protein arginine n-methyltransferase pthr11006,MGI:MGI:1202631|PMID:9405624
+C1d,C1D nuclear receptor co-repressor,transcription corepressor activity,sun-cor steroid hormone receptor co-repressor pthr15341,MGI:MGI:3663964|PMID:16924111
+Gmnn,geminin,transcription corepressor activity,geminin pthr13372,MGI:MGI:4834177|GO_REF:0000096
+Zmynd8,"zinc finger, MYND-type containing 8",transcription corepressor activity,protein kinase c-binding protein 1 pthr46453,MGI:MGI:4834177|GO_REF:0000096
+Trim32,tripartite motif-containing 32,transcription coactivator activity,tripartite motif-containing protein 2-like protein pthr25464,MGI:MGI:2152098|GO_REF:0000002
+Med6,mediator complex subunit 6,transcription coregulator activity,med-6-related pthr13104,MGI:MGI:2154458|GO_REF:0000008
+Med6,mediator complex subunit 6,transcription coactivator activity,med-6-related pthr13104,PMID:21873635
+Med6,mediator complex subunit 6,transcription coactivator activity,med-6-related pthr13104,MGI:MGI:4834177|GO_REF:0000096
+Med30,mediator complex subunit 30,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 30 pthr31705,MGI:MGI:4834177|GO_REF:0000096
+Med30,mediator complex subunit 30,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 30 pthr31705,PMID:21873635
+Med30,mediator complex subunit 30,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 30 pthr31705,MGI:MGI:4834177|GO_REF:0000096
+Lcor,ligand dependent nuclear receptor corepressor,transcription corepressor activity,transcription factor mlr1/2 pthr21545,MGI:MGI:2154458|GO_REF:0000008
+Irf2bp2,interferon regulatory factor 2 binding protein 2,transcription corepressor activity,myelin transcription factor 1-related pthr10816,PMID:21873635
+Irf2bp2,interferon regulatory factor 2 binding protein 2,transcription corepressor activity,myelin transcription factor 1-related pthr10816,PMID:21873635
+Mideas,mitotic deacetylase associated SANT domain protein,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,PMID:21873635
+Cbfa2t3,CBFA2/RUNX1 translocation partner 3,transcription corepressor activity,mtg8 eto  eight twenty one protein pthr10379,MGI:MGI:4834177|GO_REF:0000096
+Usp22,ubiquitin specific peptidase 22,transcription coactivator activity,ubiquitin carboxyl-terminal hydrolase pthr21646,MGI:MGI:4834177|GO_REF:0000096
+Usp22,ubiquitin specific peptidase 22,nuclear receptor coactivator activity,ubiquitin carboxyl-terminal hydrolase pthr21646,MGI:MGI:2154458|GO_REF:0000008
+Ascc1,activating signal cointegrator 1 complex subunit 1,transcription coactivator activity,activating signal cointegrator 1 complex subunit 1 pthr13360,MGI:MGI:4834177|GO_REF:0000096
+Trim15,tripartite motif-containing 15,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Rnf20,ring finger protein 20,transcription coactivator activity,ring finger protein-related pthr23163,MGI:MGI:4834177|GO_REF:0000096
+Brd8,bromodomain containing 8,nuclear receptor coactivator activity,bromodomain-containing protein 8 pthr15398,MGI:MGI:3510471|PMID:15302918
+Jazf1,JAZF zinc finger 1,transcription corepressor activity,juxtaposed with another zinc finger protein 1 pthr23057,MGI:MGI:5810254|PMID:25526086
+Sirt1,sirtuin 1,transcription coactivator activity,histone deacetylase sir2 family member pthr11085,MGI:MGI:4834177|GO_REF:0000096
+Sirt1,sirtuin 1,transcription corepressor activity,histone deacetylase sir2 family member pthr11085,MGI:MGI:3045940|PMID:15175761
+Sirt1,sirtuin 1,transcription corepressor activity,histone deacetylase sir2 family member pthr11085,PMID:21873635
+Sirt1,sirtuin 1,transcription corepressor activity,histone deacetylase sir2 family member pthr11085,MGI:MGI:4417868|GO_REF:0000096
+Nr3c1,"nuclear receptor subfamily 3, group C, member 1",transcription coactivator activity,knirps-related protein-related pthr48092,MGI:MGI:4834177|GO_REF:0000096
+Zxdc,ZXD family zinc finger C,transcription coactivator activity,zinc finger protein pthr46179,PMID:21873635
+Zxdc,ZXD family zinc finger C,transcription coregulator activity,zinc finger protein pthr46179,MGI:MGI:4834177|GO_REF:0000096
+Tcf25,transcription factor 25 (basic helix-loop-helix),transcription corepressor activity,nulp1-related pthr22684,MGI:MGI:4834177|GO_REF:0000096
+Trim62,tripartite motif-containing 62,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4417868|GO_REF:0000096
+Psmc3ip,"proteasome (prosome, macropain) 26S subunit, ATPase 3, interacting protein",nuclear receptor coactivator activity,tbp-1 interacting protein pthr15938,MGI:MGI:4834177|GO_REF:0000096
+Psmc3ip,"proteasome (prosome, macropain) 26S subunit, ATPase 3, interacting protein",nuclear receptor coactivator activity,tbp-1 interacting protein pthr15938,MGI:MGI:4834177|GO_REF:0000096
+Kat2a,K(lysine) acetyltransferase 2A,transcription coactivator activity,gh11602p pthr45750,MGI:MGI:4834177|GO_REF:0000096
+Wwc1,"WW, C2 and coiled-coil domain containing 1",transcription coactivator activity,bomb/kira proteins pthr14791,MGI:MGI:4834177|GO_REF:0000096
+Mid2,midline 2,transcription coactivator activity,e3 ubiquitin-protein ligase trim36-related pthr24099,MGI:MGI:4834177|GO_REF:0000096
+Pou2af1,"POU domain, class 2, associating factor 1",transcription coactivator activity,pou domain class 2-associating factor 1 pthr15363,MGI:MGI:5450752|PMID:23045607
+Pou2af1,"POU domain, class 2, associating factor 1",transcription coactivator activity,pou domain class 2-associating factor 1 pthr15363,PMID:21873635
+Pou2af1,"POU domain, class 2, associating factor 1",transcription coactivator activity,pou domain class 2-associating factor 1 pthr15363,MGI:MGI:5440110|PMID:23019124
+Ncoa3,nuclear receptor coactivator 3,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:4834177|GO_REF:0000096
+Ncoa3,nuclear receptor coactivator 3,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:5824766|PMID:27601327
+Ncoa3,nuclear receptor coactivator 3,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:5467164|PMID:22977234
+Ncoa3,nuclear receptor coactivator 3,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:4417868|GO_REF:0000096
+Ncoa3,nuclear receptor coactivator 3,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,PMID:21873635
+Ncoa3,nuclear receptor coactivator 3,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:2183076|PMID:12130539
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:81398|PMID:8643509
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3522402|PMID:15383530
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:5607392|PMID:24529706
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3694879|PMID:16148126
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3688383|PMID:15001550
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:5645210|PMID:12709428
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:2154576|PMID:11675124
+Ncoa2,nuclear receptor coactivator 2,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3046495|PMID:15072553
+Ncoa2,nuclear receptor coactivator 2,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:4834177|GO_REF:0000096
+Ncoa2,nuclear receptor coactivator 2,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3046495|PMID:15072553
+Ncoa2,nuclear receptor coactivator 2,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,PMID:21873635
+Ncoa2,nuclear receptor coactivator 2,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:5297786|PMID:16723356
+Ncoa1,nuclear receptor coactivator 1,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:3694879|PMID:16148126
+Ncoa1,nuclear receptor coactivator 1,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:4834177|GO_REF:0000096
+Ncoa1,nuclear receptor coactivator 1,transcription coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:4834177|GO_REF:0000096
+Ncoa1,nuclear receptor coactivator 1,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,PMID:21873635
+Ncoa1,nuclear receptor coactivator 1,nuclear receptor coactivator activity,nuclear receptor coactivator pthr10684,MGI:MGI:2154458|GO_REF:0000008
+Wdr77,WD repeat domain 77,nuclear receptor coactivator activity,methylosome protein 50 pthr46853,PMID:21873635
+Wdr77,WD repeat domain 77,nuclear receptor coactivator activity,methylosome protein 50 pthr46853,MGI:MGI:4834177|GO_REF:0000096
+Trim27,tripartite motif-containing 27,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Actn4,actinin alpha 4,transcription coactivator activity,spectrin/filamin related cytoskeletal protein pthr11915,MGI:MGI:4834177|GO_REF:0000096
+Actn4,actinin alpha 4,nuclear receptor coactivator activity,spectrin/filamin related cytoskeletal protein pthr11915,PMID:21873635
+Bclaf3,Bclaf1 and Thrap3 family member 3,transcription coregulator activity,thrap3/bclaf1 pthr15268,PMID:21873635
+Med13l,mediator complex subunit 13-like,transcription coregulator activity,rag1-activating protein 1 pthr10791,MGI:MGI:5619441|PMID:23217706
+Sirt6,sirtuin 6,transcription corepressor activity,nad-dependent protein deacetylase sirtuin-(6/7) family member pthr45853,PMID:21873635
+Sirt6,sirtuin 6,transcription corepressor activity,nad-dependent protein deacetylase sirtuin-(6/7) family member pthr45853,MGI:MGI:4834177|GO_REF:0000096
+Rbm14,RNA binding motif protein 14,nuclear receptor coactivator activity,serine/arginine rich splicing factor pthr23147,MGI:MGI:1927299|PMID:10369680
+Rybp,RING1 and YY1 binding protein,transcription corepressor activity,rybp and yaf2-related pthr12920,PMID:21873635
+Rybp,RING1 and YY1 binding protein,transcription coregulator activity,rybp and yaf2-related pthr12920,MGI:MGI:5787842|PMID:27251289
+Raly,hnRNP-associated with lethal yellow,transcription coregulator activity,heterogeneous nuclear ribonucleoprotein pthr13968,MGI:MGI:4834177|GO_REF:0000096
+Rbfox2,"RNA binding protein, fox-1 homolog (C. elegans) 2",transcription corepressor activity,ataxin 2-binding protein 1-related pthr15597,MGI:MGI:4834177|GO_REF:0000096
+Supt3,"SPT3, SAGA and STAGA complex component",transcription coactivator activity,transcription initiation factor tfiid/supt3-related pthr11380,PMID:21873635
+Supt3,"SPT3, SAGA and STAGA complex component",transcription coactivator activity,transcription initiation factor tfiid/supt3-related pthr11380,MGI:MGI:4834177|GO_REF:0000096
+Tox2,TOX high mobility group box family member 2,transcription coactivator activity,agap000281-pa pthr45781,MGI:MGI:3715064|PMID:11964378
+Eid1,EP300 interacting inhibitor of differentiation 1,transcription corepressor activity,ep300-interacting inhibitor of differentiation 2-related pthr15556,PMID:21873635
+Eid1,EP300 interacting inhibitor of differentiation 1,transcription corepressor activity,ep300-interacting inhibitor of differentiation 2-related pthr15556,MGI:MGI:4834177|GO_REF:0000096
+Phf2,PHD finger protein 2,transcription coactivator activity,phd/f-box containing protein pthr23123,PMID:21873635
+Phf2,PHD finger protein 2,transcription coregulator activity,phd/f-box containing protein pthr23123,MGI:MGI:1353086|PMID:10786636
+Nrbf2,nuclear receptor binding factor 2,transcription coactivator activity,nuclear receptor binding factor 2 pthr14964,MGI:MGI:4834177|GO_REF:0000096
+Rbpms,RNA binding protein gene with multiple splicing,transcription coactivator activity,u1 small nuclear ribonucleoprotein a/u2 small nuclear ribonucleoprotein b pthr10501,MGI:MGI:4834177|GO_REF:0000096
+Nupr1,nuclear protein transcription regulator 1,transcription coactivator activity,nuclear protein 1 and 2 pthr17149,MGI:MGI:3613433|PMID:15616592
+Carm1,coactivator-associated arginine methyltransferase 1,transcription coactivator activity,protein arginine n-methyltransferase pthr11006,MGI:MGI:4887324|PMID:18188184
+Carm1,coactivator-associated arginine methyltransferase 1,transcription coactivator activity,protein arginine n-methyltransferase pthr11006,MGI:MGI:1891510|PMID:10381882
+Carm1,coactivator-associated arginine methyltransferase 1,transcription coactivator activity,protein arginine n-methyltransferase pthr11006,MGI:MGI:4887320|PMID:19843527
+Carm1,coactivator-associated arginine methyltransferase 1,nuclear receptor coactivator activity,protein arginine n-methyltransferase pthr11006,MGI:MGI:4834177|GO_REF:0000096
+Cdyl,"chromodomain protein, Y chromosome-like",transcription corepressor activity,family not named pthr43684,PMID:21873635
+Cdyl,"chromodomain protein, Y chromosome-like",transcription corepressor activity,family not named pthr43684,MGI:MGI:4429726|PMID:20159955
+Per2,period circadian clock 2,transcription coactivator activity,period circadian protein pthr11269,MGI:MGI:4844227|PMID:20636338
+Mta2,"metastasis-associated gene family, member 2",transcription coregulator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Mta2,"metastasis-associated gene family, member 2",transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Mta2,"metastasis-associated gene family, member 2",transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:4834177|GO_REF:0000096
+Trp53bp1,transformation related protein 53 binding protein 1,transcription coregulator activity,tumor suppressor p53-binding protein 1 pthr15321,MGI:MGI:4834177|GO_REF:0000096
+Taf12,TATA-box binding protein associated factor 12,transcription coactivator activity,transcription initiation factor tfiid subunit 12 pthr12264,PMID:21873635
+Pxn,paxillin,transcription coregulator activity,paxillin-related pthr24216,PMID:21873635
+Zfp541,zinc finger protein 541,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,PMID:21873635
+Rcor3,REST corepressor 3,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,MGI:MGI:3831457|PMID:18945672
+Tdg,thymine DNA glycosylase,transcription coregulator activity,g/t and g/u mismatch-specific dna glycosylase pthr12159,MGI:MGI:4881351|PMID:21035761
+Pparg,peroxisome proliferator activated receptor gamma,nuclear receptor coactivator activity,nuclear hormone receptor pthr24082,PMID:21873635
+Rsf1,remodeling and spacing factor 1,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:4834177|GO_REF:0000096
+Tada1,transcriptional adaptor 1,transcription coactivator activity,transcriptional adapter 1 pthr21277,PMID:21873635
+Tada1,transcriptional adaptor 1,transcription coactivator activity,transcriptional adapter 1 pthr21277,MGI:MGI:2154458|GO_REF:0000008
+Snw1,SNW domain containing 1,transcription coactivator activity,nuclear protein skip-related pthr12096,MGI:MGI:4834177|GO_REF:0000096
+Snw1,SNW domain containing 1,transcription coactivator activity,nuclear protein skip-related pthr12096,MGI:MGI:4834177|GO_REF:0000096
+Snw1,SNW domain containing 1,transcription corepressor activity,nuclear protein skip-related pthr12096,MGI:MGI:4834177|GO_REF:0000096
+Trim8,tripartite motif-containing 8,transcription coactivator activity,family not named pthr25465,MGI:MGI:4834177|GO_REF:0000096
+Dhx9,DEAH (Asp-Glu-Ala-His) box polypeptide 9,transcription coregulator activity,atp-dependent rna helicase pthr18934,MGI:MGI:4834177|GO_REF:0000096
+Dhx9,DEAH (Asp-Glu-Ala-His) box polypeptide 9,transcription coactivator activity,atp-dependent rna helicase pthr18934,PMID:21873635
+Gm20517,Mediator of RNA polymerase II transcription subunit 20,transcription coactivator activity,ubiquitin specific protease homolog 49 pthr12465,PMID:21873635
+Kdm7a,lysine (K)-specific demethylase 7A,transcription coregulator activity,phd/f-box containing protein pthr23123,PMID:21873635
+Mta3,metastasis associated 3,transcription coactivator activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Mta3,metastasis associated 3,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,MGI:MGI:4834177|GO_REF:0000096
+Pir,pirin,transcription coregulator activity,pirin-related pthr13903,MGI:MGI:5306308|PMID:16407227
+Hipk2,homeodomain interacting protein kinase 2,transcription coactivator activity,dual specificity protein kinase pthr24058,MGI:MGI:4834177|GO_REF:0000096
+Hipk2,homeodomain interacting protein kinase 2,transcription corepressor activity,dual specificity protein kinase pthr24058,MGI:MGI:1303245|PMID:9748262
+Hipk2,homeodomain interacting protein kinase 2,transcription corepressor activity,dual specificity protein kinase pthr24058,PMID:21873635
+Hipk2,homeodomain interacting protein kinase 2,transcription coactivator activity,dual specificity protein kinase pthr24058,PMID:21873635
+Hipk2,homeodomain interacting protein kinase 2,transcription corepressor activity,dual specificity protein kinase pthr24058,MGI:MGI:2152098|GO_REF:0000002
+Nmi,N-myc (and STAT) interactor,transcription coregulator activity,interferon-induced protein 35/nmi n-myc/stat interacting protein pthr15225,PMID:21873635
+Hmga2,high mobility group AT-hook 2,transcription coregulator activity,high mobility group proteins hmg-a and c pthr23341,MGI:MGI:1339355|PMID:9724754
+Pias1,protein inhibitor of activated STAT 1,transcription corepressor activity,zinc finger miz domain-containing protein pthr10782,PMID:21873635
+Pias1,protein inhibitor of activated STAT 1,transcription coregulator activity,zinc finger miz domain-containing protein pthr10782,PMID:21873635
+Pias3,protein inhibitor of activated STAT 3,transcription coregulator activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:1891490|PMID:10755619
+Zbtb32,zinc finger and BTB domain containing 32,transcription corepressor activity,zinc finger and btb domain-containing pthr24399,MGI:MGI:6103958|PMID:28930673
+Dhrs7b,dehydrogenase/reductase (SDR family) member 7B,transcription corepressor activity,dehydrogenase/reductase sdr family member 7b pthr44196,MGI:MGI:6103958|PMID:28930673
+Dhrs7b,dehydrogenase/reductase (SDR family) member 7B,transcription corepressor activity,dehydrogenase/reductase sdr family member 7b pthr44196,MGI:MGI:2152098|GO_REF:0000002
+Hsbp1l1,heat shock factor binding protein 1-like 1,transcription corepressor activity,heat shock factor binding protein 1 pthr19424,MGI:MGI:4834177|GO_REF:0000096
+Hdac1,histone deacetylase 1,transcription corepressor activity,histone deacetylase pthr10625,MGI:MGI:83998|PMID:8917507
+Hdac1,histone deacetylase 1,transcription corepressor activity,histone deacetylase pthr10625,MGI:MGI:3513590|PMID:15509593
+Hdac1,histone deacetylase 1,transcription corepressor activity,histone deacetylase pthr10625,MGI:MGI:4834177|GO_REF:0000096
+Cited1,Cbp/p300-interacting transactivator with Glu/Asp-rich carboxy-terminal domain 1,transcription coactivator activity,melanocyte specific gene related  cited pthr17045,PMID:21873635
+Cited1,Cbp/p300-interacting transactivator with Glu/Asp-rich carboxy-terminal domain 1,transcription coactivator activity,melanocyte specific gene related  cited pthr17045,MGI:MGI:4834177|GO_REF:0000096
+Pkn1,protein kinase N1,nuclear receptor coactivator activity,serine/threonine-protein kinase pthr24356,MGI:MGI:4834177|GO_REF:0000096
+Phb,prohibitin,transcription corepressor activity,prohibitin pthr23222,MGI:MGI:3814796|PMID:18480465
+Phb,prohibitin,transcription corepressor activity,prohibitin pthr23222,MGI:MGI:4834177|GO_REF:0000096
+Mysm1,"myb-like, SWIRM and MPN domains 1",transcription coactivator activity,swi/snf complex-related pthr12802,PMID:21873635
+Mysm1,"myb-like, SWIRM and MPN domains 1",transcription coactivator activity,swi/snf complex-related pthr12802,MGI:MGI:4834177|GO_REF:0000096
+Hnrnpu,heterogeneous nuclear ribonucleoprotein U,transcription corepressor activity,heterogeneous nuclear ribonucleoprotein u family member pthr12381,PMID:21873635
+Hnrnpu,heterogeneous nuclear ribonucleoprotein U,transcription corepressor activity,heterogeneous nuclear ribonucleoprotein u family member pthr12381,MGI:MGI:2446759|PMID:12471260
+Drap1,Dr1 associated protein 1 (negative cofactor 2 alpha),transcription corepressor activity,histone-like transcription factor ccaat-related pthr10252,PMID:21873635
+Drap1,Dr1 associated protein 1 (negative cofactor 2 alpha),transcription coactivator activity,histone-like transcription factor ccaat-related pthr10252,PMID:21873635
+Drap1,Dr1 associated protein 1 (negative cofactor 2 alpha),transcription corepressor activity,histone-like transcription factor ccaat-related pthr10252,MGI:MGI:1928403|PMID:10995766
+Tcf20,transcription factor 20,transcription coactivator activity,retinoic acid induced 1/transcription factor 20 pthr14955,MGI:MGI:3032799|PMID:14980219
+Tbl1x,transducin (beta)-like 1 X-linked,transcription corepressor activity,wd40 repeat protein pthr22846,MGI:MGI:4834177|GO_REF:0000096
+Tbl1x,transducin (beta)-like 1 X-linked,transcription corepressor activity,wd40 repeat protein pthr22846,PMID:21873635
+Tbl1x,transducin (beta)-like 1 X-linked,transcription corepressor activity,wd40 repeat protein pthr22846,MGI:MGI:4834177|GO_REF:0000096
+Parp9,"poly (ADP-ribose) polymerase family, member 9",transcription corepressor activity,parp/zinc finger ccch type domain containing protein pthr14453,PMID:21873635
+Parp9,"poly (ADP-ribose) polymerase family, member 9",transcription corepressor activity,parp/zinc finger ccch type domain containing protein pthr14453,MGI:MGI:2154458|GO_REF:0000008
+Btg2,BTG anti-proliferation factor 2,transcription corepressor activity,b-cell translocation gene pthr22978,MGI:MGI:3584056|PMID:15990875
+Hdac4,histone deacetylase 4,transcription corepressor activity,histone deacetylase pthr45634,MGI:MGI:4834177|GO_REF:0000096
+Cnot6,"CCR4-NOT transcription complex, subunit 6",nuclear receptor coactivator activity,carbon catabolite repressor protein 4 pthr12121,MGI:MGI:2675528|PMID:12949260
+Wnt4,"wingless-type MMTV integration site family, member 4",transcription corepressor activity,wnt related pthr12027,MGI:MGI:4835142|PMID:17994217
+Wnt3a,"wingless-type MMTV integration site family, member 3A",transcription coactivator activity,wnt related pthr12027,PMID:21873635
+Hdgfl2,HDGF like 2,transcription coregulator activity,hepatoma-derived growth factor-related pthr12550,MGI:MGI:4834177|GO_REF:0000096
+Bcor,BCL6 interacting corepressor,transcription corepressor activity,agap007537-pb pthr24117,MGI:MGI:2682643|PMID:12776190
+Bcor,BCL6 interacting corepressor,transcription corepressor activity,agap007537-pb pthr24117,MGI:MGI:1891509|PMID:10086359
+Fhl5,four and a half LIM domains 5,transcription coactivator activity,four and a half lim domains protein pthr24205,PMID:21873635
+Fhl5,four and a half LIM domains 5,transcription coregulator activity,four and a half lim domains protein pthr24205,PMID:21873635
+Fhl5,four and a half LIM domains 5,transcription coactivator activity,four and a half lim domains protein pthr24205,MGI:MGI:6148392|PMID:24953653
+Gps2,G protein pathway suppressor 2,transcription coactivator activity,g protein pathway suppressor 2 pthr22654,MGI:MGI:6148396|PMID:29499132
+Gps2,G protein pathway suppressor 2,transcription coactivator activity,g protein pathway suppressor 2 pthr22654,MGI:MGI:4834177|GO_REF:0000096
+Gps2,G protein pathway suppressor 2,transcription coactivator activity,g protein pathway suppressor 2 pthr22654,MGI:MGI:5620549|PMID:25519902
+Gps2,G protein pathway suppressor 2,transcription corepressor activity,g protein pathway suppressor 2 pthr22654,MGI:MGI:4834177|GO_REF:0000096
+Gps2,G protein pathway suppressor 2,transcription corepressor activity,g protein pathway suppressor 2 pthr22654,MGI:MGI:4834177|GO_REF:0000096
+Mycbp,MYC binding protein,transcription coactivator activity,associate of c-myc  amy-1 pthr13168,PMID:21873635
+Mycbp,MYC binding protein,transcription coactivator activity,associate of c-myc  amy-1 pthr13168,MGI:MGI:2152098|GO_REF:0000002
+Ss18l1,"SS18, nBAF chromatin remodeling complex subunit like 1",transcription coactivator activity,synovial sarcoma associated ss18 protein pthr23107,MGI:MGI:4834177|GO_REF:0000096
+Trim21,tripartite motif-containing 21,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Zfp366,zinc finger protein 366,transcription corepressor activity,zinc finger protein pthr24390,PMID:21873635
+Zfp366,zinc finger protein 366,transcription corepressor activity,zinc finger protein pthr24390,MGI:MGI:2154458|GO_REF:0000008
+Cenpj,centromere protein J,transcription coactivator activity,t complex protein 10 pthr10331,MGI:MGI:4834177|GO_REF:0000096
+Ing4,"inhibitor of growth family, member 4",transcription coactivator activity,inhibitor of growth protein pthr10333,MGI:MGI:4834177|GO_REF:0000096
+Tmf1,TATA element modulatory factor 1,nuclear receptor coactivator activity,tata element modulatory factor tmf1 pthr46515,MGI:MGI:2664476|PMID:12799427
+Irf2bp1,interferon regulatory factor 2 binding protein 1,transcription corepressor activity,myelin transcription factor 1-related pthr10816,MGI:MGI:4834177|GO_REF:0000096
+Irf2bp1,interferon regulatory factor 2 binding protein 1,transcription corepressor activity,myelin transcription factor 1-related pthr10816,PMID:21873635
+Irf2bp1,interferon regulatory factor 2 binding protein 1,transcription corepressor activity,myelin transcription factor 1-related pthr10816,MGI:MGI:2446944|PMID:12464179
+Pdlim1,PDZ and LIM domain 1 (elfin),transcription coactivator activity,pdz and lim domain protein zasp pthr24214,PMID:21873635
+Zxdb,"zinc finger, X-linked, duplicated B",transcription coregulator activity,zinc finger protein pthr46179,MGI:MGI:2448855|PMID:10888872
+Dmap1,DNA methyltransferase 1-associated protein 1,transcription corepressor activity,dna methyltransferase 1-associated protein 1 family member pthr12855,PMID:21873635
+Dmap1,DNA methyltransferase 1-associated protein 1,transcription corepressor activity,dna methyltransferase 1-associated protein 1 family member pthr12855,MGI:MGI:2152098|GO_REF:0000002
+Med7,mediator complex subunit 7,transcription coregulator activity,t-cell immunoglobulin and mucin domain containing  tim pthr15498,MGI:MGI:2152098|GO_REF:0000002
+Med11,mediator complex subunit 11,transcription coregulator activity,uncharacterized pthr22890,MGI:MGI:2152098|GO_REF:0000002
+Pbxip1,pre B cell leukemia transcription factor interacting protein 1,transcription corepressor activity,cell cycle progression protein 1 pthr28638,PMID:21873635
+Setd3,SET domain containing 3,transcription coactivator activity,uncharacterized putative methyltransferase pthr13271,MGI:MGI:3581989|PMID:15988012
+Slc30a9,"solute carrier family 30 (zinc transporter), member 9",nuclear receptor coactivator activity,huel-cation transporter pthr13414,PMID:21873635
+Slc30a9,"solute carrier family 30 (zinc transporter), member 9",nuclear receptor coactivator activity,huel-cation transporter pthr13414,MGI:MGI:1889866|PMID:10640276
+Hdac7,histone deacetylase 7,transcription corepressor activity,histone deacetylase pthr45634,MGI:MGI:4834177|GO_REF:0000096
+Ddx1,DEAD box helicase 1,transcription coregulator activity,rna helicase pthr24031,PMID:21873635
+Sap18,Sin3-associated polypeptide 18,transcription corepressor activity,sap18 pthr13082,MGI:MGI:4834177|GO_REF:0000096
+Taf9,TATA-box binding protein associated factor 9,transcription coactivator activity,"taf9 rna polymerase ii, tata box-binding protein (tbp)-associated factor pthr48068",PMID:21873635
+Taf9,TATA-box binding protein associated factor 9,transcription coactivator activity,"taf9 rna polymerase ii, tata box-binding protein (tbp)-associated factor pthr48068",MGI:MGI:3851310|PMID:19366691
+Wwox,WW domain-containing oxidoreductase,transcription coactivator activity,retinol dehydrogenase pthr24320,MGI:MGI:4834177|GO_REF:0000096
+Tada3,transcriptional adaptor 3,transcription coactivator activity,transcriptional adapter 3-related pthr13556,MGI:MGI:2180907|PMID:12034840
+Tada3,transcriptional adaptor 3,nuclear receptor coactivator activity,transcriptional adapter 3-related pthr13556,PMID:21873635
+Tada3,transcriptional adaptor 3,transcription coactivator activity,transcriptional adapter 3-related pthr13556,MGI:MGI:3820717|PMID:19026781
+Ezh1,enhancer of zeste 1 polycomb repressive complex 2 subunit,transcription corepressor activity,histone-lysine n-methyltransferase e(z) pthr45747,MGI:MGI:1931108|PMID:11022042
+Hdac9,histone deacetylase 9,transcription corepressor activity,histone deacetylase 9-related pthr45364,PMID:21873635
+Hdac9,histone deacetylase 9,transcription corepressor activity,histone deacetylase 9-related pthr45364,MGI:MGI:2152098|GO_REF:0000002
+Med15,mediator complex subunit 15,transcription coregulator activity,family not named pthr31804,MGI:MGI:86857|PMID:9083006
+Aip,aryl-hydrocarbon receptor-interacting protein,transcription coregulator activity,aryl hydrocarbon receptor interacting protein related pthr11242,MGI:MGI:4834177|GO_REF:0000096
+Med27,mediator complex subunit 27,transcription coactivator activity,34 kda transcriptional co-activator-related pthr13130,MGI:MGI:2180399|PMID:12175508
+Bhlhe41,"basic helix-loop-helix family, member e41",transcription corepressor activity,"basic helix-loop-helix transcription factor, hes-related pthr10985",MGI:MGI:4834177|GO_REF:0000096
+Btaf1,B-TFIID TATA-box binding protein associated factor 1,transcription coregulator activity,snf2/rad54 helicase family pthr10799,MGI:MGI:4834177|GO_REF:0000096
+Ube2l3,ubiquitin-conjugating enzyme E2L 3,transcription coactivator activity,ubiquitin-conjugating enzyme e2 pthr24068,MGI:MGI:3047463|PMID:15155786
+Nr0b1,"nuclear receptor subfamily 0, group B, member 1",transcription corepressor activity,nuclear receptor subfamily 0 group b pthr24081,MGI:MGI:4834177|GO_REF:0000096
+Nr0b1,"nuclear receptor subfamily 0, group B, member 1",transcription corepressor activity,nuclear receptor subfamily 0 group b pthr24081,PMID:21873635
+Nr0b1,"nuclear receptor subfamily 0, group B, member 1",transcription corepressor activity,nuclear receptor subfamily 0 group b pthr24081,PMID:21873635
+Runx1t1,RUNX1 translocation partner 1,transcription corepressor activity,mtg8 eto  eight twenty one protein pthr10379,MGI:MGI:4834177|GO_REF:0000096
+Apex1,apurinic/apyrimidinic endonuclease 1,transcription coactivator activity,ap endonuclease pthr22748,MGI:MGI:4834177|GO_REF:0000096
+Dnajb1,DnaJ heat shock protein family (Hsp40) member B1,transcription corepressor activity,dnaj homolog subfamily c member pthr24078,PMID:21873635
+Dnajb1,DnaJ heat shock protein family (Hsp40) member B1,transcription corepressor activity,dnaj homolog subfamily c member pthr24078,MGI:MGI:3688807|PMID:16606617
+Asxl1,ASXL transcriptional regulator 1,transcription coactivator activity,additional sex combs like protein  asxl pthr13578,MGI:MGI:3708423|PMID:17150957
+Atn1,atrophin 1,transcription coactivator activity,atrophin-related pthr13859,MGI:MGI:4834177|GO_REF:0000096
+Atn1,atrophin 1,transcription corepressor activity,atrophin-related pthr13859,MGI:MGI:3624573|PMID:16702404
+Atn1,atrophin 1,transcription corepressor activity,atrophin-related pthr13859,PMID:21873635
+Atn1,atrophin 1,transcription corepressor activity,atrophin-related pthr13859,MGI:MGI:4834177|GO_REF:0000096
+Maml3,mastermind like transcriptional coactivator 3,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:2388550|PMID:12370315
+Maml3,mastermind like transcriptional coactivator 3,transcription coactivator activity,mastermind-like pthr15692,PMID:21873635
+Maml3,mastermind like transcriptional coactivator 3,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:2388550|PMID:12370315
+Maml2,mastermind like transcriptional coactivator 2,transcription coactivator activity,mastermind-like pthr15692,PMID:21873635
+Maml2,mastermind like transcriptional coactivator 2,transcription coactivator activity,mastermind-like pthr15692,MGI:MGI:4834177|GO_REF:0000096
+Wbp2,WW domain binding protein 2,transcription coactivator activity,"ww domain binding protein 2, isoform e pthr31606",PMID:21873635
+Wbp2,WW domain binding protein 2,transcription coactivator activity,"ww domain binding protein 2, isoform e pthr31606",MGI:MGI:4834177|GO_REF:0000096
+Zfp451,zinc finger protein 451,transcription corepressor activity,zinc finger protein pthr24403,PMID:21873635
+Zfp451,zinc finger protein 451,transcription corepressor activity,zinc finger protein pthr24403,MGI:MGI:4834177|GO_REF:0000096
+Mak,male germ cell-associated kinase,transcription coactivator activity,mitogen-activated protein kinase pthr24055,PMID:21873635
+Kmt2c,lysine (K)-specific methyltransferase 2C,transcription coactivator activity,family not named pthr45888,PMID:21873635
+Akirin1,akirin 1,transcription coregulator activity,uncharacterized pthr13293,MGI:MGI:4834177|GO_REF:0000096
+Ccdc62,coiled-coil domain containing 62,nuclear receptor coactivator activity,,MGI:MGI:1354825|PMID:10734093
+Rcor2,REST corepressor 2,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,PMID:21873635
+Rcor2,REST corepressor 2,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,MGI:MGI:4834177|GO_REF:0000096
+Usp16,ubiquitin specific peptidase 16,transcription coactivator activity,ubiquitin carboxyl-terminal hydrolase pthr21646,MGI:MGI:4834177|GO_REF:0000096
+Med13,mediator complex subunit 13,transcription coregulator activity,rag1-activating protein 1 pthr10791,MGI:MGI:2154458|GO_REF:0000008
+Med13,mediator complex subunit 13,transcription coactivator activity,rag1-activating protein 1 pthr10791,PMID:21873635
+Med13,mediator complex subunit 13,transcription coregulator activity,rag1-activating protein 1 pthr10791,MGI:MGI:2154458|GO_REF:0000008
+Dcaf6,DDB1 and CUL4 associated factor 6,nuclear receptor coactivator activity,wd repeat domain-containing family pthr15574,PMID:21873635
+Dcaf6,DDB1 and CUL4 associated factor 6,nuclear receptor coactivator activity,wd repeat domain-containing family pthr15574,PMID:21873635
+Parp10,"poly (ADP-ribose) polymerase family, member 10",transcription corepressor activity,parp/zinc finger ccch type domain containing protein pthr14453,MGI:MGI:4834177|GO_REF:0000096
+Arid5a,AT rich interactive domain 5A (MRF1-like),transcription corepressor activity,rbp-related pthr13964,MGI:MGI:5464222|PMID:23133559
+Prmt5,protein arginine N-methyltransferase 5,transcription corepressor activity,protein arginine n-methyltransferase 5 pthr10738,MGI:MGI:2152098|GO_REF:0000002
+Sfmbt1,Scm-like with four mbt domains 1,transcription corepressor activity,polycomb group protein pthr12247,MGI:MGI:2152098|GO_REF:0000002
+Gmeb2,glucocorticoid modulatory element binding protein 2,transcription coactivator activity,glucocorticoid modulatory element-binding protein pthr10417,MGI:MGI:4834177|GO_REF:0000096
+Jup,junction plakoglobin,transcription coactivator activity,armadillo segment polarity protein pthr45976,PMID:21873635
+Jup,junction plakoglobin,transcription coactivator activity,armadillo segment polarity protein pthr45976,MGI:MGI:4834177|GO_REF:0000096
+Hmga1b,high mobility group AT-hook 1B,nuclear receptor coactivator activity,,MGI:MGI:3773767|PMID:17909014
+Limd1,LIM domains containing 1,transcription corepressor activity,lim domain-containing protein jub pthr24219,PMID:21873635
+Limd1,LIM domains containing 1,transcription corepressor activity,lim domain-containing protein jub pthr24219,MGI:MGI:2152098|GO_REF:0000002
+Ep300,E1A binding protein p300,transcription coregulator activity,cbp/p300-related pthr13808,MGI:MGI:4834177|GO_REF:0000096
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4417868|GO_REF:0000096
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4419088|PMID:12586840
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:4419089|PMID:12435739
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,MGI:MGI:5297783|PMID:17641689
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,PMID:21873635
+Ep300,E1A binding protein p300,transcription coactivator activity,cbp/p300-related pthr13808,PMID:21873635
+Fbxl19,F-box and leucine-rich repeat protein 19,transcription coregulator activity,phd/f-box containing protein pthr23123,MGI:MGI:4834177|GO_REF:0000096
+Ruvbl2,RuvB-like protein 2,transcription corepressor activity,ruvb-related reptin and pontin pthr11093,MGI:MGI:4834177|GO_REF:0000096
+Uri1,"URI1, prefoldin-like chaperone",transcription corepressor activity,rna polymerase ii subunit 5-mediating protein  nnx3 pthr15111,PMID:21873635
+Uri1,"URI1, prefoldin-like chaperone",transcription corepressor activity,rna polymerase ii subunit 5-mediating protein  nnx3 pthr15111,MGI:MGI:4834177|GO_REF:0000096
+Tdrd3,tudor domain containing 3,transcription coactivator activity,survival of motor neuron-related-splicing factor 30-related pthr13681,MGI:MGI:4834177|GO_REF:0000096
+Ankrd1,ankyrin repeat domain 1 (cardiac muscle),transcription coactivator activity,"ankyrin repeat, ph and sec7 domain containing protein secg-related pthr24126",MGI:MGI:86242|PMID:9043061
+Ankrd1,ankyrin repeat domain 1 (cardiac muscle),transcription corepressor activity,"ankyrin repeat, ph and sec7 domain containing protein secg-related pthr24126",MGI:MGI:2156289|PMID:11704680
+Rbm39,RNA binding motif protein 39,transcription coactivator activity,rna-binding protein pthr23139,MGI:MGI:4834177|GO_REF:0000096
+Sfr1,SWI5 dependent recombination repair 1,nuclear receptor coactivator activity,swi5-dependent recombination dna repair protein 1 homolog pthr28643,PMID:21873635
+Sfr1,SWI5 dependent recombination repair 1,nuclear receptor coactivator activity,swi5-dependent recombination dna repair protein 1 homolog pthr28643,MGI:MGI:4834177|GO_REF:0000096
+Psip1,PC4 and SFRS1 interacting protein 1,transcription coactivator activity,hepatoma-derived growth factor-related pthr12550,PMID:21873635
+Psip1,PC4 and SFRS1 interacting protein 1,transcription coregulator activity,hepatoma-derived growth factor-related pthr12550,MGI:MGI:2152098|GO_REF:0000002
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coregulator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:3715412|PMID:17476214
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:4834177|GO_REF:0000096
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:4417868|GO_REF:0000096
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:6095248|PMID:27471003
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:3689805|PMID:16271724
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",transcription coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:4834177|GO_REF:0000096
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",nuclear receptor coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,PMID:21873635
+Ppargc1a,"peroxisome proliferative activated receptor, gamma, coactivator 1 alpha",nuclear receptor coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,PMID:21873635
+Hcfc2,host cell factor C2,transcription coactivator activity,host cell factor pthr46003,MGI:MGI:5538466|PMID:23775127
+Ctbp2,C-terminal binding protein 2,transcription coactivator activity,c-terminal-binding protein pthr46029,MGI:MGI:2446766|PMID:12444977
+Ctbp2,C-terminal binding protein 2,transcription corepressor activity,c-terminal-binding protein pthr46029,MGI:MGI:1349212|PMID:10567582
+Ctbp2,C-terminal binding protein 2,transcription corepressor activity,c-terminal-binding protein pthr46029,MGI:MGI:4834177|GO_REF:0000096
+Ctbp1,C-terminal binding protein 1,transcription corepressor activity,c-terminal-binding protein pthr46029,MGI:MGI:4417868|GO_REF:0000096
+Rxrb,retinoid X receptor beta,nuclear receptor coactivator activity,nuclear hormone receptor pthr24083,MGI:MGI:4834177|GO_REF:0000096
+Med14,mediator complex subunit 14,transcription coregulator activity,mediator complex subunit pthr12809,MGI:MGI:2154458|GO_REF:0000008
+Med14,mediator complex subunit 14,transcription coactivator activity,mediator complex subunit pthr12809,PMID:21873635
+Med14,mediator complex subunit 14,transcription coregulator activity,mediator complex subunit pthr12809,MGI:MGI:1298123|PMID:9707402
+Cops5,COP9 signalosome subunit 5,transcription coactivator activity,eukaryotic translation initiation factor 3 -related pthr10410,MGI:MGI:5581934|PMID:22343712
+Mlip,muscular LMNA-interacting protein,transcription corepressor activity,muscular lmna-interacting protein mlip pthr31514,PMID:21873635
+Mlip,muscular LMNA-interacting protein,transcription corepressor activity,muscular lmna-interacting protein mlip pthr31514,MGI:MGI:5287515|PMID:21829553
+Tfap2a,"transcription factor AP-2, alpha",transcription coactivator activity,transcription factor ap-2 pthr10812,MGI:MGI:5287515|PMID:21829553
+Tfap2a,"transcription factor AP-2, alpha",transcription corepressor activity,transcription factor ap-2 pthr10812,PMID:21873635
+Hdgfl3,HDGF like 3,transcription coregulator activity,hepatoma-derived growth factor-related pthr12550,PMID:21873635
+Dpf1,"D4, zinc and double PHD fingers family 1",transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:4834177|GO_REF:0000096
+Xpc,"xeroderma pigmentosum, complementation group C",transcription coactivator activity,dna repair protein xp-c / rad4 pthr12135,MGI:MGI:4834177|GO_REF:0000096
+Ncoa7,nuclear receptor coactivator 7,nuclear receptor coactivator activity,nucleolar protein 7/estrogen receptor coactivator-related pthr23354,PMID:21873635
+Ncoa7,nuclear receptor coactivator 7,nuclear receptor coactivator activity,nucleolar protein 7/estrogen receptor coactivator-related pthr23354,MGI:MGI:4834177|GO_REF:0000096
+Trim38,tripartite motif-containing 38,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:2152098|GO_REF:0000002
+Erf,Ets2 repressor factor,transcription corepressor activity,ets pthr11849,MGI:MGI:4834177|GO_REF:0000096
+Tle1,transducin-like enhancer of split 1,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:3574120|PMID:15528197
+Tle1,transducin-like enhancer of split 1,transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Tle1,transducin-like enhancer of split 1,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4834177|GO_REF:0000096
+Tle2,transducin-like enhancer of split 2,transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Tle2,transducin-like enhancer of split 2,transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Tle3,transducin-like enhancer of split 3,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:2182264|PMID:12050133
+Tle4,transducin-like enhancer of split 4,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4940410|PMID:21317240
+Tle4,transducin-like enhancer of split 4,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:3039992|PMID:15105370
+Tle4,transducin-like enhancer of split 4,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:3603095|PMID:16002402
+Tle4,transducin-like enhancer of split 4,transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Tle4,transducin-like enhancer of split 4,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4834177|GO_REF:0000096
+Casp8ap2,caspase 8 associated protein 2,transcription corepressor activity,caspase 8 associated protein 2 pthr15489,PMID:21873635
+Casp8ap2,caspase 8 associated protein 2,transcription corepressor activity,caspase 8 associated protein 2 pthr15489,MGI:MGI:4834177|GO_REF:0000096
+Bcl10,B cell leukemia/lymphoma 10,transcription coactivator activity,b-cell lymphoma/leukemia 10 pthr34920,PMID:21873635
+Bcl10,B cell leukemia/lymphoma 10,transcription coactivator activity,b-cell lymphoma/leukemia 10 pthr34920,MGI:MGI:3688011|PMID:11583586
+Pmf1,polyamine-modulated factor 1,transcription coactivator activity,polyamine-modulated factor 1 pthr15459,MGI:MGI:4834177|GO_REF:0000096
+Pmf1,polyamine-modulated factor 1,transcription coactivator activity,polyamine-modulated factor 1 pthr15459,PMID:21873635
+Kat8,K(lysine) acetyltransferase 8,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:2152098|GO_REF:0000002
+Sox12,SRY (sex determining region Y)-box 12,transcription coactivator activity,sox transcription factor pthr10270,MGI:MGI:2154458|GO_REF:0000008
+Ski,ski sarcoma viral oncogene homolog (avian),transcription corepressor activity,ski oncogene-related pthr10005,MGI:MGI:4834177|GO_REF:0000096
+Trim25,tripartite motif-containing 25,transcription coactivator activity,family not named pthr25465,MGI:MGI:4834177|GO_REF:0000096
+Nup98,nucleoporin 98,transcription coactivator activity,nucleoporin pthr23198,MGI:MGI:2152098|GO_REF:0000002
+Skor2,SKI family transcriptional corepressor 2,transcription corepressor activity,ski oncogene-related pthr10005,MGI:MGI:2152098|GO_REF:0000002
+Mcidas,multiciliate differentiation and DNA synthesis associated cell cycle protein,transcription coactivator activity,geminin pthr13372,MGI:MGI:4834177|GO_REF:0000096
+Hspa1a,heat shock protein 1A,transcription corepressor activity,heat shock protein 70kda pthr19375,MGI:MGI:2152471|PMID:11641275
+Hr,lysine demethylase and nuclear receptor corepressor,transcription corepressor activity,jmjc domain-containing histone demethylation protein pthr12549,MGI:MGI:4417868|GO_REF:0000096
+Hr,lysine demethylase and nuclear receptor corepressor,transcription corepressor activity,jmjc domain-containing histone demethylation protein pthr12549,PMID:21873635
+Hr,lysine demethylase and nuclear receptor corepressor,transcription coregulator activity,jmjc domain-containing histone demethylation protein pthr12549,MGI:MGI:4834177|GO_REF:0000096
+Taf11,TATA-box binding protein associated factor 11,transcription coactivator activity,transcription initiation factor tfiid subunit 11-related pthr13218,PMID:21873635
+Taf11,TATA-box binding protein associated factor 11,transcription coactivator activity,transcription initiation factor tfiid subunit 11-related pthr13218,MGI:MGI:3851310|PMID:19366691
+Hyal2,hyaluronoglucosaminidase 2,transcription coactivator activity,hyaluronidase pthr11769,MGI:MGI:4834177|GO_REF:0000096
+Camta2,calmodulin binding transcription activator 2,transcription coactivator activity,calmodulin-binding transcription activator  camta pthr23335,PMID:21873635
+Camta2,calmodulin binding transcription activator 2,transcription coregulator activity,calmodulin-binding transcription activator  camta pthr23335,PMID:21873635
+Kat7,K(lysine) acetyltransferase 7,transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:3580934|PMID:15626733
+Pml,promyelocytic leukemia,transcription coactivator activity,"bonus, isoform c-related pthr25462",MGI:MGI:4834177|GO_REF:0000096
+Pml,promyelocytic leukemia,transcription coactivator activity,"bonus, isoform c-related pthr25462",MGI:MGI:4834177|GO_REF:0000096
+Med12,mediator complex subunit 12,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,MGI:MGI:5489006|PMID:23575864
+Med12,mediator complex subunit 12,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,MGI:MGI:2154458|GO_REF:0000008
+Med12,mediator complex subunit 12,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,PMID:21873635
+Med12,mediator complex subunit 12,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 12 pthr46007,MGI:MGI:4835371|PMID:19909775
+Trim24,tripartite motif-containing 24,transcription coactivator activity,transcription intermediary factor pthr45915,MGI:MGI:4834177|GO_REF:0000096
+Trim24,tripartite motif-containing 24,transcription coactivator activity,transcription intermediary factor pthr45915,MGI:MGI:5644023|PMID:19321449
+Trim28,tripartite motif-containing 28,transcription coactivator activity,"bonus, isoform c-related pthr25462",MGI:MGI:3052717|PMID:11331592
+Trim28,tripartite motif-containing 28,transcription coactivator activity,"bonus, isoform c-related pthr25462",MGI:MGI:3698386|PMID:17273560
+Trim28,tripartite motif-containing 28,transcription coactivator activity,"bonus, isoform c-related pthr25462",MGI:MGI:4834177|GO_REF:0000096
+Trim28,tripartite motif-containing 28,transcription corepressor activity,"bonus, isoform c-related pthr25462",PMID:21873635
+Trim28,tripartite motif-containing 28,transcription corepressor activity,"bonus, isoform c-related pthr25462",MGI:MGI:2152098|GO_REF:0000002
+Ss18l2,"SS18, nBAF chromatin remodeling complex subunit like 2",transcription coactivator activity,synovial sarcoma associated ss18 protein pthr23107,PMID:21873635
+Dr1,down-regulator of transcription 1,transcription coactivator activity,protein dr1 pthr46138,PMID:21873635
+Dr1,down-regulator of transcription 1,transcription corepressor activity,protein dr1 pthr46138,MGI:MGI:4417868|GO_REF:0000096
+Myt1l,myelin transcription factor 1-like,transcription coactivator activity,myelin transcription factor 1-related pthr10816,PMID:21873635
+Tle7,TLE family member 7,transcription corepressor activity,transducin-like enhancer protein pthr10814,MGI:MGI:4834177|GO_REF:0000096
+Niban2,niban apoptosis regulator 2,transcription coactivator activity,niban family member pthr14392,MGI:MGI:4834177|GO_REF:0000096
+Dyrk1b,dual-specificity tyrosine-(Y)-phosphorylation regulated kinase 1b,transcription coactivator activity,dual specificity protein kinase pthr24058,PMID:21873635
+Dyrk1b,dual-specificity tyrosine-(Y)-phosphorylation regulated kinase 1b,transcription coactivator activity,dual specificity protein kinase pthr24058,MGI:MGI:3045831|PMID:15073182
+Nrg1,neuregulin 1,transcription coregulator activity,heregulin-neuregulin family member pthr11100,PMID:21873635
+Dpf3,"D4, zinc and double PHD fingers, family 3",transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:79777|PMID:1763325
+Pcbd1,pterin 4 alpha carbinolamine dehydratase/dimerization cofactor of hepatocyte nuclear factor 1 alpha (TCF1) 1,transcription coactivator activity,pterin-4-alpha-carbinolamine dehydratase pthr12599,MGI:MGI:4417868|GO_REF:0000096
+Dcc,deleted in colorectal carcinoma,transcription coactivator activity,protein sidekick pthr44170,MGI:MGI:4834177|GO_REF:0000096
+Med17,mediator complex subunit 17,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 17 pthr13114,MGI:MGI:2154458|GO_REF:0000008
+Med17,mediator complex subunit 17,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 17 pthr13114,MGI:MGI:4834177|GO_REF:0000096
+Med17,mediator complex subunit 17,nuclear receptor coactivator activity,mediator of rna polymerase ii transcription subunit 17 pthr13114,PMID:21873635
+Med17,mediator complex subunit 17,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 17 pthr13114,PMID:21873635
+Dyrk1a,dual-specificity tyrosine-(Y)-phosphorylation regulated kinase 1a,transcription coactivator activity,dual specificity protein kinase pthr24058,MGI:MGI:4834177|GO_REF:0000096
+Med4,mediator complex subunit 4,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 4 pthr13208,MGI:MGI:4834177|GO_REF:0000096
+Med4,mediator complex subunit 4,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 4 pthr13208,PMID:21873635
+Med4,mediator complex subunit 4,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 4 pthr13208,MGI:MGI:3028428|PMID:15062575
+Cops2,COP9 signalosome subunit 2,transcription corepressor activity,26s proteasome non-atpase regulatory subunit 11/cop9 signalosome complex subunit 2 pthr10678,MGI:MGI:3046495|PMID:15072553
+Actn2,actinin alpha 2,nuclear receptor coactivator activity,spectrin/filamin related cytoskeletal protein pthr11915,MGI:MGI:3046495|PMID:15072553
+Actn2,actinin alpha 2,nuclear receptor coactivator activity,spectrin/filamin related cytoskeletal protein pthr11915,MGI:MGI:4834177|GO_REF:0000096
+Ppargc1b,"peroxisome proliferative activated receptor, gamma, coactivator 1 beta",transcription coregulator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,MGI:MGI:4834177|GO_REF:0000096
+Ppargc1b,"peroxisome proliferative activated receptor, gamma, coactivator 1 beta",nuclear receptor coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,PMID:21873635
+Ppargc1b,"peroxisome proliferative activated receptor, gamma, coactivator 1 beta",nuclear receptor coactivator activity,peroxisome proliferator activated receptor gamma coactivator 1  pgc-1 -related pthr15528,PMID:21873635
+Akirin2,akirin 2,transcription coregulator activity,uncharacterized pthr13293,MGI:MGI:4834177|GO_REF:0000096
+Sap30,sin3 associated polypeptide,transcription corepressor activity,sap30 pthr13286,PMID:21873635
+Sap30,sin3 associated polypeptide,transcription coregulator activity,sap30 pthr13286,MGI:MGI:4834177|GO_REF:0000096
+Zmiz2,"zinc finger, MIZ-type containing 2",nuclear receptor coactivator activity,zinc finger miz domain-containing protein pthr10782,PMID:21873635
+Zmiz2,"zinc finger, MIZ-type containing 2",nuclear receptor coactivator activity,zinc finger miz domain-containing protein pthr10782,MGI:MGI:3830409|PMID:19144721
+Ncor2,nuclear receptor co-repressor 2,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:3777491|PMID:18347093
+Ncor2,nuclear receptor co-repressor 2,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:4834177|GO_REF:0000096
+Ncor2,nuclear receptor co-repressor 2,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:3581079|PMID:15870285
+Ncor2,nuclear receptor co-repressor 2,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,PMID:21873635
+Ncor2,nuclear receptor co-repressor 2,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:3032799|PMID:14980219
+Tbl1xr1,transducin (beta)-like 1X-linked receptor 1,transcription corepressor activity,wd40 repeat protein pthr22846,MGI:MGI:4834177|GO_REF:0000096
+Tbl1xr1,transducin (beta)-like 1X-linked receptor 1,transcription corepressor activity,wd40 repeat protein pthr22846,PMID:21873635
+Tbl1xr1,transducin (beta)-like 1X-linked receptor 1,transcription corepressor activity,wd40 repeat protein pthr22846,MGI:MGI:4834177|GO_REF:0000096
+Ddx17,DEAD box helicase 17,transcription coactivator activity,atp-dependent rna helicase dbp3 pthr47958,MGI:MGI:4834177|GO_REF:0000096
+Npat,nuclear protein in the AT region,transcription coactivator activity,protein npat pthr15087,MGI:MGI:4834177|GO_REF:0000096
+Npat,nuclear protein in the AT region,transcription corepressor activity,protein npat pthr15087,PMID:21873635
+Npat,nuclear protein in the AT region,transcription coregulator activity,protein npat pthr15087,MGI:MGI:4354692|PMID:19561615
+Riox2,ribosomal oxygenase 2,transcription corepressor activity,mina53  myc induced nuclear antigen pthr13096,MGI:MGI:4834177|GO_REF:0000096
+Smarcd3,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily d, member 3",nuclear receptor coactivator activity,swi/snf-related matrix-associated actin-dependent regulator of chromatin subfamily d pthr13844,MGI:MGI:2152098|GO_REF:0000002
+Med19,mediator complex subunit 19,transcription coregulator activity,lung cancer metastasis-related  lcmr1  protein pthr22536,MGI:MGI:2662632|PMID:12749859
+Trib3,tribbles pseudokinase 3,transcription corepressor activity,ser/thr protein kinase-trb pthr22961,PMID:21873635
+Irf2bpl,interferon regulatory factor 2 binding protein-like,transcription corepressor activity,myelin transcription factor 1-related pthr10816,MGI:MGI:4834177|GO_REF:0000096
+C1qbp,"complement component 1, q subcomponent binding protein",transcription corepressor activity,complement component 1 pthr10826,PMID:21873635
+C1qbp,"complement component 1, q subcomponent binding protein",transcription corepressor activity,complement component 1 pthr10826,MGI:MGI:2152098|GO_REF:0000002
+Kat6a,K(lysine) acetyltransferase 6A,transcription coactivator activity,histone acetyltransferase pthr10615,PMID:21873635
+Kat6a,K(lysine) acetyltransferase 6A,transcription coregulator activity,histone acetyltransferase pthr10615,PMID:21873635
+Tcerg1l,transcription elongation regulator 1-like,transcription coregulator activity,transcription elongation regulator 1 pthr15377,PMID:21873635
+Ewsr1,Ewing sarcoma breakpoint region 1,transcription coregulator activity,rna binding protein pthr23238,MGI:MGI:3053242|PMID:15327771
+Pus1,pseudouridine synthase 1,nuclear receptor coactivator activity,pseudouridylate synthase pthr11142,MGI:MGI:4834177|GO_REF:0000096
+Med26,mediator complex subunit 26,transcription coregulator activity,crsp70 pthr15201,PMID:21873635
+Med26,mediator complex subunit 26,transcription coregulator activity,crsp70 pthr15201,MGI:MGI:4834177|GO_REF:0000096
+Trim12c,tripartite motif-containing 12C,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Elane,"elastase, neutrophil expressed",transcription corepressor activity,chymotrypsin-like elastase family member pthr24257,MGI:MGI:2154458|GO_REF:0000008
+Med21,mediator complex subunit 21,transcription coactivator activity,rna polymerase ii holoenzyme component srb7 pthr13381,PMID:21873635
+Med21,mediator complex subunit 21,transcription coregulator activity,rna polymerase ii holoenzyme component srb7 pthr13381,PMID:21873635
+Camta1,calmodulin binding transcription activator 1,transcription coregulator activity,calmodulin-binding transcription activator  camta pthr23335,PMID:21873635
+Sirt7,sirtuin 7,transcription corepressor activity,nad-dependent protein deacetylase sirtuin-(6/7) family member pthr45853,PMID:21873635
+Med29,mediator complex subunit 29,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 29 pthr28314,PMID:21873635
+Med18,mediator complex subunit 18,transcription coregulator activity,"mediator of rna polymerase ii transcription, subunit 18 pthr13321",MGI:MGI:4834177|GO_REF:0000096
+Dnmt3b,DNA methyltransferase 3B,transcription corepressor activity,dna  cytosine-5- -methyltransferase 3-related pthr23068,MGI:MGI:4834177|GO_REF:0000096
+Mtdh,metadherin,transcription coactivator activity,lysine-rich ceacam1 co-isolated protein  lyric protein pthr23251,PMID:21873635
+Mtdh,metadherin,transcription coregulator activity,lysine-rich ceacam1 co-isolated protein  lyric protein pthr23251,MGI:MGI:3790268|PMID:10567574
+Psmd9,"proteasome (prosome, macropain) 26S subunit, non-ATPase, 9",transcription coactivator activity,26s proteasome non-atpase regulatory subunit 9 pthr12651,MGI:MGI:4417868|GO_REF:0000096
+Psmd9,"proteasome (prosome, macropain) 26S subunit, non-ATPase, 9",transcription coactivator activity,26s proteasome non-atpase regulatory subunit 9 pthr12651,MGI:MGI:4834177|GO_REF:0000096
+Thrap3,thyroid hormone receptor associated protein 3,transcription coregulator activity,thrap3/bclaf1 pthr15268,MGI:MGI:5511073|PMID:24043798
+Thrap3,thyroid hormone receptor associated protein 3,transcription coactivator activity,thrap3/bclaf1 pthr15268,MGI:MGI:2154458|GO_REF:0000008
+Thrap3,thyroid hormone receptor associated protein 3,transcription coactivator activity,thrap3/bclaf1 pthr15268,PMID:21873635
+Thrap3,thyroid hormone receptor associated protein 3,transcription coregulator activity,thrap3/bclaf1 pthr15268,MGI:MGI:5574157|PMID:24349431
+Cys1,cystin 1,transcription corepressor activity,,MGI:MGI:4834177|GO_REF:0000096
+Wwtr1,WW domain containing transcription regulator 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:3700430|PMID:16332960
+Wwtr1,WW domain containing transcription regulator 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,MGI:MGI:3587162|PMID:16099986
+Wwtr1,WW domain containing transcription regulator 1,transcription corepressor activity,yes-associated protein yap1 family member pthr17616,PMID:21873635
+Wwtr1,WW domain containing transcription regulator 1,transcription corepressor activity,yes-associated protein yap1 family member pthr17616,PMID:21873635
+Wwtr1,WW domain containing transcription regulator 1,transcription coactivator activity,yes-associated protein yap1 family member pthr17616,PMID:21873635
+Mier2,MIER family member 2,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Taf15,TATA-box binding protein associated factor 15,transcription coregulator activity,rna binding protein pthr23238,MGI:MGI:4357758|PMID:19416967
+Zcchc12,"zinc finger, CCHC domain containing 12",transcription coactivator activity,paraneoplastic antigen pthr23095,MGI:MGI:4834177|GO_REF:0000096
+Crym,"crystallin, mu",transcription corepressor activity,ketimine reductase mu-crystallin pthr13812,MGI:MGI:4834177|GO_REF:0000096
+Cebpz,CCAAT/enhancer binding protein zeta,transcription coactivator activity,ccaat-binding factor-related pthr12048,MGI:MGI:5644022|PMID:19389484
+Hmga1,high mobility group AT-hook 1,transcription coactivator activity,high mobility group proteins hmg-a and c pthr23341,MGI:MGI:4834177|GO_REF:0000096
+Hmga1,high mobility group AT-hook 1,nuclear receptor coactivator activity,high mobility group proteins hmg-a and c pthr23341,PMID:21873635
+Hmga1,high mobility group AT-hook 1,transcription coregulator activity,high mobility group proteins hmg-a and c pthr23341,MGI:MGI:4834177|GO_REF:0000096
+Hmgb2,high mobility group box 2,transcription coactivator activity,high mobility group protein dsp1 pthr48112,MGI:MGI:4834177|GO_REF:0000096
+Kdm1a,lysine (K)-specific demethylase 1A,nuclear receptor coactivator activity,flavin monoamine oxidase pthr10742,MGI:MGI:5606145|PMID:24245781
+Ccar1,cell division cycle and apoptosis regulator 1,transcription coactivator activity,cell division cycle and apoptosis regulator protein pthr14304,MGI:MGI:4834177|GO_REF:0000096
+Ccar1,cell division cycle and apoptosis regulator 1,transcription coactivator activity,cell division cycle and apoptosis regulator protein pthr14304,MGI:MGI:4834177|GO_REF:0000096
+Ccar1,cell division cycle and apoptosis regulator 1,transcription corepressor activity,cell division cycle and apoptosis regulator protein pthr14304,MGI:MGI:2154458|GO_REF:0000008
+Ccar1,cell division cycle and apoptosis regulator 1,nuclear receptor coactivator activity,cell division cycle and apoptosis regulator protein pthr14304,PMID:21873635
+Ccar1,cell division cycle and apoptosis regulator 1,nuclear receptor coactivator activity,cell division cycle and apoptosis regulator protein pthr14304,MGI:MGI:4417868|GO_REF:0000096
+Med1,mediator complex subunit 1,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:4834177|GO_REF:0000096
+Med1,mediator complex subunit 1,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:1858663|PMID:10747854
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:1276677|PMID:9708794
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:1355642|PMID:10882104
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:3055270|PMID:15340084
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:1097733|PMID:9325263
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:2154458|GO_REF:0000008
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:2158098|PMID:11724781
+Med1,mediator complex subunit 1,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:5297786|PMID:16723356
+Med1,mediator complex subunit 1,transcription corepressor activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:4834177|GO_REF:0000096
+Med1,mediator complex subunit 1,nuclear receptor coactivator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,PMID:21873635
+Med1,mediator complex subunit 1,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 1 pthr12881,MGI:MGI:4834177|GO_REF:0000096
+Lmo2,LIM domain only 2,transcription coactivator activity,ld11652p pthr45787,PMID:21873635
+Dpf2,"D4, zinc and double PHD fingers family 2",transcription coregulator activity,histone acetyltransferase pthr10615,MGI:MGI:5560379|PMID:24590075
+Zmynd11,"zinc finger, MYND domain containing 11",transcription corepressor activity,zinc finger mynd domain-containing pthr46379,PMID:21873635
+Phf8,PHD finger protein 8,transcription coregulator activity,phd/f-box containing protein pthr23123,MGI:MGI:3530710|PMID:15557274
+Ifi204,interferon activated gene 204,transcription coregulator activity,interferon-inducible protein aim2 family member pthr12200,MGI:MGI:4834177|GO_REF:0000096
+Noc2l,NOC2 like nucleolar associated transcriptional repressor,transcription corepressor activity,nucleolar complex 2 and rad4-related pthr12687,PMID:21873635
+Noc2l,NOC2 like nucleolar associated transcriptional repressor,transcription corepressor activity,nucleolar complex 2 and rad4-related pthr12687,MGI:MGI:3052717|PMID:11331592
+Sertad2,SERTA domain containing 2,transcription coactivator activity,cell division cycle associated protein 4/serta domain-containing protein 2 pthr16277,MGI:MGI:4834177|GO_REF:0000096
+Brca1,"breast cancer 1, early onset",transcription coactivator activity,breast cancer type 1 susceptibility protein brca1 pthr13763,MGI:MGI:4417868|GO_REF:0000096
+Elob,elongin B,transcription coactivator activity,transcription elongation factor b polypeptide 2 pthr13248,MGI:MGI:4834177|GO_REF:0000096
+Tgfb1i1,transforming growth factor beta 1 induced transcript 1,transcription coactivator activity,paxillin-related pthr24216,PMID:21873635
+Tgfb1i1,transforming growth factor beta 1 induced transcript 1,transcription coregulator activity,paxillin-related pthr24216,MGI:MGI:4834177|GO_REF:0000096
+Taf6l,TATA-box binding protein associated factor 6 like,transcription coactivator activity,transcription initiation factor tfiid subunit 6 pthr10221,PMID:21873635
+Taf6l,TATA-box binding protein associated factor 6 like,transcription coactivator activity,transcription initiation factor tfiid subunit 6 pthr10221,MGI:MGI:5315201|PMID:22284184
+Prdm8,PR domain containing 8,transcription corepressor activity,agap007109-pa pthr16516,MGI:MGI:4834177|GO_REF:0000096
+Sdr16c5,"short chain dehydrogenase/reductase family 16C, member 5",transcription corepressor activity,pksb pthr24322,PMID:21873635
+Taf6,TATA-box binding protein associated factor 6,transcription coactivator activity,transcription initiation factor tfiid subunit 6 pthr10221,MGI:MGI:2152098|GO_REF:0000002
+Bcl9,B cell CLL/lymphoma 9,transcription coactivator activity,bcl9 pthr15185,MGI:MGI:3820717|PMID:19026781
+Ezh2,enhancer of zeste 2 polycomb repressive complex 2 subunit,transcription corepressor activity,histone-lysine n-methyltransferase e(z) pthr45747,MGI:MGI:2152098|GO_REF:0000002
+Nrip1,nuclear receptor interacting protein 1,transcription coregulator activity,nuclear factor rip140 pthr15088,MGI:MGI:4834177|GO_REF:0000096
+Nrip1,nuclear receptor interacting protein 1,transcription coactivator activity,nuclear factor rip140 pthr15088,MGI:MGI:5586794|PMID:21628546
+Nrip1,nuclear receptor interacting protein 1,transcription coactivator activity,nuclear factor rip140 pthr15088,MGI:MGI:4834177|GO_REF:0000096
+Nrip1,nuclear receptor interacting protein 1,transcription corepressor activity,nuclear factor rip140 pthr15088,MGI:MGI:1306881|PMID:9774688
+Nrip1,nuclear receptor interacting protein 1,transcription corepressor activity,nuclear factor rip140 pthr15088,MGI:MGI:3688383|PMID:15001550
+Nrip1,nuclear receptor interacting protein 1,transcription corepressor activity,nuclear factor rip140 pthr15088,PMID:21873635
+Nrip1,nuclear receptor interacting protein 1,transcription corepressor activity,nuclear factor rip140 pthr15088,PMID:21873635
+Nrip1,nuclear receptor interacting protein 1,transcription coactivator activity,nuclear factor rip140 pthr15088,MGI:MGI:4834177|GO_REF:0000096
+Park7,"Parkinson disease (autosomal recessive, early onset) 7",transcription coactivator activity,protein/nucleic acid deglycase dj-1-related pthr48094,MGI:MGI:2152098|GO_REF:0000002
+Med31,mediator complex subunit 31,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 31 pthr13186,MGI:MGI:2152098|GO_REF:0000002
+Gmeb1,glucocorticoid modulatory element binding protein 1,transcription coactivator activity,glucocorticoid modulatory element-binding protein pthr10417,MGI:MGI:4834177|GO_REF:0000096
+Nucks1,nuclear casein kinase and cyclin-dependent kinase substrate 1,transcription coactivator activity,rad51/nuks-interacting protein pthr15361,MGI:MGI:2152098|GO_REF:0000002
+Yaf2,YY1 associated factor 2,transcription coactivator activity,rybp and yaf2-related pthr12920,MGI:MGI:2152098|GO_REF:0000002
+Yaf2,YY1 associated factor 2,transcription corepressor activity,rybp and yaf2-related pthr12920,PMID:21873635
+Yaf2,YY1 associated factor 2,transcription coregulator activity,rybp and yaf2-related pthr12920,MGI:MGI:5484683|PMID:23571214
+Bend6,BEN domain containing 6,transcription corepressor activity,ben domain-containing protein 6 pthr35346,MGI:MGI:2154458|GO_REF:0000008
+Bend6,BEN domain containing 6,transcription corepressor activity,ben domain-containing protein 6 pthr35346,PMID:21873635
+Bend6,BEN domain containing 6,transcription corepressor activity,ben domain-containing protein 6 pthr35346,MGI:MGI:4834177|GO_REF:0000096
+Tox3,TOX high mobility group box family member 3,transcription coactivator activity,agap000281-pa pthr45781,MGI:MGI:4834177|GO_REF:0000096
+Lpxn,leupaxin,transcription coregulator activity,paxillin-related pthr24216,MGI:MGI:5315692|PMID:18497331
+Lpxn,leupaxin,transcription coregulator activity,paxillin-related pthr24216,PMID:21873635
+Lpxn,leupaxin,transcription coregulator activity,paxillin-related pthr24216,MGI:MGI:4834177|GO_REF:0000096
+Npm1,nucleophosmin 1,transcription coactivator activity,nucleoplasmin pthr22747,MGI:MGI:5009503|PMID:19129230
+Mybbp1a,MYB binding protein (P160) 1a,transcription corepressor activity,myb-binding protein 1a family member pthr13213,PMID:21873635
+Mybbp1a,MYB binding protein (P160) 1a,transcription corepressor activity,myb-binding protein 1a family member pthr13213,MGI:MGI:4834177|GO_REF:0000096
+Brd7,bromodomain containing 7,transcription coactivator activity,bromodomain containing protein pthr22881,MGI:MGI:4834177|GO_REF:0000096
+Brd7,bromodomain containing 7,transcription corepressor activity,bromodomain containing protein pthr22881,MGI:MGI:4835371|PMID:19909775
+Brd7,bromodomain containing 7,transcription corepressor activity,bromodomain containing protein pthr22881,MGI:MGI:1928565|PMID:11163184
+Tob1,transducer of ErbB-2.1,transcription corepressor activity,transducer of erbb2  tob pthr17537,PMID:21873635
+Tob1,transducer of ErbB-2.1,transcription corepressor activity,transducer of erbb2  tob pthr17537,MGI:MGI:1926554|PMID:11030619
+Ncor1,nuclear receptor co-repressor 1,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:76569|PMID:7566114
+Ncor1,nuclear receptor co-repressor 1,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,MGI:MGI:2154458|GO_REF:0000008
+Ncor1,nuclear receptor co-repressor 1,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,PMID:21873635
+Ncor1,nuclear receptor co-repressor 1,transcription corepressor activity,nuclear receptor co-repressor related  ncor pthr13992,PMID:21873635
+Lpin3,lipin 3,transcription coactivator activity,lipin pthr12181,MGI:MGI:4422152|PMID:19717560
+Lpin2,lipin 2,transcription coactivator activity,lipin pthr12181,PMID:21873635
+Lpin2,lipin 2,transcription coactivator activity,lipin pthr12181,MGI:MGI:3770090|PMID:16950137
+Lpin1,lipin 1,transcription coactivator activity,lipin pthr12181,MGI:MGI:4441113|PMID:19753306
+Lpin1,lipin 1,transcription coactivator activity,lipin pthr12181,PMID:21873635
+Lpin1,lipin 1,transcription coactivator activity,lipin pthr12181,MGI:MGI:1344149|PMID:10458914
+Sqstm1,sequestosome 1,transcription coregulator activity,sequestosome 1-related pthr15090,MGI:MGI:2152098|GO_REF:0000002
+Tfb2m,"transcription factor B2, mitochondrial",transcription coregulator activity,dimethyladenosine transferase pthr11727,MGI:MGI:4834177|GO_REF:0000096
+Kctd1,potassium channel tetramerisation domain containing 1,transcription corepressor activity,potassium channel tetramerization domain-containing pthr14499,PMID:21873635
+Kctd1,potassium channel tetramerisation domain containing 1,transcription corepressor activity,potassium channel tetramerization domain-containing pthr14499,MGI:MGI:2152098|GO_REF:0000002
+Med22,mediator complex subunit 22,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 22 pthr12434,MGI:MGI:1196726|PMID:9488445
+Naca,nascent polypeptide-associated complex alpha polypeptide,transcription coactivator activity,nascent polypeptide associated complex alpha subunit-related pthr21713,PMID:21873635
+Rcor1,REST corepressor 1,transcription corepressor activity,rest corepressor  corest  protein-related pthr16089,MGI:MGI:4834177|GO_REF:0000096
+Arl2bp,ADP-ribosylation factor-like 2 binding protein,transcription coactivator activity,adp-ribosylation factor-like protein 2-binding protein pthr15487,PMID:21873635
+Med10,mediator complex subunit 10,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 10 pthr13345,MGI:MGI:4834177|GO_REF:0000096
+Ruvbl1,RuvB-like protein 1,transcription coactivator activity,ruvb-related reptin and pontin pthr11093,MGI:MGI:4834177|GO_REF:0000096
+Med24,mediator complex subunit 24,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 24 pthr12898,MGI:MGI:4417868|GO_REF:0000096
+Med24,mediator complex subunit 24,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 24 pthr12898,MGI:MGI:4834177|GO_REF:0000096
+Med24,mediator complex subunit 24,transcription coactivator activity,mediator of rna polymerase ii transcription subunit 24 pthr12898,PMID:21873635
+Med24,mediator complex subunit 24,transcription coregulator activity,mediator of rna polymerase ii transcription subunit 24 pthr12898,MGI:MGI:4834177|GO_REF:0000096
+Rbck1,RanBP-type and C3HC4-type zinc finger containing 1,transcription coactivator activity,ubiquitin conjugating enzyme 7 interacting protein-related pthr22770,MGI:MGI:6202299|PMID:12732141
+Mrtfa,myocardin related transcription factor A,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:6201987|PMID:17588931
+Mrtfa,myocardin related transcription factor A,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:3850304|PMID:19350017
+Mrtfa,myocardin related transcription factor A,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:6201839|PMID:24732378
+Mrtfa,myocardin related transcription factor A,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,PMID:21873635
+Mrtfa,myocardin related transcription factor A,transcription coactivator activity,myocardin-related transcription factor-related pthr22793,MGI:MGI:2152098|GO_REF:0000002
+Ss18,"SS18, nBAF chromatin remodeling complex subunit",transcription coactivator activity,synovial sarcoma associated ss18 protein pthr23107,MGI:MGI:4834177|GO_REF:0000096
+Ss18,"SS18, nBAF chromatin remodeling complex subunit",nuclear receptor coactivator activity,synovial sarcoma associated ss18 protein pthr23107,PMID:21873635
+Eid2,EP300 interacting inhibitor of differentiation 2,transcription corepressor activity,ep300-interacting inhibitor of differentiation 2-related pthr15556,MGI:MGI:4834177|GO_REF:0000096
+Trim14,tripartite motif-containing 14,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,PMID:21873635
+Wbp2nl,WBP2 N-terminal like,transcription coactivator activity,"ww domain binding protein 2, isoform e pthr31606",MGI:MGI:3047515|PMID:15199138
+Rad54l2,RAD54 like 2 (S. cerevisiae),transcription coregulator activity,rad54-like pthr45797,PMID:21873635
+Tle6,transducin-like enhancer of split 6,transcription corepressor activity,transducin-like enhancer protein pthr10814,PMID:21873635
+Mamstr,MEF2 activating motif and SAP domain containing transcriptional regulator,transcription coregulator activity,lysine-rich ceacam1 co-isolated protein  lyric protein pthr23251,MGI:MGI:4834177|GO_REF:0000096
+Edf1,endothelial differentiation-related factor 1,transcription coactivator activity,endothelial differentiation-related factor 1  multiprotein bridging factor 1 pthr10245,MGI:MGI:4834177|GO_REF:0000096
+Smarca4,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily a, member 4",transcription coactivator activity,snf2/rad54 helicase family pthr10799,MGI:MGI:4834177|GO_REF:0000096
+Smarca4,"SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily a, member 4",transcription corepressor activity,snf2/rad54 helicase family pthr10799,MGI:MGI:4834177|GO_REF:0000096
+Trim13,tripartite motif-containing 13,transcription coactivator activity,e3 ubiquitin-protein ligase trim pthr24103,MGI:MGI:4834177|GO_REF:0000096
+Ptpn14,"protein tyrosine phosphatase, non-receptor type 14",transcription coregulator activity,tyrosine-protein phosphatase pthr45706,MGI:MGI:3621346|PMID:16081776
+Bcl3,B cell leukemia/lymphoma 3,transcription coactivator activity,pote ankyrin domain pthr24118,MGI:MGI:3603876|PMID:16199866
+Lmcd1,LIM and cysteine-rich domains 1,transcription corepressor activity,lim domain-containing protein pthr24211,PMID:21873635
+Lmcd1,LIM and cysteine-rich domains 1,transcription corepressor activity,lim domain-containing protein pthr24211,MGI:MGI:4834177|GO_REF:0000096
+Sub1,"SUB1 homolog, transcriptional regulator",transcription coactivator activity,rna polymerase ii transcriptional coactivator pthr13215,PMID:21873635
+Sub1,"SUB1 homolog, transcriptional regulator",transcription coactivator activity,rna polymerase ii transcriptional coactivator pthr13215,MGI:MGI:3575325|PMID:15790681
+Foxp3,forkhead box P3,transcription corepressor activity,"forkhead box p, isoform c pthr45796",MGI:MGI:4834177|GO_REF:0000096
+Ccnd1,cyclin D1,transcription corepressor activity,cyclins pthr10177,PMID:21873635
+Mier1,MEIR1 treanscription regulator,transcription corepressor activity,metastasis-associated protein and mesoderm induction early response protein pthr10865,PMID:21873635
+Cdyl2,"chromodomain protein, Y chromosome-like 2",transcription corepressor activity,family not named pthr43684,MGI:MGI:4834177|GO_REF:0000096
+Asah1,N-acylsphingosine amidohydrolase 1,transcription corepressor activity,acid amidase pthr28583,PMID:21873635
+Tcp10c,T-complex protein 10c,transcription corepressor activity,t complex protein 10 pthr10331,PMID:21873635
+Tcp10b,T-complex protein 10b,transcription corepressor activity,t complex protein 10 pthr10331,PMID:21873635
+Tcp10a,t-complex protein 10a,transcription corepressor activity,t complex protein 10 pthr10331,MGI:MGI:4834177|GO_REF:0000096
+Bcl11a,B cell CLL/lymphoma 11A (zinc finger protein),transcription coregulator activity,b-cell lymphoma/leukemia 11 pthr45993,MGI:MGI:1355195|PMID:10744719
+Bcl11a,B cell CLL/lymphoma 11A (zinc finger protein),transcription corepressor activity,b-cell lymphoma/leukemia 11 pthr45993,

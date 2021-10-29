@@ -1,0 +1,128 @@
+---
+title: "Figure 1 Multi-omic Landscape of Mouse Cardiac Developmnent"
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(magrittr)) # CRAN v2.0.1
+suppressPackageStartupMessages(library(ggplot2)) # CRAN v3.3.5
+suppressPackageStartupMessages(library(RColorBrewer)) # CRAN v1.1-2
+suppressPackageStartupMessages(library(dplyr)) # CRAN v1.0
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0
+
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure 1D
+1. PCA of Transcriptome
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+trs_pca <- mmu_heart_trs
+rownames(trs_pca) <- trs_pca[,1]
+trs_pca <- trs_pca[,-1]
+# Filtering
+trs_pca <- trs_pca[rowMeans(trs_pca) > 1,]
+trs_pca <- t(trs_pca)
+# PCA
+trs_pcar <- prcomp(trs_pca,scale. = TRUE)
+summary(trs_pcar)
+screeplot(trs_pcar,type="lines")
+# Prediction & Plotting
+trs_pcar_pred <- data.frame(predict(trs_pcar))
+group <- factor(c(rep("E10.5",3),rep("E12.5",3),rep("E14.5",3),rep("E16.5",3),
+                  rep("E18.5",3),rep("P1",3),rep("1W",3),rep("2W",3),rep("4W",3),
+                  rep("8W",3)),ordered = TRUE,
+                levels = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"))
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+color3 <- brewer.pal(9,"YlGn")
+colorpalette_mmu_trs_pri <- c(color1[c(9,8,7,5,3)],color3[c(5,7)],color2[c(5,7,9)])
+ggplot(trs_pcar_pred,aes(x = PC1,y = PC2)) + 
+  geom_point(size = 7,aes(color = group)) +
+  geom_smooth(method = "loess", se = FALSE,fullrange = TRUE) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 0.5,linetype = 1),
+        legend.direction = 'horizontal', legend.position = 'top') +
+  scale_color_manual(values = colorpalette_mmu_trs_pri) +
+  labs(color = "time")
+```
+
+2. PCA of Proteome
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+pro_pca <- mmu_heart_pro %>% 
+  .[,1:31] %>% 
+  .[!duplicated(.[,1]),]
+rownames(pro_pca) <- pro_pca[,1]
+pro_pca <- pro_pca[,-1]
+# Rule out proteins with NA
+for (i in 1:ncol(pro_pca)) {
+  pro_pca <- pro_pca[!is.na(pro_pca[,i]),]
+}
+pro_pca <- t(pro_pca)
+# PCA
+pro_pcar <- prcomp(pro_pca,scale. = TRUE)
+summary(pro_pcar)
+screeplot(pro_pcar,type="lines")
+# Prediction & Plotting
+pro_pcar_pred <- data.frame(predict(pro_pcar))
+pro_group <- factor(c(rep("E10.5",3),rep("E12.5",3),rep("E14.5",3),rep("E16.5",3),rep("E18.5",3),
+                      rep("P1",3),rep("1W",3),rep("2W",3),rep("4W",3),rep("8W",3)),ordered = TRUE,
+  levels = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"))
+ggplot(pro_pcar_pred,aes(x = PC1,y = PC2)) + 
+  geom_point(size = 7,shape = 19,aes(color = pro_group)) +
+  geom_smooth(method = "loess", se = FALSE,fullrange = TRUE) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 0.5,linetype = 1),
+        legend.direction = 'horizontal', legend.position = 'top') +
+  scale_color_manual(values = colorpalette_mmu_trs_pri)
+```
+
+3. PCA of PhosphoProteome
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+phos_pca <- mmu_heart_phos %>% 
+  .[,1:32]
+phos_pca <- phos_pca[!duplicated(paste0(phos_pca$Name,phos_pca$Phosphosite)),]
+rownames(phos_pca) <- paste0(phos_pca$Name,phos_pca$Phosphosite)
+phos_pca <- phos_pca[,-c(1:2)]
+# Rule out proteins with NA
+for (i in 1:ncol(phos_pca)) {
+  phos_pca <- phos_pca[!is.na(phos_pca[,i]),]
+}
+phos_pca <- t(phos_pca)
+# PCA
+phos_pcar <- prcomp(phos_pca,scale. = TRUE)
+summary(phos_pcar)
+screeplot(phos_pcar,type="lines")
+# Prediction & Plotting
+phos_pcar_pred <- data.frame(predict(phos_pcar))
+phos_group <- factor(c(rep("E10.5",3),rep("E12.5",3),rep("E14.5",3),rep("E16.5",3),rep("E18.5",3),rep("P1",3),rep("1W",3),rep("2W",3),rep("4W",3),rep("8W",3)),ordered = TRUE,
+  levels = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"))
+ggplot(phos_pcar_pred,aes(x = PC1,y = PC2)) + 
+  geom_point(size = 7,shape = 19,aes(color = phos_group)) +
+  geom_smooth(method = "loess", se = FALSE,fullrange = TRUE) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 0.5,linetype = 1),
+        legend.direction = 'horizontal', legend.position = 'top') +
+  scale_color_manual(values = colorpalette_mmu_trs_pri)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

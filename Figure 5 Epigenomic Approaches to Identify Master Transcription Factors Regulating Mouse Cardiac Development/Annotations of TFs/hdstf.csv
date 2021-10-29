@@ -1,0 +1,648 @@
+Transcription factors,Rank,Involved in cardiac development,PheFALSEtypes,Model:Mouse/ES,References
+Klf11,1,FALSE,/,/,/
+E2f6,2,FALSE,/,/,/
+Bach2,3,FALSE,/,/,/
+Sp4,4,FALSE,/,/,/
+Tead1,5,TRUE,VSD/double outlet right ventricle/DCM,Mouse & ES,7224394/33469230/28178271
+Tbx5,6,TRUE,ASD/VSD/CAVC/cardiac conduction system,Mouse & ES,26859351/33321106/17604724
+Meis2,7,TRUE,cardiac failure/persistent looping defect / Cardiac Morphogenesis/ conduction defects,Zebrafish,22981225/29762122
+Nr1d2,8,TRUE,AVSD/Cardiovascular Malformations,Mouse,27058611
+Nkx2-5,9,TRUE,SHF defects/cardiomyocyte differentiation/cardiac conduction system,Mouse & ES,25053429/29636455/17604724
+Maz,10,FALSE,/,/,/
+Klf4,11,FALSE,/,/,/
+Rreb1,12,FALSE,/,/,/
+Etv6,13,FALSE,/,/,/
+Tbx3,14,TRUE,OFT/DORV/Atrioventricular Alignment Defects,Mouse & ES,18723448/22419669/22130515
+Yy1,15,TRUE,atria absent from a tube-like heart/Absence of Cardiac Lineage Formation,Mouse& ES& Zebrafish,23307821/28580685/26924789
+Jun,16,FALSE,/,/,/
+Klf13,17,TRUE,atrial septal defects/hypotrabeculation/pericardial edema,Mouse,28164238
+Plagl1,18,TRUE,atrial and ventricular septal defects/thin ventricular walls,Mouse,20167925
+Foxk1,19,FALSE,/,/,/
+Tbx18,20,FALSE,/,/,/
+Znf263,21,FALSE,/,/,/
+Foxo6,22,FALSE,/,/,/
+Mzf1,23,FALSE,/,/,/
+Nr3c2,24,FALSE,/,/,/
+Hnf4g,25,FALSE,/,/,/
+Thap1,26,FALSE,/,/,/
+Barx2,27,FALSE,/,/,/
+Stat3,28,FALSE,/,/,/
+Creb3l2,29,FALSE,/,/,/
+Hif1a,30,TRUE,outflow and septation defects,mouse,24855117
+Mef2a,31,TRUE,ventricular septal defects / aortic override?,mouse,31659164
+Nr1d1,32,FALSE,/,/,/
+Mafk,33,FALSE,/,/,/
+Pou2f1,34,FALSE,/,/,/
+Tbx20,35,TRUE,fetal cardiomyocyte proliferation,mouse,29903739
+Klf12,36,FALSE,/,/,/
+Tead4,37,FALSE,/,/,/
+Klf10,38,FALSE,/,/,/
+Mxi1,39,FALSE,/,/,/
+Nr4a2,40,FALSE,/,/,/
+Wt1,41,TRUE,Sinus horn defects,Mouse & ES,20185795
+Etv4,42,FALSE,/,/,/
+Rbpj,43,TRUE,"ventricular septal defect, bicuspid aortic valve and double outlet right ventricle",Mouse,30596653
+Nfia,44,FALSE,/,/,/
+Fos,45,FALSE,/,/,/
+Tead3,46,TRUE,cardiac differentiation,ES,31541452
+Prdm1,47,TRUE,outflow tract morphogenesis,Mouse,24821700
+Nfe2l2,48,FALSE,/,/,/
+Mitf,49,FALSE,/,/,/
+Tfap2c,50,FALSE,/,/,/
+Mga,51,FALSE,/,/,/
+Gata6,52,TRUE,cardiac conduction system/ sinus FALSEde/Bicuspid aortic valve (BAV)/ cardiac outflow tract defects,Mouse&ES,33443158/29567669/33054971
+Zeb1,53,TRUE,embryonic vasculogenesis,ES,23765923
+Etv1,54,FALSE,/,/,/
+Nfib,55,FALSE,/,/,/
+Mef2c,56,TRUE, heart failure (HF)/heart looping defects/ cardiomyogenesis,Mouse&ES,31911274/ 22199256
+Klf16,57,FALSE,/,/,/
+Klf5,58,FALSE,/,/,/
+Pbx1,59,TRUE,CHD/the failure of cardiac OFT septation,Mouse,18849531/18723445
+Egr1,60,FALSE,/,/,/
+Nfkb1,61,FALSE,/,/,/
+Hey1,62,TRUE,embryonic vascular development,Mouse,15107403
+Tcf7l1,63,TRUE,cardiomyocyte differentiation,ES,30326964
+Tfec,64,FALSE,/,/,/
+Bhlhe41,65,FALSE,/,/,/
+Nfyb,66,FALSE,/,/,/
+Nr4a1,67,FALSE,/,/,/
+Runx1,68,FALSE,/,/,/
+Sox6,69,FALSE,cardiac myocyte development,/,14530442
+Erf,70,FALSE,/,/,/
+Zfx,71,FALSE,/,/,/
+Znf148,72,FALSE,/,/,/
+Hey2,73,TRUE,left ventricular maturation/cardiac lineage formation/ cardiac progenitor pool,Mouse & ES,17332425/29636455/30355727
+Thrb,74,FALSE,/,/,/
+Jund,75.5,FALSE,/,/,/
+Klf9,75.5,FALSE,/,/,/
+Fosb,77,FALSE,/,/,/
+Osr1,78,FALSE,/,/,/
+Smad3,79,FALSE,/,/,/
+Pitx2,80,TRUE,left atrial identity/ventricular asymmetric remodeling programs/Formation and Identity of the Pulmonary Myocardium,Mouse ,18292603/17823370
+Arnt,81,FALSE,/,/,/
+Esrrg,82,FALSE,/,/,/
+Fosl2,83,FALSE,/,/,/
+Klf2,84,FALSE,/,/,/
+Klf3,85,FALSE,/,/,/
+Smad4,86,TRUE,"thin compact layer, disorganized trabeculae, and ventricular septum defects (VSD)/",Mouse ,17869237
+Nr2f1,87,FALSE,/,/,/
+Rarb,88,FALSE,/,/,/
+Klf1,89,FALSE,/,/,/
+Dux,90,FALSE,/,/,/
+Klf6,91,FALSE,/,/,/
+Srebf1,92,FALSE,/,/,/
+Hic2,93,FALSE,/,/,/
+Nfyc,94,FALSE,/,/,/
+Gli2,95,TRUE,mES differentiation,Mouse & ES,22199256
+Zbtb18,96,FALSE,/,/,/
+Tfcp2,97,FALSE,/,/,/
+Foxj2,98,FALSE,/,/,/
+Tfap4,99,FALSE,/,/,/
+Zbtb7b,100,FALSE,/,/,/
+Tef,101,FALSE,/,/,/
+Nr3c1,102,FALSE,/,/,/
+Tcf12,103,FALSE,/,/,/
+Foxp1,104,FALSE,/,/,/
+Etv3,105,FALSE,/,/,/
+Zkscan5,106,FALSE,/,/,/
+Osr2,107,FALSE,/,/,/
+Zbtb14,108,FALSE,/,/,/
+Atf2,109,FALSE,/,/,/
+Nfix,110,FALSE,/,/,/
+Sp8,111,FALSE,/,/,/
+Sp9,112,FALSE,/,/,/
+Nr2c2,113,FALSE,/,/,/
+Mlxip,114,FALSE,/,/,/
+Smad5,115,FALSE,/,/,/
+Smad2,116,FALSE,/,/,/
+Max,117,FALSE,/,/,/
+Spib,118,FALSE,/,/,/
+Crem,119,FALSE,/,/,/
+Tfap2a,120,TRUE,Idiopathic-dilated cardiomyopathy,Mouse,14752511
+Sp2,121,FALSE,/,/,/
+Tbx15,122,FALSE,/,/,/
+Sp3,123,FALSE,/,/,/
+Batf,124,FALSE,/,/,/
+Stat5a,125,FALSE,/,/,/
+E2f3,126,FALSE,hypoplastic ventricular walls and/or severe atrial and ventricular septal defects,Mouse,
+Dmrta2,127,FALSE,/,/,/
+Bach1,128.5,FALSE,/,/,/
+Esr2,128.5,FALSE,/,/,/
+Zbtb7a,130,FALSE,/,/,/
+Meis1,131,TRUE,regulate cardiomyocyte maturation and proliferation,Mouse,32499640/31623926
+Elk4,132,FALSE,/,/,/
+Tcf4,133,FALSE,/,/,/
+Sox12,134,FALSE,/,/,/
+Creb3l4,135,FALSE,/,/,/
+Stat1,136,FALSE,/,/,/
+Ebf2,137,FALSE,/,/,/
+Ikzf1,138,FALSE,/,/,/
+Foxa2,139,FALSE,/,/,/
+Nfatc3,140,TRUE," thin ventricles, pericardial effusion, and a reduction in ventricular myocyte proliferation",Mouse,12750314/31903137
+Rorb,141,FALSE,/,/,/
+Egr3,142,FALSE,/,/,/
+Foxp2,143.5,FALSE,/,/,/
+Nr5a2,143.5,FALSE,/,/,/
+Isl1,145,TRUE,"completely missing the outflow tract, right ventricle, and much of the atria",Mouse,14667410/27105846/26193633
+Etv5,146,FALSE,/,/,/
+Mnt,147,FALSE,/,/,/
+Atoh1,148,FALSE,/,/,/
+Ets1,149,TRUE,membraFALSEus ventricular septal defect/membraFALSEus ventricular septal defect,Mouse,20356956/31722692
+Klf15,150,FALSE,/,/,/
+Zbtb6,151,FALSE,/,/,/
+Gata5,152,TRUE,Bicuspid aortic valve (BAV)/ hypoplastic hearts,Mouse,21633169
+Sox18,153,FALSE,/,/,/
+Elf2,154,FALSE,/,/,/
+Mecom,155,FALSE,/,/,/
+Srebf2,156,FALSE,/,/,/
+Elk1,157,FALSE,/,/,/
+Tfap2b,158,FALSE,/,/,/
+Zbtb26,159,FALSE,/,/,/
+Hand1,160,TRUE,congenital cardiac defects,Mouse,31286141/31366290
+Rfx3,161,FALSE,/,/,/
+Ctcfl,162.5,FALSE,/,/,/
+Prdm4,162.5,FALSE,/,/,/
+Esrra,164,TRUE,arrest in cardiac maturation,Mouse & ES,32212902
+Znf449,165,FALSE,/,/,/
+Ahr,166,TRUE,cardiomyocyte differentiation/left ventricular hypertrophy and cardiac fibrosis,Mouse & ES,24058054/31016362
+Zbtb7c,167,FALSE,/,/,/
+Pou3f2,168,FALSE,/,/,/
+Klf14,169,FALSE,/,/,/
+Irf6,170,FALSE,/,/,/
+Lhx9,171.5,FALSE,/,/,/
+Rora,171.5,FALSE,/,/,/
+Zic4,173,FALSE,/,/,/
+Tbx4,174,TRUE,defeats in atrioventricular valve morphology/,Mouse,16380715
+Elf3,175,FALSE,/,/,/
+Fosl1,176,FALSE,/,/,/
+Nr6a1,177,FALSE,/,/,/
+Atf3,178,FALSE,/,/,/
+Znf75d,179,FALSE,/,/,/
+Nfya,180,FALSE,/,/,/
+Etv2,181,TRUE,"endothelial,endocardial,myocardial differentiation",Mouse,21989916
+Tcf3,182,FALSE,/,/,/
+Sox4,183,TRUE,defective transformation of the endocardial/defeats in cardiac outflow tract formation,Mouse & ES,9815146/24310815/8614465
+Ptf1a,184,FALSE,/,/,/
+Cebpg,185,FALSE,/,/,/
+PkFALSEx2,186,FALSE,/,/,/
+Sp1,187.5,FALSE,/,/,/
+Myf5,187.5,TRUE,cardiomyopathy,Mouse,8593696
+Creb1,189,FALSE,/,/,/
+Foxl1,190,FALSE,/,/,/
+Nfic,191,FALSE,/,/,/
+Pou3f4,192,FALSE,/,/,/
+Nfat5,193,FALSE,/,/,/
+Gata4,194,TRUE,VSD/pta/BAV,Mouse & ES,29523871/16847256/28541271/15902305
+Glis2,195,FALSE,/,/,/
+Nfe2,196,FALSE,/,/,/
+Sox17,197,TRUE,inadequate coronary artery formation/suppression of cardiac myogenesis,Mouse & ES,33151797/17360443
+Yy2,198,FALSE,/,/,/
+Prox1,199,TRUE,VSD/chamber dilation,Mouse,19091769/24938781
+Znf740,200,FALSE,/,/,/
+Creb3l1,201,FALSE,/,/,/
+Tgif2,202,FALSE,/,/,/
+Znf281,203,FALSE,/,/,/
+Ddit3,204,FALSE,/,/,/
+Nr2c1,205,FALSE,/,/,/
+Pparg,206,FALSE,/,/,/
+Tal1,207,TRUE,outflow tract steFALSEsis/defects in the formation of the primitive heart tube,/,17722983
+Nrf1,208,FALSE,/,/,/
+Creb5,209,FALSE,/,/,/
+Elf1,210,FALSE,/,/,/
+Tbx1,211,TRUE,VSD/differentiation of heart progenitors/tetralogy of Fallot,Mouse & ES,19745164/19855134
+Irf4,212,FALSE,/,/,/
+Foxo3,213,TRUE,18218983,Mouse,18218983
+Zic2,214,FALSE,/,/,/
+Elf5,215,FALSE,/,/,/
+Foxo1,216,TRUE,cardiomyocyte proliferation,Mouse,18218983
+Sox3,217,FALSE,/,/,/
+Rara,218,FALSE,/,/,/
+Hinfp,219,FALSE,/,/,/
+Dbp,220,FALSE,/,/,/
+Gli3,221,FALSE,/,/,/
+Rxra,222,FALSE,/,/,/
+Arntl,223,FALSE,/,/,/
+Tfe3,224,FALSE,/,/,/
+Ascl1,225,FALSE,/,/,/
+Bhlhe22,226,FALSE,/,/,/
+Onecut2,227,FALSE,/,/,/
+Ehf,228,FALSE,/,/,/
+Hlf,229,FALSE,/,/,/
+Stat6,230,FALSE,/,/,/
+Nkx3-1,231,FALSE,/,/,/
+Bhlhe40,232,FALSE,/,/,/
+Nfatc1,233,TRUE,heart valve development,Mouse,19661463/21597012
+Neurog2,234,FALSE,/,/,/
+Relb,235,FALSE,/,/,/
+Plag1,236,FALSE,/,/,/
+Bhlha15,237,FALSE,/,/,/
+Tcfl5,238,FALSE,/,/,/
+Pbx3,239,TRUE,OFT septation /semilunar valve formation/tetralogy of Fallot,Mouse,18723445
+Nr1h4,240,FALSE,/,/,/
+Hic1,241,FALSE,/,/,/
+Gabpa,242,FALSE,/,/,/
+Tfap2e,243,FALSE,/,/,/
+Pax5,244,FALSE,/,/,/
+Zic1,245,FALSE,/,/,/
+Gcm1,246,FALSE,/,/,/
+Six1,247,TRUE,cardiac outflow tract and aortic arch malformations. ,Mouse,21364285
+Hes1,248,FALSE,/,/,/
+Myb,249,FALSE,/,/,/
+PkFALSEx1,250,FALSE,/,/,/
+Arnt2,251,FALSE,/,/,/
+E2f2,252,FALSE,/,/,/
+Mybl2,253,FALSE,/,/,/
+Nkx6-1,254,FALSE,/,/,/
+Twist1,255,FALSE,/,/,/
+Nr5a1,256,FALSE,/,/,/
+FALSEbox,257,FALSE,/,/,/
+Pax1,258,FALSE,/,/,/
+Msantd3,259,FALSE,/,/,/
+Tbr1,260,FALSE,/,/,/
+Esr1,261,FALSE,/,/,/
+Sox10,262,FALSE,/,/,/
+Eomes,263,TRUE, allocation of both the definitive endoderm and cardiovascular progenitors/hESCs do FALSEt form cardiomyocytes (CMs),mouse&ES,21822279/29382828
+Jdp2,264,FALSE,/,/,/
+Prrx2,265,FALSE,/,/,/
+Atf1,266,FALSE,/,/,/
+En1,267,FALSE,/,/,/
+Gata1,268,FALSE,/,/,/
+Ets2,269,TRUE,abFALSErmal coronary development,Chicken Embryos&ES,22826236
+Stat5b,270,FALSE,/,/,/
+Vdr,271,FALSE,/,/,/
+Arid3b,272,TRUE,"FALSEtable shortening of the poles, absence of myocardial differentiation and altered patterning of the atrioventricular canal",Mouse,25336743
+Nhlh1,273,FALSE,/,/,/
+Tfeb,274,FALSE,/,/,/
+Twist2,275,FALSE,/,/,/
+Ebf3,276,FALSE,/,/,/
+Myc,277,TRUE,"defects in heart, pericardium ",Mouse,8287798
+Elf4,278,FALSE,/,/,/
+Nfatc2,279,FALSE,/,/,/
+Tfdp1,280,FALSE,/,/,/
+Nkx2-3,281,FALSE,/,/,/
+Runx2,282,FALSE,/,/,/
+Msx2,283,FALSE,/,/,/
+Sox5,284,FALSE,/,/,/
+Scrt1,285,FALSE,/,/,/
+Tbx6,286,FALSE,/,/,/
+Zscan4,287,FALSE,/,/,/
+Erg,288,FALSE,/,/,/
+Znf341,289,FALSE,/,/,/
+Nfe2l1,290,FALSE,/,/,/
+Neurod1,291,FALSE,/,/,/
+Ascl2,292,FALSE,/,/,/
+Foxd1,293,FALSE,/,/,/
+Barx1,294,FALSE,/,/,/
+Lhx2,295,FALSE,/,/,/
+Pou3f1,296,FALSE,/,/,/
+Nkx3-2,297,FALSE,/,/,/
+Arx,298,FALSE,/,/,/
+Nfil3,299,FALSE,/,/,/
+Esrrb,300,FALSE,/,/,/
+Usf2,301,FALSE,/,/,/
+Pax7,302,FALSE,/,/,/
+Msx1,303,TRUE,myocardial genes/valve progenitor markers/ hearts of experimental embryos,Mouse & ES,?18285513/24665126/17967198/33463545/33201861
+Tbx2,304,TRUE, valvuloseptal and conduction system development/development of the cardiac conduction system,,21498422/18285513
+Meis3,305,FALSE,/,/,/
+Dlx2,306,FALSE,/,/,/
+Ebf1,307,FALSE,/,/,/
+Foxd3,308,FALSE,/,/,/
+Junb,309,FALSE,/,/,/
+Mef2d,310,FALSE,/,/,/
+Znf682,311,FALSE,/,/,/
+Isx,312,FALSE,/,/,/
+Sohlh2,313,FALSE,/,/,/
+Meox2,314,FALSE,/,/,/
+Snai2,315,FALSE,/,/,/
+Atf7,316,FALSE,/,/,/
+Tcf7,317,FALSE,/,/,/
+Spz1,318,FALSE,/,/,/
+Spic,319,FALSE,/,/,/
+Usf1,320,FALSE,/,/,/
+Myog,321,FALSE,/,/,/
+Foxn3,322,FALSE,/,/,/
+Sox15,323,FALSE,/,/,/
+Vezf1,324,FALSE,/,/,/
+Dmrt3,325,FALSE,/,/,/
+Znf317,326,FALSE,/,/,/
+Lin54,327,FALSE,/,/,/
+Bcl6,328,FALSE,/,/,/
+Sox2,329,FALSE,/,/,/
+Pou5f1,330,FALSE,/,/,/
+Ppard,331,FALSE,/,/,/
+Batf3,332,FALSE,/,/,/
+Tgif2ly,333,FALSE,/,/,/
+Tgif2lx,334,FALSE,/,/,/
+Mafa,335,FALSE,/,/,/
+Nr2e3,336,FALSE,/,/,/
+Rel,337,FALSE,/,/,/
+Plagl2,338,FALSE,/,/,/
+Gata3,339,FALSE,/,/,/
+Olig2,340,FALSE,/,/,/
+Hes2,341,FALSE,/,/,/
+Rfx1,342,FALSE,/,/,/
+Foxa3,343,FALSE,/,/,/
+Nkx2-8,344,FALSE,/,/,/
+Ctcf,345,FALSE,/,/,/
+Stat2,346,FALSE,/,/,/
+Gcm2,347,FALSE,/,/,/
+Irf9,348,FALSE,/,/,/
+Egr2,349,FALSE,/,/,/
+Klf17,350,FALSE,/,/,/
+Foxf1,351,FALSE,/,/,/
+Spi1,352,FALSE,/,/,/
+Creb3,353,FALSE,/,/,/
+Rfx7,354,FALSE,/,/,/
+Tcf7l2,355.5,FALSE,/,/,/
+Tead2,355.5,FALSE,/,/,/
+Hand2,357,TRUE,right ventricle hypoplasia / embryonic lethality/misalignment of the outflow tract and aortic arch arteries,Mouse/ES,27783597/ 31341279/19008477
+Mlxipl,358,FALSE,/,/,/
+Zic3,359.5,FALSE,/,/,/
+Sox8,359.5,TRUE,cardiac neural crest,Chick,32369742
+Hnf4a,361,FALSE,/,/,/
+Nkx2-2,362.5,FALSE,/,/,/
+Sox13,362.5,FALSE,/,/,/
+Maf,364,FALSE,/,/,/
+Lmx1b,365,FALSE,/,/,/
+Pou2f2,366,FALSE,/,/,/
+Pou4f2,367,FALSE,/,/,/
+Nkx6-2,368,FALSE,/,/,/
+Lbx1,369,TRUE,Myocardial Hyperplasia/Heart Looping,Mouse,12522123
+Vsx2,370,FALSE,/,/,/
+Hes6,371,FALSE,/,/,/
+Mnx1,372,FALSE,/,/,/
+Zbtb12,373,FALSE,/,/,/
+Cebpb,374,FALSE,/,/,/
+Irf8,375,FALSE,/,/,/
+Alx3,376,FALSE,/,/,/
+Nr2f6,377,FALSE,/,/,/
+Elk3,378,FALSE,/,/,/
+Dlx1,379,FALSE,/,/,/
+Prdm15,380,FALSE,/,/,/
+Msc,381,FALSE,/,/,/
+Msgn1,382,FALSE,/,/,/
+Lhx8,383,FALSE,/,/,/
+Six3,384,FALSE,/,/,/
+Rfx2,385,FALSE,/,/,/
+Foxj3,386,FALSE,/,/,/
+Rarg,387,FALSE,/,/,/
+E2f8,388,FALSE,/,/,/
+Foxk2,389,FALSE,/,/,/
+Stat4,390,FALSE,/,/,/
+Lhx6,391,FALSE,/,/,/
+Tgif1,392,FALSE,/,/,/
+Mlx,393,FALSE,/,/,/
+Sox9,394,TRUE,maintaining connective tissue homeostasis in mature heart,Mouse,20056916
+Lef1,395,FALSE,/,/,/
+Mycn,396,TRUE,cardiomyocyte proliferation,Mouse,30642836
+Nr2f2,397,TRUE,abFALSErmal development of atrioventricular septa,Mouse,24702954
+Grhl1,398,FALSE,/,/,/
+Pou1f1,399,FALSE,/,/,/
+Emx2,400,FALSE,/,/,/
+Hmx1,401,FALSE,/,/,/
+Shox2,402,TRUE,hypoplasia of the sinus veFALSEsus myocardium,zebrafish,?             17372176
+Six2,403,FALSE,/,/,/
+Foxc1,404,TRUE,"cardiac function including actin cytoskeleton, cell adhesion, tight and gap junctions, and calcium signaling",Mouse,26824887
+Pax6,405.5,FALSE,/,/,/
+Zbtb32,405.5,FALSE,/,/,/
+Zkscan1,407,FALSE,/,/,/
+Znf24,408,FALSE,/,/,/
+Tbx21,409,FALSE,/,/,/
+Sox21,410,FALSE,/,/,/
+Hmx3,411,FALSE,/,/,/
+Snai1,412,FALSE,/,/,/
+Foxg1,413,FALSE,/,/,/
+Cebpa,414,FALSE,/,/,/
+E2f7,415,FALSE,/,/,/
+Zscan29,416,FALSE,/,/,/
+Gsc,417,FALSE,/,/,/
+Mef2b,418,FALSE,/,/,/
+Pou4f1,419,FALSE,/,/,/
+Cebpd,420,TRUE,epicardial development,Mouse,23160954
+Mafb,421,FALSE,/,/,/
+Tcf21,422,FALSE,/,/,/
+Hmx2,423,FALSE,/,/,/
+Nr1h3,424,FALSE,/,/,/
+Gata2,425,TRUE,cardiomyocyte differentiation,ES,31402335
+Snai3,426,FALSE,/,/,/
+Gsx1,427,FALSE,/,/,/
+Foxc2,428,TRUE,defects in the axial skeleton and cardiovascular system,Mouse,11562355
+Bcl6b,429,FALSE,/,/,/
+Ppara,430,FALSE,/,/,/
+Gmeb2,431,FALSE,/,/,/
+Lmx1a,432,FALSE,/,/,/
+Atoh7,433,FALSE,/,/,/
+Cdx2,434,TRUE,aberrant cardiac morphogenesis,Mouse,30936115
+Rbpjl,435,FALSE,/,/,/
+Pou6f2,436,FALSE,/,/,/
+En2,437.5,FALSE,/,/,/
+Maff,437.5,FALSE,/,/,/
+Insm1,439,FALSE,/,/,/
+Hes5,440,FALSE,/,/,/
+Foxa1,441,FALSE,/,/,/
+Znf460,442,FALSE,/,/,/
+Myod1,443,FALSE,/,/,/
+Egr4,444,FALSE,/,/,/
+Hsf2,445,FALSE,/,/,/
+Figla,446,FALSE,/,/,/
+Olig1,447.5,FALSE,/,/,/
+Zfp57,447.5,TRUE,multiple cardiac defects/ASD/VSD/thin myocardium/cardiomyocyte proliferation was reduced,Mouse,25848000
+Hoxd3,449,FALSE,/,/,/
+Rela,450,FALSE,/,/,/
+Grhl2,451,FALSE,/,/,/
+Hsf1,452,TRUE,cardiomyocyte apoptosis,Mouse,24786827
+Foxp3,453,FALSE,/,/,/
+Meox1,454,FALSE,/,/,/
+Pou4f3,455,FALSE,/,/,/
+Foxo4,456,FALSE,/,/,/
+Foxi1,457,FALSE,/,/,/
+Mybl1,458,FALSE,/,/,/
+Dmbx1,459,FALSE,/,/,/
+Npas2,460,FALSE,/,/,/
+Hsf4,461,FALSE,/,/,/
+Hoxa11,462,FALSE,/,/,/
+Alx1,463,FALSE,/,/,/
+Dlx3,464,FALSE,/,/,/
+Atf4,465,FALSE,/,/,/
+Foxh1,466,TRUE,defects in RV and OFT morphogenesis,ES,15363409
+Nr2e1,467,FALSE,/,/,/
+Hoxc11,468,FALSE,/,/,/
+Hoxd10,469,FALSE,/,/,/
+Hoxc10,470,FALSE,/,/,/
+Hoxb9,471,FALSE,/,/,/
+Nfkb2,472,FALSE,/,/,/
+Hoxc9,473,FALSE,/,/,/
+Hesx1,474,FALSE,/,/,/
+Dlx4,475,FALSE,/,/,/
+Runx3,476,FALSE,/,/,/
+Hoxd4,477,FALSE,/,/,/
+Foxb1,478,FALSE,/,/,/
+Srf,479,TRUE,defects both in the cardiac compact layer and in the trabeculations/Embryonic Lethality,Mouse,15169892
+Dux4,480,FALSE,/,/,/
+Alx4,481,FALSE,/,/,/
+Isl2,482,FALSE,/,/,/
+Foxd2,483,FALSE,/,/,/
+Sox14,484,FALSE,/,/,/
+Scrt2,485,FALSE,/,/,/
+Hmbox1,486,FALSE,/,/,/
+Hoxd12,487.5,FALSE,/,/,/
+Myf6,487.5,FALSE,/,/,/
+Nrl,489,FALSE,/,/,/
+Hoxa10,490,FALSE,/,/,/
+Msx3,491,FALSE,/,/,/
+Hoxb4,492,FALSE,/,/,/
+Cux2,493,FALSE,/,/,/
+Pou2f3,494,FALSE,/,/,/
+Irf2,495,FALSE,/,/,/
+Gfi1b,496,FALSE,/,/,/
+Ferd3l,497,FALSE,/,/,/
+Hoxd11,498,FALSE,/,/,/
+Otx1,499,FALSE,/,/,/
+Sry,500,FALSE,/,/,/
+Hoxc12,501,FALSE,/,/,/
+Znf423,502,FALSE,/,/,/
+Hoxb13,503,TRUE,extend the postnatal window of cardiomyocyte proliferation and reactivate the cardiomyocyte cell cycle in the adult heart,Mouse,32499640
+Pou6f1,504,FALSE,/,/,/
+Pou3f3,505,FALSE,/,/,/
+Bsx,506,FALSE,/,/,/
+Tbp,507,FALSE,/,/,/
+Foxl2,508,FALSE,/,/,/
+Rfx4,509,FALSE,/,/,/
+Tp73,510,FALSE,/,/,/
+Pdx1,511,FALSE,/,/,/
+Gbx2,512,TRUE,aortic arch and cardiac outflow tract development,Mouse,25197075
+Gsx2,513,FALSE,/,/,/
+Duxa,514,FALSE,/,/,/
+Cdx4,515,FALSE,/,/,/
+Foxq1,516,FALSE,/,/,/
+Hoxb3,517,FALSE,/,/,/
+Hoxc4,518,FALSE,/,/,/
+Onecut1,519,FALSE,/,/,/
+Rhoxf1,520,FALSE,/,/,/
+Irf1,521,FALSE,/,/,/
+Fev,522,FALSE,/,/,/
+Zbtb33,523.5,FALSE,/,/,/
+Nfatc4,523.5,TRUE,"thin ventricles, pericardial effusion, and a reduction in ventricular myocyte proliferation",Mouse,12750314
+Otx2,525,FALSE,/,/,/
+Pou5f1b,526,FALSE,/,/,/
+Hoxa2,527,FALSE,/,/,/
+Ewsr1-fli1,528,FALSE,/,/,/
+Dlx6,529,FALSE,/,/,/
+Cebpe,530,FALSE,/,/,/
+Hoxa13,531,FALSE,/,/,/
+Hoxa4,532,FALSE,/,/,/
+Clock,533,FALSE,/,/,/
+Arid3a,534,FALSE,/,/,/
+Onecut3,535,FALSE,/,/,/
+Neurog1,536,FALSE,/,/,/
+Mtf1,537,FALSE,/,/,/
+Drgx,538,FALSE,/,/,/
+Evx2,539,FALSE,/,/,/
+Hoxb7,540,FALSE,/,/,/
+Pax3,541,TRUE,congenital heart defect/cardiac malformations/cardiac failure/cardiac differentiation/,Mouse & ES,9463628/24677751/9053326
+Gsc2,542,FALSE,/,/,/
+Vax2,543,FALSE,/,/,/
+Vax1,544,FALSE,/,/,/
+Rest,545,FALSE,/,/,/
+Tlx2,546,FALSE,/,/,/
+Xbp1,547,FALSE,/,/,/
+Hoxc13,548,FALSE,/,/,/
+Esx1,549,FALSE,/,/,/
+Rxrb,550,FALSE,/,/,/
+Gfi1,551,FALSE,/,/,/
+Nr1i3,552,FALSE,/,/,/
+Argfx,553.5,FALSE,/,/,/
+Sox1,553.5,FALSE,/,/,/
+Olig3,555,FALSE,/,/,/
+Evx1,556,FALSE,/,/,/
+Hoxb6,557,FALSE,/,/,/
+Hoxa5,558,FALSE,/,/,/
+Zfp42,559,FALSE,/,/,/
+Phox2a,560,FALSE,/,/,/
+Fli1,561,FALSE,/,/,/
+Znf684,562,FALSE,/,/,/
+Hoxd9,563,FALSE,/,/,/
+Mafg,564,FALSE,/,/,/
+Crx,565,FALSE,/,/,/
+Znf652,566,FALSE,/,/,/
+Irf5,567,FALSE,/,/,/
+Zic5,568,FALSE,/,/,/
+Foxe1,569,FALSE,/,/,/
+Pitx3,570,FALSE,/,/,/
+Sox11,571,TRUE,Defect of cardiac outflow tract,Mouse ,24310815
+Dmrtc2,572.5,FALSE,/,/,/
+mix-a,572.5,FALSE,/,/,/
+Neurod2,574,FALSE,/,/,/
+Znf135,575,FALSE,/,/,/
+Pitx1,576,FALSE,/,/,/
+Rorc,577,FALSE,/,/,/
+Lhx5,578,FALSE,/,/,/
+Dmrt1,579,FALSE,/,/,/
+Znf384,580,FALSE,/,/,/
+Hoxa1,581,TRUE,cardiovascular malformations,Mouse ,21940751/16155570
+Barhl2,582,FALSE,/,/,/
+Hoxd13,583,FALSE,/,/,/
+Lhx3,584,FALSE,/,/,/
+E2f1,585,TRUE,/,/,/
+Nhlh2,586,FALSE,/,/,/
+Foxf2,587,FALSE,/,/,/
+Irf3,588,FALSE,/,/,/
+Pax9,589,TRUE,CVM ,Mouse ,31444215
+Uncx,590,FALSE,/,/,/
+Pax4,591,FALSE,/,/,/
+Lbx2,592,FALSE,/,/,/
+Ventx,593,FALSE,/,/,/
+Vsx1,594,FALSE,/,/,/
+Emx1,595,FALSE,/,/,/
+Thap11,596,TRUE,cardiac myocytes/altered proliferation/dilated cardiomyopathy(DCM),Mouse & ES,29117561/26876175
+Irf7,597,FALSE,/,/,/
+Znf528,598,FALSE,/,/,/
+Gbx1,599,FALSE,/,/,/
+Rax,600,FALSE,/,/,/
+Nr1i2,601,FALSE,/,/,/
+Cdx1,602,FALSE,/,/,/
+FALSEto,603,FALSE,/,/,/
+Bhlhe23,604,FALSE,/,/,/
+E2f4,605,TRUE,proliferation in foetal erythropoiesis,Mouse,19955219
+Hoxa7,606,FALSE,/,/,/
+Rfx5,607,FALSE,/,/,/
+Nkx6-3,608,FALSE,/,/,/
+Gmeb1,609,FALSE,/,/,/
+Atf6,610,FALSE,/,/,/
+Cux1,611,FALSE,/,/,/
+Prrx1,612,FALSE,/,/,/
+Rax2,613,FALSE,/,/,/
+Shox,614,FALSE,/,/,/
+Dprx,615,FALSE,/,/,/
+Cenpb,616,FALSE,/,/,/
+Hes7,617,FALSE,/,/,/
+Glis3,618.5,FALSE,/,/,/
+Pbx2,618.5,TRUE,Tetralogy of Fallot(TOF)/VSD,Mouse,18723445
+Dlx5,620,FALSE,Cardiac Outflow Tract,Mouse,32325975
+Mixl1,621,FALSE,/,/,/
+Znf274,622,FALSE,/,/,/
+Ovol1,623,FALSE,/,/,/
+Ovol2,624,FALSE,/,/,/
+Hnf1b,625,FALSE,/,/,/
+Znf382,626,FALSE,/,/,/
+Znf140,627,FALSE,/,/,/
+Hoxb8,628,FALSE,/,/,/
+Hnf1a,629,FALSE,/,/,/
+Lhx1,630,FALSE,/,/,/
+Hoxd8,631,FALSE,/,/,/
+Phox2b,632.5,FALSE,/,/,/
+Prop1,632.5,FALSE,/,/,/
+Hoxb2,634,FALSE,/,/,/
+Barhl1,635,FALSE,/,/,/
+Rxrg,636,FALSE,/,/,/
+Hoxa9,637,FALSE,/,/,/
+Lhx4,638,FALSE,/,/,/
+Znf136,639,FALSE,/,/,/
+Spdef,640,FALSE,/,/,/
+Hoxb5,641,FALSE,/,/,/
+Hoxc8,642,FALSE,/,/,/
+Tp53,643,FALSE,/,/,/
+Znf143,644,FALSE,/,/,/
+Hoxa6,645,FALSE,/,/,/
+Nr1h2,646,FALSE,/,/,/
+Rhox11,647,FALSE,/,/,/

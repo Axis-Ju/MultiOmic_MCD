@@ -1,0 +1,31 @@
+omic,pathway,P
+Transcriptome,cell cycle,42.96805706
+Transcriptome,mRNA processing,36.33199604
+Transcriptome,RNA splicing,33.79558398
+Transcriptome,DNA repair,32.4336152
+Transcriptome,mitotic nuclear division,31.68700773
+Transcriptome,cell division,30.99518977
+Transcriptome,cellular response to DNA damage stimulus,30.29422388
+Transcriptome,rRNA processing,29.15391777
+Transcriptome,"regulation of transcription, DNA-templated",25.53030355
+Transcriptome,DNA replication,24.07519952
+Proteome,"transcription, DNA-templated",119.0617925
+Proteome,mRNA processing,90.47494086
+Proteome,"regulation of transcription, DNA-templated",85.22527591
+Proteome,RNA splicing,82.51908511
+Proteome,cell cycle,46.40281206
+Proteome,rRNA processing,37.11351966
+Proteome,covalent chromatin modification,36.67077129
+Proteome,"mRNA splicing, via spliceosome",31.77106702
+Proteome,cell division,31.04117381
+Proteome,negative regulation of transcription from RNA polymerase II promoter,29.24165181
+Phosphoproteome,"transcription, DNA-templated",46.49370075
+Phosphoproteome,"regulation of transcription, DNA-templated",35.98124442
+Phosphoproteome,covalent chromatin modification,22.9335273
+Phosphoproteome,negative regulation of transcription from RNA polymerase II promoter,22.65763272
+Phosphoproteome,RNA splicing,17.85790205
+Phosphoproteome,mRNA processing,16.05092475
+Phosphoproteome,"negative regulation of transcription, DNA-templated",13.65843414
+Phosphoproteome,cell-cell adhesion,12.5263652
+Phosphoproteome,cell cycle,12.09425279
+Phosphoproteome,positive regulation of transcription from RNA polymerase II promoter,8.305098651

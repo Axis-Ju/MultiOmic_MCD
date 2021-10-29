@@ -1,0 +1,894 @@
+---
+title: "Figure 4 Phosphoproteomic Analysis and Machine Learning to Identify Key Kinases Involved in Mouse Cardiac Development"
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(Mfuzz)) # Bioconductor v2.52.0
+suppressPackageStartupMessages(library(RColorBrewer)) # CRAN v1.1-2
+suppressPackageStartupMessages(library(pheatmap)) # CRAN v1.0.12
+suppressPackageStartupMessages(library(ggplot2)) # CRAN v3.3.5
+suppressPackageStartupMessages(library(ggseqlogo)) # CRAN v0.1
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0
+suppressPackageStartupMessages(library(reshape2)) # CRAN v1.4.4
+
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure 4A
+Mfuzz Clustering
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+temp <- data.frame(paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),mmu_heart_phos_raw[,11:12],mmu_heart_phos[,33:42])
+temp <- temp[!duplicated(temp[,1]),]
+# Filtering of PhosphoProteome Data
+temp <- temp[temp$Multiplicity == "___1",] 
+temp <- temp[temp$Localization.prob >= 0.75,] 
+rownames(temp) <- temp[,1]
+temp <- temp[,-c(1:3)]
+# Define Dynamic PSites
+fc <- apply(temp,1,max)/apply(temp,1,min)
+temp <- cbind(fc,temp);rm(fc)
+temp <- temp[temp$fc >= 2,] 
+temp <- temp[,-1]
+# Mfuzz CLustering
+temp <- ExpressionSet(assayData = as.matrix(temp))
+temp <- standardise(temp)
+m <- mestimate(temp)
+set.seed(777)
+temp_mfuzz <- mfuzz(temp,c = 3,m = m)
+# Dataset
+tc <- data.frame(paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),mmu_heart_phos_raw[,11:12],
+                 mmu_heart_phos[,33:42])
+tc <- tc[!duplicated(tc[,1]),]
+tc <- tc[tc$Multiplicity == "___1",] 
+tc <- tc[tc$Localization.prob >= 0.75,]
+rownames(tc) <- tc[,1]
+tc <- tc[,-c(1:3)]
+fc <- apply(tc,1,max)/apply(tc,1,min)
+tc <- cbind(fc,tc);rm(fc)
+tc <- tc[tc$fc >= 2,]
+tc <- tc[,-1]
+tc <- as.matrix(tc)
+# Define mFuzz Function 'standardise'
+axis_standardise <- function(data) {
+  means <- apply(data, 1, mean)
+  stds <- apply(data, 1, sd)
+  result_1 <- sweep(data, 1, means, FUN="-")
+  result_2 <- sweep(result_1, 1, stds, FUN="/")
+  return(result_2)
+}
+tc <- axis_standardise(tc)
+# Merge
+mfuzz_result <- data.frame(Cluster = temp_mfuzz$cluster,tc)
+mfuzz_result$Cluster <- gsub(pattern = 2,replacement = 4,x = mfuzz_result$Cluster)
+mfuzz_result$Cluster <- gsub(pattern = 1,replacement = 2,x = mfuzz_result$Cluster)
+mfuzz_result$Cluster <- gsub(pattern = 4,replacement = 1,x = mfuzz_result$Cluster)
+mfuzz_result <- mfuzz_result[order(mfuzz_result[,1]),]
+names(mfuzz_result)[2:11] <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+nrow(mfuzz_result[mfuzz_result$Cluster == 1,])  # Cluster1: N = 4037
+nrow(mfuzz_result[mfuzz_result$Cluster == 2,])  # Cluster2: N = 2416
+nrow(mfuzz_result[mfuzz_result$Cluster == 3,])  # Cluster3: N = 847
+# save(mfuzz_result,file = "../SourceData/mfuzz_result.Rds")
+```
+
+Plotting Heatmap
+```{r echo=TRUE}
+load("../SourceData/mfuzz_result.Rds")
+temp <- mfuzz_result
+annotation_row <- data.frame(Class = factor(rep(c("Cluster1","Cluster2","Cluster3"),
+                                                c(4037,2416,847))))
+rownames(annotation_row) <- rownames(temp)
+annotation_col <- data.frame(Stage = factor(rep(c("Prenatal","Posnatal"), c(5,5))))
+rownames(annotation_col) <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+ann_colors = list(Stage = c(Prenatal = color1[7], Posnatal = color2[7]),
+                  Class = c(Cluster1 = "#E69F00",Cluster2 = "#009E73",Cluster3 = "#0072B2"))
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","navy")))(50)
+pheatmap(temp[,2:11],color=colorpalette,cluster_cols = FALSE,cluster_rows = FALSE,
+         annotation_col = annotation_col,show_rownames = FALSE,cellwidth = 25, cellheight = 0.07,
+         annotation_row = annotation_row,annotation_colors = ann_colors)
+```
+
+Figure 4B
+Plotting All
+```{r echo=TRUE}
+load("../SourceData/mfuzz_result.Rds")
+# Cluster1
+all <- mfuzz_result
+temp <- all[all$Cluster == 1,]
+temp <- as.matrix(temp[,-1])
+temp <- melt(temp)
+colorpalette <- colorRampPalette("slategrey")(nrow(temp));
+ggplot() +
+  geom_line(data = temp,aes(x = Var2,y = value,group = Var1,color = Var1),size = 1) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 1")
+# Cluster2
+temp <- all[all$Cluster == 2,]
+temp <- as.matrix(temp[,-1])
+temp <- melt(temp)
+colorpalette <- colorRampPalette("slategrey")(nrow(temp));
+ggplot() +
+  geom_line(data = temp,aes(x = Var2,y = value,group = Var1,color = Var1),size = 1) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 2")
+# Cluster3
+temp <- all[all$Cluster == 3,]
+temp <- as.matrix(temp[,-1])
+temp <- melt(temp)
+colorpalette <- colorRampPalette("slategrey")(nrow(temp));
+ggplot() +
+  geom_line(data = temp,aes(x = Var2,y = value,group = Var1,color = Var1),size = 1) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 3")
+```
+
+Kinases were predicted by iGPS 1.0 (Cluster 1.csv, Cluster 2.csv, Cluser 3.csv, Undiffed.csv)
+Statistics of Kinase Enrichment
+```{r echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+Cluster1 <- read.csv("./iGPS 1.0 Output/Cluster 1.csv",header = TRUE)
+Cluster2 <- read.csv("./iGPS 1.0 Output/Cluster 2.csv",header = TRUE)
+Cluster3 <- read.csv("./iGPS 1.0 Output/Cluster 3.csv",header = TRUE)
+Undiffed <- read.csv("./iGPS 1.0 Output/Undiffed.csv",header = TRUE) # Undifferentiated Psites
+# Cluster 1
+k_ls <- Cluster1[!duplicated(Cluster1$Kinase.Name),7:8]
+other_c <- rbind(Cluster2,Cluster3,Undiffed)
+res.Cluster1 <- as.data.frame(array(dim = c(0,8)))
+names(res.Cluster1) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+for (i in 1:nrow(k_ls)) {
+  k.id <- k_ls[i,1]
+  k <- k_ls[i,2]
+  a <- nrow(Cluster1[Cluster1$Kinase.Name == k,]) # k in cluster 1
+  b <- nrow(other_c[other_c$Kinase.Name == k,]) # k in other clusters
+  c <- nrow(Cluster1)-a # other in cluster 1
+  d <- nrow(other_c)-b # other in other clusters
+  chi <- matrix(c(a,c,b,d),nrow = 2,ncol = 2) # chi-sq p value
+  chi <- chisq.test(chi)
+  chisq <- chi$statistic
+  p <- chi$p.value
+  temp_res <- data.frame(k.id,k,a,b,c,d,chisq,p)
+  names(temp_res) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+  res.Cluster1 <- rbind(res.Cluster1,temp_res)
+}
+res.Cluster1 <- res.Cluster1[order(res.Cluster1$P),]
+p.adj <- p.adjust(res.Cluster1$P,method = "BH")
+res.Cluster1 <- cbind(res.Cluster1,P.Adj = p.adj)
+# write.csv(res.Cluster1,"res.Cluster1.csv")
+# Cluster 2
+k_ls <- Cluster2[!duplicated(Cluster2$Kinase.Name),7:8]
+other_c <- rbind(Cluster1,Cluster3,Undiffed)
+res.Cluster2 <- as.data.frame(array(dim = c(0,8)))
+names(res.Cluster2) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+for (i in 1:nrow(k_ls)) {
+  k.id <- k_ls[i,1]
+  k <- k_ls[i,2]
+  a <- nrow(Cluster2[Cluster2$Kinase.Name == k,]) # k in cluster 1
+  b <- nrow(other_c[other_c$Kinase.Name == k,]) # k in other clusters
+  c <- nrow(Cluster2)-a # other in cluster 1
+  d <- nrow(other_c)-b # other in other clusters
+  chi <- matrix(c(a,c,b,d),nrow = 2,ncol = 2) # chi-sq p value
+  chi <- chisq.test(chi)
+  chisq <- chi$statistic
+  p <- chi$p.value
+  temp_res <- data.frame(k.id,k,a,b,c,d,chisq,p)
+  names(temp_res) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+  res.Cluster2 <- rbind(res.Cluster2,temp_res)
+}
+res.Cluster2 <- res.Cluster2[order(res.Cluster2$P),]
+p.adj <- p.adjust(res.Cluster2$P,method = "BH")
+res.Cluster2 <- cbind(res.Cluster2,P.Adj = p.adj)
+# write.csv(res.Cluster2,"res.Cluster2.csv")
+# Cluster 3
+k_ls <- Cluster3[!duplicated(Cluster3$Kinase.Name),7:8]
+other_c <- rbind(Cluster1,Cluster2,Undiffed)
+res.Cluster3 <- as.data.frame(array(dim = c(0,8)))
+names(res.Cluster3) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+for (i in 1:nrow(k_ls)) {
+  k.id <- k_ls[i,1]
+  k <- k_ls[i,2]
+  a <- nrow(Cluster3[Cluster3$Kinase.Name == k,]) # k in cluster 1
+  b <- nrow(other_c[other_c$Kinase.Name == k,]) # k in other clusters
+  c <- nrow(Cluster3)-a # other in cluster 1
+  d <- nrow(other_c)-b # other in other clusters
+  chi <- matrix(c(a,c,b,d),nrow = 2,ncol = 2) # chi-sq p value
+  chi <- chisq.test(chi)
+  chisq <- chi$statistic
+  p <- chi$p.value
+  temp_res <- data.frame(k.id,k,a,b,c,d,chisq,p)
+  names(temp_res) <- c("Kinase.ID","Kinase.Name","A","B","C","D","Chi.Sq","P")
+  res.Cluster3 <- rbind(res.Cluster3,temp_res)
+};rm(i,k.id,k,a,b,c,d,chi,chisq,p,temp_res,other_c,k_ls)
+res.Cluster3 <- res.Cluster3[order(res.Cluster3$P),]
+p.adj <- p.adjust(res.Cluster3$P,method = "BH")
+res.Cluster3 <- cbind(res.Cluster3,P.Adj = p.adj);rm(p.adj)
+res.Cluster3 <- res.Cluster3[res.Cluster3$A > res.Cluster3$B,]
+# write.csv(res.Cluster3,"res.Cluster3.csv")
+```
+
+Kinases were selected and saved in 'Selected Kinases.csv'
+Further Screening of Kinases Based on Correlation
+```{r}
+load("../SourceData/omic_data.Rds")
+kinase <- read.csv("./Selected Kinases.csv")
+# mRNA Expression of Kinases
+trs <- data.frame(mmu_heart_trs[,1])
+for (i in seq(2,31,3)) {
+  trs <- cbind(trs,rowMeans(mmu_heart_trs[,i:(i+2)]))  
+};rm(i)
+trs <- data.frame(mmu_heart_trs,trs[,2:11])
+temp_ensemble <- substr(trs[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL","ENTREZID"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+trs <- cbind(geneinfo,trs[,-1]);rm(temp_ensemble,geneinfo)
+trs <- trs[!duplicated(trs[,2]),]
+kinase_trs <- merge(kinase,trs,all.x = TRUE);
+kinase_trs <- kinase_trs[,-c(4:5)]
+# Protein Abundance of Kinases
+pro <- mmu_heart_pro
+pro <- pro[!duplicated(pro[,1]),]
+temp_symbol <- pro[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+pro <- cbind(geneinfo,pro[,-1]);rm(temp_symbol,geneinfo)
+kinase_pro <- merge(kinase,pro,all.x = TRUE);rm(pro)
+kinase_pro <- kinase_pro[,-c(4:5)]
+# PSites Abundance of Kinases
+phos <- data.frame(
+  SYMBOL = as.vector(mmu_heart_phos[,1]),
+  PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+  mmu_heart_phos[,3:42],stringsAsFactors = FALSE
+)
+phos <- phos[!phos[,1] == "",]
+tmp <- phos[1,]
+for (i in 1:nrow(phos)) {
+  a <- data.frame(strsplit(phos[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(phos[i,2:42])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,phos[i,2:42])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(phos)
+  tmp <- rbind(tmp,temp)
+}
+phos <- tmp[!duplicated(tmp[,2]),]
+kinase_phos <- merge(kinase,phos)
+# Trend of Kinases
+clust_trend <- rbind(colMeans(as.matrix(all[all$Cluster == "1",2:11]),na.rm = TRUE), 
+                     colMeans(as.matrix(all[all$Cluster == "2",2:11]),na.rm = TRUE),
+                     colMeans(as.matrix(all[all$Cluster == "3",2:11]),na.rm = TRUE))
+# Calculate Correlation
+result <- data.frame(GeneName = 1,Kinase = 1,Cluster = 1, # Correlation
+                     Trs = 1,Pro = 1,Phos = 1)
+for (i in 1:nrow(kinase)) {
+  clust <- as.numeric(kinase[i,3])
+  clust <- as.numeric(clust_trend[clust,])
+  trs <- kinase_trs[kinase_trs$SYMBOL == kinase[i,2],34:43]
+  trs <- trs[!duplicated(trs[,1]),]
+  trs <- as.numeric(trs)
+  cor_trs <- cor(x = clust,y = trs,method = "pearson")
+  pro <- kinase_pro[kinase_pro$SYMBOL == kinase[i,2],34:43]
+  pro <- pro[!duplicated(pro[,1]),]
+  pro <- as.numeric(pro)
+  cor_pro <- cor(x = clust,y = pro,method = "pearson")
+  phos <- kinase_phos[kinase_phos$SYMBOL == kinase[i,2],35:44]
+  cor_phos <- c()
+  for (j in 1:nrow(phos)) {
+    pathwayshos_cor <- cor(x = clust,y = as.numeric(phos[j,]),method = "pearson")
+    cor_phos <- c(cor_phos,pathwayshos_cor)
+  };rm(j,pathwayshos_cor)
+  cor_phos <- max(cor_phos)
+  temp <- data.frame(GeneName = kinase[i,2],Kinase = kinase[i,1],Cluster = kinase[i,3],
+                     Trs = cor_trs,Pro = cor_pro,Phos = cor_phos)
+  result <- rbind(result,temp)
+}
+result <- result[-1,]
+result1 <- result[(result$Pro >= 0.7) | (result$Phos >= 0.7),]
+result2 <- result[(is.na(result$Pro)) & (is.na(result$Phos)) & (result$Trs >= 0.7),]
+result <- rbind(result1,result2)
+result <- result[!is.na(result$GeneName),]
+```
+
+Plotting Known
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+# Cluster1
+source <- data.frame(PSite = rownames(all),all)
+anno <- data.frame(PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+                   Windows = paste(substr(mmu_heart_phos_raw[,9],1,15),
+                                   substr(mmu_heart_phos_raw[,9],16,31),sep = "p"))
+source <- merge(source,anno)
+Cluster1 <- Cluster1[Cluster1$Kinase.Name %in% result[result$Cluster == 1,2],]
+Cluster1 <- data.frame(Windows = Cluster1[!duplicated(Cluster1$X..ID),1])
+Cluster1 <- merge(Cluster1,source)
+Cluster1 <- Cluster1[!duplicated(Cluster1$Windows),];rm(source)
+num <- nrow(Cluster1)
+Cluster1 <- as.matrix(Cluster1[,-(1:3)])
+Cluster1 <- melt(Cluster1)
+Cluster1[,1] <- as.character(Cluster1[,1])
+colorpalette <- colorRampPalette(brewer.pal(9,"Set1"))(num);rm(num)
+ggplot(Cluster1,aes(x = Var2,y = value,group = Var1,color = Var1)) +
+  geom_line(size = 1,linetype = 2) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 1")
+# Cluster2
+source <- data.frame(PSite = rownames(all),all)
+anno <- data.frame(PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+                   Windows = paste(substr(mmu_heart_phos_raw[,9],1,15),
+                                   substr(mmu_heart_phos_raw[,9],16,31),sep = "p"))
+source <- merge(source,anno);rm(anno)
+Cluster2 <- Cluster2[Cluster2$Kinase.Name %in% result[result$Cluster == 2,2],]
+Cluster2 <- data.frame(Windows = Cluster2[!duplicated(Cluster2$X..ID),1])
+Cluster2 <- merge(Cluster2,source)
+Cluster2 <- Cluster2[!duplicated(Cluster2$Windows),];rm(source)
+num <- nrow(Cluster2)
+Cluster2 <- as.matrix(Cluster2[,-(1:3)])
+Cluster2 <- melt(Cluster2)
+Cluster2[,1] <- as.character(Cluster2[,1])
+colorpalette <- colorRampPalette(brewer.pal(9,"Set1"))(num);rm(num)
+ggplot(Cluster2,aes(x = Var2,y = value,group = Var1,color = Var1)) +
+  geom_line(size = 1,linetype = 2) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 2")
+# Cluster3
+source <- data.frame(PSite = rownames(all),all)
+anno <- data.frame(PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+                   Windows = paste(substr(mmu_heart_phos_raw[,9],1,15),
+                                   substr(mmu_heart_phos_raw[,9],16,31),sep = "p"))
+source <- merge(source,anno);rm(anno)
+Cluster3 <- Cluster3[Cluster3$Kinase.Name %in% result[result$Cluster == 3,2],]
+Cluster3 <- data.frame(Windows = Cluster3[!duplicated(Cluster3$X..ID),1])
+Cluster3 <- merge(Cluster3,source)
+Cluster3 <- Cluster3[!duplicated(Cluster3$Windows),];rm(source)
+num <- nrow(Cluster3)
+Cluster3 <- as.matrix(Cluster3[,-(1:3)])
+Cluster3 <- melt(Cluster3)
+Cluster3[,1] <- as.character(Cluster3[,1])
+colorpalette <- colorRampPalette(brewer.pal(9,"Set1"))(num);rm(num)
+ggplot(Cluster3,aes(x = Var2,y = value,group = Var1,color = Var1)) +
+  geom_line(size = 1,linetype = 2) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 25),
+        axis.title.y = element_text(size = 25),
+        axis.text.x = element_text(size = 25),
+        axis.text.y = element_text(size = 25),
+        plot.title = element_text(size = 30,hjust = 0.5),
+        legend.position = "None") +
+  scale_color_manual(values = colorpalette) +
+  labs(x = "Time of Development",y = "Standardised\nPhosphosite Abundance",title = "Cluster 3")
+```
+
+Figure 4C
+ORA of Phosphosites were performed in DAVID and saved in 'Enriched Pathways of All PSites.csv'
+```{r echo=TRUE}
+pathways <- read.csv("./Enriched Pathways of All PSites.csv")
+x <- nchar(as.character(pathways[,2]))
+pathways[,2] <- substr(pathways[,2],10,x);rm(x)
+# Cluster1
+temp_1 <- pathways[pathways$Clust == "1",]
+ggplot(temp_1,aes(x = reorder(Pathway,Log_FDR),y = Log_FDR)) +
+  geom_bar(stat="identity",width = 0.7,fill = "#E69F00") +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14))+
+  labs(y = "-Log(FDR)",x = "Pathways")+
+  guides(fill=guide_legend(title=NULL))
+# Cluster2
+temp_2 <- pathways[pathways$Clust == "2",]
+ggplot(temp_2,aes(x = reorder(Pathway,Log_FDR),y = Log_FDR)) +
+  geom_bar(stat="identity",width = 0.7,fill = "#009E73") +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14))+
+  labs(y = "-Log(FDR)",x = "Pathways")+
+  guides(fill=guide_legend(title=NULL))
+# Cluster3
+temp_3 <- pathways[pathways$Clust == "3",]
+ggplot(temp_3,aes(x = reorder(Pathway,Log_FDR),y = Log_FDR)) +
+  geom_bar(stat="identity",width = 0.7,fill = "#0072B2") +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14))+
+  labs(y = "-Log(FDR)",x = "Pathways")+
+  guides(fill=guide_legend(title=NULL))
+```
+
+Figure 4E
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+load("../SourceData/mfuzz_result.Rds")
+# Prepare PhosphoProteome Data
+phos <- data.frame(
+  SYMBOL = as.vector(mmu_heart_phos[,1]),
+  PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+  mmu_heart_phos[,33:42],stringsAsFactors = FALSE
+)
+phos <- phos[!phos[,1] == "",]
+tmp <- phos[1,]# split merged gene names by ";"
+for (i in 1:nrow(phos)) {
+  a <- data.frame(strsplit(phos[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(phos[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,phos[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(phos)
+  tmp <- rbind(tmp,temp)
+}
+phos <- tmp[!duplicated(tmp[,2]),];rm(tmp,i,a,b,temp,j)
+temp_symbol <- phos[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+phos <- merge(phos,geneinfo);rm(temp_symbol,geneinfo)
+phos <- cbind(phos[,1],phos[,14],phos[,2:12])
+names(phos)[1] <- "SYMBOL"
+names(phos)[4:13] <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+# Trend of Kinases
+all <- mfuzz_result
+clust_trend <- rbind(colMeans(as.matrix(all[all$Cluster == "1",2:11]),na.rm = TRUE), 
+                     colMeans(as.matrix(all[all$Cluster == "2",2:11]),na.rm = TRUE),
+                     colMeans(as.matrix(all[all$Cluster == "3",2:11]),na.rm = TRUE))
+# Preperations for Plotting
+k_ls <- data.frame(SYMBOL = c("Mapk1","Mapk6","Mapk7","Mapk8","Mapk12","Mapk14","Nlk","Srpk1","Srpk2","Clk2","Clk3","Clk4",
+                              "Cdk10","Cdk11b","Ckdk19","Akt1","Akt2","Akt3"))
+k_ls$SYMBOL <- factor(k_ls$SYMBOL,ordered = TRUE,levels = k_ls$SYMBOL)
+tp <- merge(k_ls,phos,all.x = TRUE)
+tp <- tp[!is.na(tp$E10.5),]
+rownames(tp) <- tp$PSite
+tp <- tp[,-c(1:3)]
+k_cluster <- data.frame(Class = factor(rep(c("Cluster1","Cluster2"),c(25,5))))
+# Screening PSites of Kinases Based on Correlation
+Cor <- c()
+for (i in 1:nrow(tp)) {
+  if (k_cluster[i,1] == "Cluster1") {
+    temp_cor <- cor(x = as.numeric(tp[i,1:10]),y = clust_trend[1,],method = "pearson")
+  } else {
+    temp_cor <- cor(x = as.numeric(tp[i,1:10]),y = clust_trend[2,],method = "pearson")
+  }
+ Cor <- c(Cor,temp_cor)
+}
+tp <- cbind(Cor,tp)
+rownames(tp) <- paste(rownames(tp),paste("(Cor = ",paste(round(Cor,2),")",sep = ""),sep = ""),sep = " ")
+tp <- tp[tp$Cor >= 0.7,]
+tp <- tp[,-c(1:2)]
+
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","navy")))(50)
+annotation_row <- data.frame(Class = factor(rep(c("Cluster1","Cluster2"),c(18,5))))
+rownames(annotation_row) <- rownames(tp)
+annotation_col <- data.frame(Stage = factor(rep(c("Prenatal","Posnatal"), c(5,5))))
+rownames(annotation_col) <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+ann_colors = list(Stage = c(Prenatal = color1[7], Posnatal = color2[7]),
+                  Class = c(Cluster1 = "#E69F00",Cluster2 = "#009E73"))
+pheatmap(tp,color = colorpalette,cluster_cols = FALSE,cluster_rows = FALSE,scale = "row",
+         annotation_col = annotation_col,cellwidth = 9,cellheight = 9,fontsize = 8,
+         annotation_row = annotation_row,annotation_colors = ann_colors)
+```
+
+Figure 4F
+Ensembl Prediction Score of Each Kinases were Derived from KSP-PUEL (https://github.com/PYangLab/KSP-PUEL) (MAPKs.txt, CLKs.txt, AKTs.txt, Others.txt)
+```{r echo=TRUE}
+mapks <- read.table("./KSP-PUEL Output/MAPKs.txt",sep = "\t",header = TRUE)
+mapks <- cbind(mapks[,c(1,2,18)],Kinase = rep("MAPKs",nrow(mapks)),Cluster = rep("Cluster 1",nrow(mapks)))
+clks <- read.table("./KSP-PUEL Output/CLKs.txt",sep = "\t",header = TRUE)
+clks <- cbind(clks[,c(1,2,18)],Kinase = rep("CLKs",nrow(clks)),Cluster = rep("Cluster 1",nrow(mapks)))
+cdks <- read.table("./KSP-PUEL Output/CDKs.txt",sep = "\t",header = TRUE)
+cdks <- cbind(cdks[,c(1,2,18)],Kinase = rep("CDKs",nrow(cdks)),Cluster = rep("Cluster 1",nrow(mapks)))
+akts <- read.table("./KSP-PUEL Output/AKTs.txt",sep = "\t",header = TRUE)
+akts <- cbind(akts[,c(1,2,18)],Kinase = rep("AKTs",nrow(akts)),Cluster = rep("Cluster 2",nrow(mapks)))
+others <- read.table("./KSP-PUEL Output/Others.txt",sep = "\t",header = TRUE)
+others <- cbind(others[,c(1,2,18)],Kinase = rep("Others",nrow(others)),Cluster = rep("Others",nrow(mapks)))
+
+tp <- rbind(mapks,clks,cdks,akts,others)
+tp$Kinase <- factor(tp$Kinase,ordered = TRUE,levels = c("MAPKs","CLKs","CDKs","AKTs","Others"))
+ggplot(data = tp,aes(x = Kinase,y = Prediction.Score,fill = Cluster)) +
+  geom_violin(width = 1.5) +
+  geom_boxplot(width = 0.05,color = "#666666",alpha = 0.2) +
+  geom_point(data = tp[(tp$Known == "+") & (!tp$Cluster == "Others"),],shape = 4,size = 3,stroke = 3) +
+  theme_classic() +
+  theme(panel.background = element_rect(fill = NA,colour = "Black",size = 1,linetype = 1),
+        axis.title.x = element_text(size = 20),
+        axis.title.y = element_text(size = 20),
+        axis.text.x = element_text(size = 20),
+        axis.text.y = element_text(size = 20),
+        plot.title = element_text(size = 20,hjust = 0.5),
+        legend.position = "NA") +
+  scale_fill_manual(values = c("#E69F00","#009E73","#CCCCCC")) +
+  labs(x = "Kinase Group",y = "Ensemble Prediction Score")
+```
+
+Figure 4G
+Trends of Predicted Substrates
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+Cluster1 <- read.csv("./iGPS 1.0 Output/Cluster 1.csv",header = TRUE)
+Cluster2 <- read.csv("./iGPS 1.0 Output/Cluster 2.csv",header = TRUE)
+Cluster3 <- read.csv("./iGPS 1.0 Output/Cluster 3.csv",header = TRUE)
+Undiffed <- read.csv("./iGPS 1.0 Output/Undiffed.csv",header = TRUE)
+# Prepare PhosphoProteome Data
+tc <- data.frame(toupper(mmu_heart_phos_raw[,3]),mmu_heart_phos_raw[,8],mmu_heart_phos_raw[,43:52],stringsAsFactors = FALSE)
+tc <- tc[!tc[,1] == "",]
+tmp <- tc[1,]# split merged gene names by ";"
+for (i in 1:nrow(tc)) {
+  a <- data.frame(strsplit(tc[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(tc[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,tc[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(tc)
+  tmp <- rbind(tmp,temp)
+}
+tc <- tmp[-1,]
+tc <- cbind(paste(paste(tc[,1],tc[,2],sep = ";"),"",sep = ";"),tc)
+tc <- tc[!duplicated(tc[,1]),]
+rownames(tc) <- tc[,1]
+tc <- tc[,-c(1:3)]
+tc <- as.matrix(tc)
+axis_standardise <- function(data) {
+  means <- apply(data, 1, mean)
+  stds <- apply(data, 1, sd)
+  result_1 <- sweep(data, 1, means, FUN="-")
+  result_2 <- sweep(result_1, 1, stds, FUN="/")
+  return(result_2)
+}
+tc <- axis_standardise(tc)
+tc <- cbind(Name = rownames(tc),tc)
+# MAPKs
+mapks <- c("ERK2","p38a","ERK3","JNK1","ERK5","p38g","NLK")
+mapks <- Cluster1[Cluster1$Kinase.Name %in% mapks,c(2,6)]
+mapks <- data.frame(Name = paste(toupper(mapks$Gene.Name),paste(mapks$Position,";",sep = ""),sep = ";"))
+mapks <- merge(mapks,tc)
+mapks <- mapks[!duplicated(mapks$Name),]
+
+tp <- mapks
+tp[,2:11] <- apply(tp[,2:11],2,as.numeric)
+tp <- data.frame(
+  Time = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),
+  X = seq(1,10,1),
+  Mean = colMeans(tp[,2:11]),
+  Max = apply(tp[,2:11],2,max),
+  Min = apply(tp[,2:11],2,min))
+tp$Time <- factor(tp$Time,ordered = TRUE,levels = tp$Time)
+ggplot(tp,aes(x = X,y = Mean,ymin = Min,ymax = Max)) + 
+  geom_ribbon(alpha = 0.5,fill = "#E69F00") + 
+  geom_line(color = "#E69F00",size = 3) + 
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.ticks.length = unit(0.3,"cm"),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14)) +
+  labs(x = "Time of Development",y = "Standardised Phosphosite Abundance")
+# CLKs
+clks <- c("CLK2","CLK3","CLK4","SRPK1","SRPK2")
+clks <- Cluster1[Cluster1$Kinase.Name %in% clks,c(2,6)]
+clks <- data.frame(Name = paste(toupper(clks$Gene.Name),paste(clks$Position,";",sep = ""),sep = ";"))
+clks <- merge(clks,tc)
+clks <- clks[!duplicated(clks$Name),]
+
+tp<-clks
+tp[,2:11] <- apply(tp[,2:11],2,as.numeric)
+tp <- data.frame(Time = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),X = seq(1,10,1),
+                 Mean = colMeans(tp[,2:11]),Max = apply(tp[,2:11],2,max),Min = apply(tp[,2:11],2,min))
+tp$Time <- factor(tp$Time,ordered = TRUE,levels = tp$Time)
+ggplot(tp,aes(x = X,y = Mean,ymin = Min,ymax = Max)) + 
+  geom_ribbon(alpha = 0.5,fill = "#E69F00") + 
+  geom_line(color = "#E69F00",size = 3) + 
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.ticks.length = unit(0.3,"cm"),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14)) +
+  labs(x = "Time of Development",y = "Standardised Phosphosite Abundance")
+# CDKs
+cdks <- c("CDK10","CDK11","PITSLRE")
+cdks <- Cluster1[Cluster1$Kinase.Name %in% cdks,c(2,6)]
+cdks <- data.frame(Name = paste(toupper(cdks$Gene.Name),paste(cdks$Position,";",sep = ""),sep = ";"))
+cdks <- merge(cdks,tc)
+cdks <- cdks[!duplicated(cdks$Name),]
+
+tp<-cdks
+tp[,2:11] <- apply(tp[,2:11],2,as.numeric)
+tp <- data.frame(Time = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),X = seq(1,10,1),
+                 Mean = colMeans(tp[,2:11]),Max = apply(tp[,2:11],2,max),Min = apply(tp[,2:11],2,min))
+tp$Time <- factor(tp$Time,ordered = TRUE,levels = tp$Time)
+ggplot(tp,aes(x = X,y = Mean,ymin = Min,ymax = Max)) + 
+  geom_ribbon(alpha = 0.5,fill = "#E69F00") + 
+  geom_line(color = "#E69F00",size = 3) + 
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.ticks.length = unit(0.3,"cm"),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14)) +
+  labs(x = "Time of Development",y = "Standardised Phosphosite Abundance")
+# AKTs
+akts <- c("AKT1","AKT2","AKT3")
+akts <- Cluster2[Cluster2$Kinase.Name %in% akts,c(2,6)]
+akts <- data.frame(Name = paste(toupper(akts$Gene.Name),paste(akts$Position,";",sep = ""),sep = ";"))
+akts <- merge(akts,tc)
+akts <- akts[!duplicated(akts$Name),]
+
+tp <- akts
+tp[,2:11] <- apply(tp[,2:11],2,as.numeric)
+tp <- data.frame(Time = c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W"),X = seq(1,10,1),
+                 Mean = colMeans(tp[,2:11]),Max = apply(tp[,2:11],2,max),Min = apply(tp[,2:11],2,min))
+tp$Time <- factor(tp$Time,ordered = TRUE,levels = tp$Time)
+ggplot(tp,aes(x = X,y = Mean,ymin = Min,ymax = Max)) + 
+  geom_ribbon(alpha = 0.5,fill = "#009E73") + 
+  geom_line(color = "#009E73",size = 3) + 
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.ticks.length = unit(0.3,"cm"),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14)) +
+  labs(x = "Time of Development",y = "Standardised Phosphosite Abundance")
+```
+
+Motifs of Predicted Substrates
+```{r}
+# MAPKs
+mapks <- read.table("./KSP-PUEL Output/MAPKs.txt",sep = "\t",header = TRUE)
+tmp <- mapks
+known.pred.score <- mean(tmp[tmp$Known == "+",18])
+Seq_UnKnown <- tmp[(!tmp$Known == "+") & tmp$Prediction.Score >= known.pred.score,3];rm(known.pred.score)
+Seq_UnKnown <- substr(Seq_UnKnown,10,22)
+require(ggseqlogo)    # CRAN v0.1 # CRAN v0.1 # CRAN v0.1 # CRAN v0.1
+ggseqlogo(Seq_UnKnown,method = "bits",col_scheme = "taylor")
+# CLKs
+clks <- read.table("./KSP-PUEL Output/CLKs.txt",sep = "\t",header = TRUE)
+tmp <- clks
+known.pred.score <- mean(tmp[tmp$Known == "+",18])
+Seq_UnKnown <- tmp[(!tmp$Known == "+") & tmp$Prediction.Score >= known.pred.score,3];rm(known.pred.score)
+Seq_UnKnown <- substr(Seq_UnKnown,10,22)
+require(ggseqlogo)    # CRAN v0.1 # CRAN v0.1 # CRAN v0.1 # CRAN v0.1
+ggseqlogo(Seq_UnKnown,method = "bits",col_scheme = "taylor")
+# CDKs
+cdks <- read.table("./KSP-PUEL Output/CDKs.txt",sep = "\t",header = TRUE)
+tmp <- cdks
+known.pred.score <- mean(tmp[tmp$Known == "+",18])
+Seq_UnKnown <- tmp[(!tmp$Known == "+") & tmp$Prediction.Score >= known.pred.score,3];rm(known.pred.score)
+Seq_UnKnown <- substr(Seq_UnKnown,10,22)
+require(ggseqlogo)    # CRAN v0.1 # CRAN v0.1 # CRAN v0.1 # CRAN v0.1
+ggseqlogo(Seq_UnKnown,method = "bits",col_scheme = "taylor")
+# AKTs
+akts <- read.table("./KSP-PUEL Output/AKTs.txt",sep = "\t",header = TRUE)
+tmp <- akts
+known.pred.score <- mean(tmp[tmp$Known == "+",18])
+Seq_UnKnown <- tmp[(!tmp$Known == "+") & tmp$Prediction.Score >= known.pred.score,3];rm(known.pred.score)
+Seq_UnKnown <- substr(Seq_UnKnown,10,22)
+require(ggseqlogo)    # CRAN v0.1 # CRAN v0.1 # CRAN v0.1 # CRAN v0.1
+ggseqlogo(Seq_UnKnown,method = "bits",col_scheme = "taylor")
+```
+
+Figure 4H
+```{r echo=TRUE}
+mapks <- read.table("./Enriched Pathways of MAPK Substrates.txt",sep = "\t",header = TRUE)
+mapks <- mapks[order(mapks$Category,decreasing = TRUE),]
+mapks <- mapks[mapks$Category %in% c("GOTERM_BP_DIRECT"),]
+mapks <- mapks[mapks$FDR < 0.01,c(1,2,13)]
+mapks <- cbind(mapks,q = -log10(mapks$FDR))
+mapks <- mapks[1:10,] # Top10 GO BP
+
+for (i in 1:nrow(mapks)) {
+  if (mapks[i,1] == "KEGG_PATHWAY") {
+    mapks[i,2] <- substr(mapks[i,2],10,nchar(as.character(mapks[i,2])))
+  } else {
+    mapks[i,2] <- substr(mapks[i,2],12,nchar(as.character(mapks[i,2])))
+  }
+};rm(i)
+mapks$Term <- factor(mapks$Term,ordered = TRUE,levels = rev(mapks$Term))
+
+ggplot(mapks,aes(x = Term,y = q)) +
+  geom_bar(stat = "identity",width = 0.7,fill = "#E69F00") +
+  coord_flip() +
+  theme(axis.title.x = element_text(size = 24),
+        axis.title.y = element_text(size = 24),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.ticks = element_line(colour = "black",size = 2),
+        axis.line = element_line(colour = "black",size = 2),
+        axis.text = element_text(color = "black",size = 24),
+        legend.text = element_text(size = 14)) +
+  labs(y = "-Log(q value)") +
+  guides(fill = guide_legend(title = NULL))
+```
+
+Figure 4I
+```{r echo=TRUE}
+load("../SourceData/omic_data.Rds")
+# PhosphoProteome Data
+tc <- data.frame(toupper(mmu_heart_phos_raw[,3]),mmu_heart_phos_raw[,8],mmu_heart_phos_raw[,43:52],stringsAsFactors = FALSE)
+tc <- tc[!tc[,1] == "",]
+tmp <- tc[1,]# split merged gene names by ";"
+for (i in 1:nrow(tc)) {
+  a <- data.frame(strsplit(tc[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(tc[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,tc[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(tc)
+  tmp <- rbind(tmp,temp)
+}
+tc <- tmp[-1,]
+tc <- cbind(paste(paste(tc[,1],tc[,2],sep = ";"),"",sep = ";"),tc)
+tc <- tc[!duplicated(tc[,1]),]
+rownames(tc) <- tc[,1]
+tc <- tc[,-c(1:3)]
+tc <- as.matrix(tc)
+axis_standardise <- function(data) {
+  means <- apply(data, 1, mean)
+  stds <- apply(data, 1, sd)
+  result_1 <- sweep(data, 1, means, FUN="-")
+  result_2 <- sweep(result_1, 1, stds, FUN="/")
+  return(result_2)
+}
+tc <- axis_standardise(tc)
+tc <- cbind(Name = rownames(tc),tc)
+# Annotations
+all.sub <- read.csv("./MAPK Substrate Annotation/MAPKs Substrates (All).csv")
+all.cofactor <- read.csv("./MAPK Substrate Annotation/GO0003712.csv")
+all.tf <- read.table("./MAPK Substrate Annotation/Mus_musculus_TF.txt",sep = "\t",header = TRUE)
+all.exp <- read.table("./MAPK Substrate Annotation/MAPKs.txt",sep = "\t",header = TRUE)
+mapks_sub <- cbind(all.sub,Cofatcor = all.sub$SYMBOL %in% all.cofactor$Gene.product,
+                   TF = all.sub$SYMBOL %in% all.tf$Symbol)
+mapks_sub$ToMerge <- toupper(mapks_sub$SYMBOL)
+
+anno <- all.exp
+ToMerge <- c()
+for (i in 1:nrow(anno)) {
+  ToMerge <- c(ToMerge,unlist(strsplit(anno[i,1],split = ";"))[1])
+}
+anno$ToMerge <- ToMerge
+
+temp_anno <- merge(mapks_sub,anno)
+temp_anno <- temp_anno[(temp_anno$Known == "+") | (temp_anno$Prediction.Score > 0.403008949433289),]
+temp_anno <- temp_anno[,4:7]
+for (i in 1:nrow(temp_anno)) {
+  ifelse(temp_anno[i,1] & temp_anno[i,2],temp_anno[i,2] <- FALSE,NA)
+}
+names(temp_anno)[3] <- "Name"
+temp_anno <- merge(temp_anno,tc)
+
+t4p <- temp_anno[,5:14]
+t4p <- apply(t4p,2,as.numeric)
+rownames(t4p) <- temp_anno$Name
+t4p <- t(t4p)
+# Plotting
+annotation_col <- data.frame(TF = temp_anno$TF,
+                             Cofactor = temp_anno$Cofatcor,
+                             Known = temp_anno$Known)
+rownames(annotation_col) <- temp_anno$Name
+annotation_col$Known <- ifelse(annotation_col$Known == "+",annotation_col$Known <- "Known",
+                               annotation_col$Known <- "Predicted")
+annotation_col$TF <- gsub(pattern = "TRUE",replacement = "Yes",x = annotation_col$TF)
+annotation_col$TF <- gsub(pattern = "FALSE",replacement = "No",x = annotation_col$TF)
+annotation_col$Cofactor <- gsub(pattern = "TRUE",replacement = "Yes",x = annotation_col$Cofactor)
+annotation_col$Cofactor <- gsub(pattern = "FALSE",replacement = "No",x = annotation_col$Cofactor)
+annotation_row <- data.frame(Stage = factor(rep(c("Prenatal","Posnatal"), c(5,5))))
+rownames(annotation_row) <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+color1 <- brewer.pal(9,"YlOrRd")
+color2 <- brewer.pal(9,"YlGnBu")
+ann_colors = list(TF = c(Yes = brewer.pal(12,"Paired")[2],
+                         No = brewer.pal(12,"Paired")[1]),
+                  Cofactor = c(Yes = brewer.pal(12,"Paired")[4],
+                               No = brewer.pal(12,"Paired")[3]),
+                  Known = c(Known = brewer.pal(12,"Paired")[6],
+                            Predicted = brewer.pal(12,"Paired")[5]),
+                  Stage = c(Prenatal = color1[7], Posnatal = color2[7]))
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","navy")))(50)
+pheatmap(
+  t4p,
+  color = colorpalette,
+  cluster_cols = FALSE,
+  cluster_rows = FALSE,
+  scale = "column",
+  cellwidth = 10,
+  cellheight = 10,
+  fontsize = 9,
+  show_colnames = TRUE,
+  annotation_col = annotation_col,
+  annotation_row = annotation_row,
+  annotation_colors = ann_colors)
+```

@@ -1,0 +1,878 @@
+---
+title: "Figure 3 Enriched key pathways of three omics during heart development and maturation"
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(limma)) # Bioconductor v3.48.3
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0 
+suppressPackageStartupMessages(library(networkD3)) # CRAN v0.4
+
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure 3
+Define Transcriptome DEG
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+load("../SourceData/omic_data.Rds")
+tmp <- mmu_heart_trs
+temp_ensemble <- substr(tmp[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+mmu_heart_trs <- data.frame(geneinfo,mmu_heart_trs[,2:31]);rm(tmp,temp_ensemble,geneinfo)
+# Transcriptome Stage 1
+count <- mmu_heart_trs[,c(1,12:20,3:11)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,21:26,3:11)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,27:32,3:11)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+# write.csv(reslist[,1],"trs_stage1.csv")
+
+# Transcriptome Stage 2
+count <- mmu_heart_trs[,c(1,3:11,12:20)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,21:26,12:20)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,27:32,12:20)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+# write.csv(reslist[,1],"trs_stage2.csv")
+
+# Transcriptome Stage 3
+count <- mmu_heart_trs[,c(1,3:11,21:26)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,12:20,21:26)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,27:32,21:26)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+# write.csv(reslist[,1],"trs_stage3.csv")
+
+# Transcriptome Stage 4
+count <- mmu_heart_trs[,c(1,3:11,27:32)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,12:20,27:32)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_trs[,c(1,21:26,27:32)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+# write.csv(reslist[,1],"trs_stage4.csv")
+```
+
+Define Proteome DEG
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+# Proteome Stage 1
+count <- mmu_heart_pro[,c(1,11:19,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,20:25,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,26:31,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+temp_id <- reslist[,1]
+geneinfo <- select(org.Mm.eg.db,keys=temp_id,columns=c("ENSEMBL","ENTREZID"),keytype="SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+geneinfo <- na.omit(geneinfo)
+# write.csv(geneinfo,"pro_stage1.csv")
+
+# Proteome Stage 2
+count <- mmu_heart_pro[,c(1,2:10,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,20:25,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,26:31,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+temp_id <- reslist[,1]
+geneinfo <- select(org.Mm.eg.db,keys=temp_id,columns=c("ENSEMBL","ENTREZID"),keytype="SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+geneinfo <- na.omit(geneinfo)
+# write.csv(geneinfo,"pro_stage2.csv")
+
+# Proteome Stage 3
+count <- mmu_heart_pro[,c(1,2:10,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,11:19,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,26:31,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+temp_id <- reslist[,1]
+geneinfo <- select(org.Mm.eg.db,keys=temp_id,columns=c("ENSEMBL","ENTREZID"),keytype="SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+geneinfo <- na.omit(geneinfo)
+# write.csv(geneinfo,"pro_stage3.csv")
+
+# Proteome Stage 4
+count <- mmu_heart_pro[,c(1,2:10,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,11:19,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_pro[,c(1,20:25,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "ENSEMBL"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "ENSEMBL"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "ENSEMBL"
+
+reslist <- merge(nrDEG2,nrDEG1,by="ENSEMBL")
+reslist <- merge(reslist,nrDEG3,by="ENSEMBL")
+temp_id <- reslist[,1]
+geneinfo <- select(org.Mm.eg.db,keys=temp_id,columns=c("ENSEMBL","ENTREZID"),keytype="SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+geneinfo <- na.omit(geneinfo)
+# write.csv(geneinfo,"pro_stage4.csv")
+```
+
+Define PhosphoProteome DEG
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+mmu_heart_phos_diff <- data.frame(mmu_heart_phos_raw$Unique.identifier,mmu_heart_phos[,3:32])
+# PhosphoProteome Stage 1
+count <- mmu_heart_phos_diff[,c(1,11:19,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,20:25,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,26:31,2:10)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "Unique.identifier"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "Unique.identifier"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "Unique.identifier"
+
+reslist <- merge(nrDEG2,nrDEG1,by="Unique.identifier")
+reslist <- merge(reslist,nrDEG3,by="Unique.identifier")
+reslist <- merge(reslist,mmu_heart_phos_raw,by="Unique.identifier")
+reslist <- data.frame(reslist$ENTREZID,reslist[,1])
+# write.csv(reslist[,1],"phos_stage1.csv")
+
+# PhosphoProteome Stage 2
+count <- mmu_heart_phos_diff[,c(1,2:10,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,20:25,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,26:31,11:19)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",9)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "Unique.identifier"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "Unique.identifier"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "Unique.identifier"
+
+reslist <- merge(nrDEG2,nrDEG1,by="Unique.identifier")
+reslist <- merge(reslist,nrDEG3,by="Unique.identifier")
+reslist <- merge(reslist,mmu_heart_phos_raw,by="Unique.identifier")
+reslist <- data.frame(reslist$ENTREZID,reslist[,1])
+# write.csv(reslist[,1],"phos_stage2.csv")
+
+# PhosphoProteome Stage 3
+count <- mmu_heart_phos_diff[,c(1,2:10,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,11:19,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,26:31,20:25)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "Unique.identifier"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "Unique.identifier"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "Unique.identifier"
+
+reslist <- merge(nrDEG2,nrDEG1,by="Unique.identifier")
+reslist <- merge(reslist,nrDEG3,by="Unique.identifier")
+reslist <- merge(reslist,mmu_heart_phos_raw,by="Unique.identifier")
+reslist <- data.frame(reslist$ENTREZID,reslist[,1])
+# write.csv(reslist[,1],"phos_stage3.csv")
+
+# PhosphoProteome Stage 4
+count <- mmu_heart_phos_diff[,c(1,2:10,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG1 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,11:19,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",9), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG2 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+count <- mmu_heart_phos_diff[,c(1,20:25,26:31)]
+row.names(count) <- count[,1]
+count <- count[,-1]
+count <- as.matrix(count)
+condition <- factor(c(rep("E",6), rep("M",6)),levels = c("E","M"))
+coldata <- data.frame(row.names = colnames(count), condition)
+design <- model.matrix(~ 0 + condition)
+colnames(design) <- levels(condition)
+rownames(design) <- colnames(count)
+contrast.matrix <- makeContrasts(paste0(unique(condition),collapse = "-"),levels = design)
+fit <- lmFit(count,design)
+fit2 <- contrasts.fit(fit,contrast.matrix)
+fit2 <- eBayes(fit2)
+tempOutput <- topTable(fit2,coef = 1,n = Inf)
+nrDEG <- na.omit(tempOutput) 
+nrDEG3 <- nrDEG[which(nrDEG$adj.P.Val<0.05 & nrDEG$logFC< 0),]
+
+nrDEG1 <- data.frame(rownames(nrDEG1),nrDEG1)
+colnames(nrDEG1)[1] <- "Unique.identifier"
+nrDEG2 <- data.frame(rownames(nrDEG2),nrDEG2)
+colnames(nrDEG2)[1] <- "Unique.identifier"
+nrDEG3 <- data.frame(rownames(nrDEG3),nrDEG3)
+colnames(nrDEG3)[1] <- "Unique.identifier"
+
+reslist <- merge(nrDEG2,nrDEG1,by="Unique.identifier")
+reslist <- merge(reslist,nrDEG3,by="Unique.identifier")
+reslist <- merge(reslist,mmu_heart_phos_raw,by="Unique.identifier")
+reslist <- data.frame(reslist$ENTREZID,reslist[,1])
+# write.csv(reslist[,1],"phos_stage4.csv")
+```
+
+Altogether 12 files containing DEG of 3 omics were saved for ORA in DAVID ("trs_stage1", "trs_stage2", "trs_stage3", "trs_stage4", "pro_stage1",  "pro_stage2", "pro_stage3", "pro_stage4", "phos_stage1", "phos_stage2", "phos_stage3", "phos_stage4")
+
+FDR were arranged ascending, top 10 pathways were saved ("links1.csv", "nodes1.csv", "links2.csv", "nodes2.csv", "links3.csv", "nodes3.csv" )
+
+Plotting
+```{r echo=TRUE}
+# Stage1
+links <- read.csv("./Network Input/link1.csv",header = TRUE,stringsAsFactors = FALSE)
+nodes <- read.csv("./Network Input/node1.csv",header = TRUE,stringsAsFactors = FALSE)
+links$IDsource <- match(links$omic, nodes$Name)-1 
+links$IDtarget <- match(links$pathway, nodes$Name)-1
+links$group <- as.factor(c(rep("type_a",10),rep("type_b",10),rep("type_c",10)))
+nodes$group <- as.factor(c(paste("path",1:20,sep = "-")))
+my_color <- 'd3.scaleOrdinal() .domain(["path-1","path-2","path-3","path-4","path-5",
+"path-6","path-7","path-8","path-9","path-10",
+"path-11","path-12","path-13","path-14","path-15",
+"path-16","path-17","path-18","path-19","path-20","type_a","type_b","type_c"]) .range(["#94BCC0","#2F596F","#CF705C","#6DB9DA","#C84238","#74618F","#F2A6A5","#649857",
+  "#9978BE","#F76E5F","#F8971E","#6BBCC0","#94BCC0","#2F596F","#CF705C","#6DB9DA","#C84238","#E37E74","#4DAFBC","#28A089","#FCEAE0","#DBEDEF","#AFE2D8"])'
+sankeyNetwork(Links = links, Nodes = nodes,
+              Source = "IDsource", Target = "IDtarget",
+              Value = "P", NodeID = "Name", fontSize = 16,
+              sinksRight=FALSE,
+              colourScale=my_color, LinkGroup="group", NodeGroup="group")
+
+# Stage2&3
+links <- read.csv("./Network Input/link2.csv",header = TRUE,stringsAsFactors = FALSE)
+nodes <- read.csv("./Network Input/node2.csv",header = TRUE,stringsAsFactors = FALSE)
+links$IDsource <- match(links$omic, nodes$Name)-1 
+links$IDtarget <- match(links$pathway, nodes$Name)-1
+links$group <- as.factor(c(rep("type_a",8),rep("type_b",6),rep("type_c",8)))
+nodes$group <- as.factor(c(paste("path",1:25,sep = "-")))
+my_color <- 'd3.scaleOrdinal() .domain(["path-1","path-2","path-3","path-4","path-5",
+"path-6","path-7","path-8","path-9","path-10",
+"path-11","path-12","path-13","path-14","path-15",
+"path-16","path-17","path-18","path-19","path-20",
+"path-21","path-22","path-23","path-24","path-25","type_a","type_b","type_c"]) .range(["#94BCC0","#2F596F","#CF705C","#6DB9DA","#C84238","#74618F","#F2A6A5","#649857",
+  "#9978BE","#F76E5F","#F8971E","#6BBCC0","#94BCC0","#6DB9DA","#C84238","#74618F","#F2A6A5","#649857","#2F596F","#CF705C","#6DB9DA","#C84238","#E37E74","#4DAFBC","#28A089","#FCEAE0","#DBEDEF","#AFE2D8"])'
+sankeyNetwork(Links = links, Nodes = nodes,
+              Source = "IDsource", Target = "IDtarget",
+              Value = "P", NodeID = "Name", fontSize = 16,
+              sinksRight=FALSE,
+              colourScale=my_color, LinkGroup="group", NodeGroup="group")
+
+# Stage4
+links <- read.csv("./Network Input/link3.csv",header = TRUE,stringsAsFactors = FALSE)
+nodes <- read.csv("./Network Input/node3.csv",header = TRUE,stringsAsFactors = FALSE)
+links$IDsource <- match(links$omic, nodes$Name)-1 
+links$IDtarget <- match(links$pathway, nodes$Name)-1
+links$group <- as.factor(c(rep("type_a",10),rep("type_b",10),rep("type_c",10)))
+nodes$group <- as.factor(c(paste("path",1:29,sep = "-")))
+my_color <- 'd3.scaleOrdinal() .domain(["path-1","path-2","path-3","path-4","path-5",
+"path-6","path-7","path-8","path-9","path-10",
+"path-11","path-12","path-13","path-14","path-15",
+"path-16","path-17","path-18","path-19","path-20",
+"path-21","path-22","path-23","path-24","path-25",
+"path-26","path-27","path-28","path-29","type_a","type_b","type_c"]) .range(["#94BCC0","#2F596F","#CF705C","#6DB9DA","#C84238","#74618F","#F2A6A5","#649857","#94BCC0","#2F596F","#CF705C","#6DB9DA",
+  "#9978BE","#F76E5F","#F8971E","#6BBCC0","#94BCC0","#6DB9DA","#C84238","#74618F","#F2A6A5","#649857","#2F596F","#CF705C","#6DB9DA","#C84238","#E37E74","#4DAFBC","#28A089","#FCEAE0","#DBEDEF","#AFE2D8"])'
+sankeyNetwork(Links = links, Nodes = nodes,
+              Source = "IDsource", Target = "IDtarget",
+              Value = "P", NodeID = "Name", fontSize = 16,
+              sinksRight=FALSE,
+              colourScale=my_color, LinkGroup="group", NodeGroup="group")
+```
+

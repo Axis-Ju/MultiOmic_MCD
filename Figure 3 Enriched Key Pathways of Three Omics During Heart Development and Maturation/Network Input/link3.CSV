@@ -1,0 +1,31 @@
+omic,pathway,P
+Transcriptome,oxidation-reduction process,23.13523256
+Transcriptome,transport,7.165677317
+Transcriptome,metabolic process,4.628732449
+Transcriptome,immune system process,4.628732449
+Transcriptome,cellular response to interferon-beta,3.881396035
+Transcriptome,tricarboxylic acid cycle,3.689221355
+Transcriptome,2-oxoglutarate metabolic process,3.573432092
+Transcriptome,ion transport,3.347246068
+Transcriptome,"mitochondrial electron transport, NADH to ubiquinone",2.656190692
+Transcriptome,NADH metabolic process,2.656190692
+Proteome,oxidation-reduction process,68.03713877
+Proteome,metabolic process,26.75569071
+Proteome,tricarboxylic acid cycle,19.81574562
+Proteome,transport,18.18671716
+Proteome,fatty acid metabolic process,15.70723717
+Proteome,fatty acid beta-oxidation using acyl-CoA dehydrogenase,13.46112725
+Proteome,ATP biosynthetic process,13.10432495
+Proteome,fatty acid beta-oxidation,11.8990663
+Proteome,ATP metabolic process,11.7034647
+Proteome,glutathione metabolic process,10.89410391
+Phosphoproteome,negative regulation of megakaryocyte differentiation,17.76033532
+Phosphoproteome,nucleosome assembly,17.61787326
+Phosphoproteome,DNA methylation on cytosine,15.64414738
+Phosphoproteome,"positive regulation of gene expression, epigenetic",15.64414738
+Phosphoproteome,DNA replication-dependent nucleosome assembly,15.64414738
+Phosphoproteome,DNA replication-independent nucleosome assembly,15.64414738
+Phosphoproteome,protein heterotetramerization,13.42109403
+Phosphoproteome,"DNA-templated transcription, initiation",13.26259379
+Phosphoproteome,chromatin silencing at rDNA,12.52727257
+Phosphoproteome,cardiac muscle contraction,7.267991421

@@ -1,0 +1,270 @@
+---
+title: "Figure 6 Integrative Analysis of Phospho-Signaling Networks in Transcriptional Regulations at Early Stage of Cardiac Development"
+output:
+  html_document:
+    df_print: paged
+---
+
+Library Packages
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+suppressPackageStartupMessages(library(pheatmap)) # CRAN v1.0.12
+suppressPackageStartupMessages(library(clusterProfiler)) # Bioconductor v4.0.5
+suppressPackageStartupMessages(library(org.Mm.eg.db)) # Bioconductor v3.13.0
+
+rm(list = ls(all.names = TRUE))
+gc()
+```
+
+Figure 6A
+Interactions between the 4 transcriptional cofactors & top 200 TFs were inferred by STRING database (experimnet validated) and saved in 'STRING Output.txt'
+```{r echo=TRUE}
+# Load StringDb Result
+st <- read.table("./STRING Output.txt",header = TRUE)
+cfs <- c("Crebbp","Smarca4","Ncor1","Ncor2")
+st <- st[st$V13 >= 0.4,]
+st <- st[(st$V1 %in% cfs) | (st$V2 %in% cfs),]
+st <- st[order(st$V1),]
+# Load Omic Data
+load("../SourceData/omic_data.Rds")
+# Transcriptome
+trs <- data.frame(mmu_heart_trs[,1])
+for (i in seq(2,31,3)) {
+  trs <- cbind(trs,rowMeans(mmu_heart_trs[,i:(i+2)]))  
+};rm(i)
+temp_ensemble <- substr(trs[,1],1,18)
+geneinfo <- select(org.Mm.eg.db,keys = temp_ensemble,columns = c("SYMBOL","ENTREZID"),keytype = "ENSEMBL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+trs <- cbind(geneinfo,trs[,-1]);rm(temp_ensemble,geneinfo)
+trs <- trs[!duplicated(trs[,2]),]
+# Proteome
+pro <- mmu_heart_pro[,c(1,32:41)]
+temp_symbol <- pro[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+pro <- cbind(geneinfo,pro[,-1]);rm(temp_symbol,geneinfo)
+```
+
+Crebbp targeted TFs mRNA & protein
+```{r echo=TRUE}
+# mRNA
+tf_ls <- st[st$V1 == "Crebbp",2]
+tp_trs <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp1 <- trs[trs$SYMBOL == i,]
+  tp1 <- tp1[!is.na(tp1$ENSEMBL),]
+  rownames(tp1) <- tp1$SYMBOL
+  tp1 <- as.matrix(tp1[,-c(1:3)])
+  tp_trs <- rbind(tp_trs,tp1)
+}
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","Grey")))(30)
+pheatmap(tp_trs,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+
+# Protein
+tp_pro <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp2 <- pro[pro$SYMBOL == i,]
+  tp2 <- tp2[!is.na(tp2$ENSEMBL),]
+  try(rownames(tp2) <- tp2$SYMBOL)
+  names(tp2)[4:13] <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+  tp2 <- as.matrix(tp2[,-c(1:3)])
+  tp_pro <- rbind(tp_pro,tp2)
+}
+colorpalette <- colorRampPalette(rev(c("navy","white","Grey")))(30)
+pheatmap(tp_pro,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+```
+
+Smarca4 targeted TFs mRNA & protein
+```{r echo=TRUE}
+# mRNA
+tf_ls <- st[st$V1 == "Smarca4",2]
+tp_trs <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp1 <- trs[trs$SYMBOL == i,]
+  tp1 <- tp1[!is.na(tp1$ENSEMBL),]
+  rownames(tp1) <- tp1$SYMBOL
+  tp1 <- as.matrix(tp1[,-c(1:3)])
+  tp_trs <- rbind(tp_trs,tp1)
+}
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","Grey")))(30)
+pheatmap(tp_trs,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+# protein
+tp_pro <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp2 <- pro[pro$SYMBOL == i,]
+  tp2 <- tp2[!is.na(tp2$ENSEMBL),]
+  try(rownames(tp2) <- tp2$SYMBOL)
+  names(tp2)[4:13] <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+  tp2 <- as.matrix(tp2[,-c(1:3)])
+  tp_pro <- rbind(tp_pro,tp2)
+}
+colorpalette <- colorRampPalette(rev(c("navy","white","Grey")))(30)
+pheatmap(tp_pro,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+```
+
+Ncor 1/2 targeted TFs mRNA & protein
+```{r echo=TRUE}
+# mRNA
+tf_ls <- st[st$V1 %in% c("Ncor1","Ncor2"),2]
+tp_trs <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp1 <- trs[trs$SYMBOL == i,]
+  tp1 <- tp1[!is.na(tp1$ENSEMBL),]
+  rownames(tp1) <- tp1$SYMBOL
+  tp1 <- as.matrix(tp1[,-c(1:3)])
+  tp_trs <- rbind(tp_trs,tp1)
+}
+colorpalette <- colorRampPalette(rev(c("firebrick3","white","Grey")))(30)
+pheatmap(tp_trs,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+# protein
+tp_pro <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp2 <- pro[pro$SYMBOL == i,]
+  tp2 <- tp2[!is.na(tp2$ENSEMBL),]
+  try(rownames(tp2) <- tp2$SYMBOL)
+  names(tp2)[4:13] <- c("E10.5","E12.5","E14.5","E16.5","E18.5","P1","1W","2W","4W","8W")
+  tp2 <- as.matrix(tp2[,-c(1:3)])
+  tp_pro <- rbind(tp_pro,tp2)
+}
+colorpalette <- colorRampPalette(rev(c("navy","white","Grey")))(30)
+pheatmap(tp_pro,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+```
+
+Figure 6B
+Prepare phosphoproteomic data
+```{r}
+load("../SourceData/omic_data.Rds")
+phos <- data.frame(
+  SYMBOL = as.vector(mmu_heart_phos[,1]),
+  PSite = paste(mmu_heart_phos[,1],mmu_heart_phos[,2],sep = "_"),
+  mmu_heart_phos[,33:42],stringsAsFactors = FALSE
+)
+phos <- phos[!phos[,1] == "",]
+tmp <- phos[1,]# split merged gene names by ";"
+for (i in 1:nrow(phos)) {
+  a <- data.frame(strsplit(phos[i,1],split = ";"))
+  b <- nrow(a)
+  temp <- data.frame(phos[i,2:12])
+  if (b > 1) {
+    for (j in 1:(b-1)) {
+      temp <- rbind(temp,phos[i,2:12])
+    }
+  }
+  temp <- cbind(a,temp)
+  names(temp) <- colnames(phos)
+  tmp <- rbind(tmp,temp)
+}
+phos <- tmp[!duplicated(tmp[,2]),];rm(tmp,i,a,b,temp,j)
+temp_symbol <- phos[,1]
+geneinfo <- select(org.Mm.eg.db,keys = temp_symbol,columns = c("ENSEMBL","SYMBOL","ENTREZID"),keytype = "SYMBOL")
+geneinfo <- geneinfo[!duplicated(geneinfo[,1]),]
+phos <- merge(phos,geneinfo);rm(temp_symbol,geneinfo)
+phos <- cbind(phos[,1],phos[,13:14],phos[,2:12])
+names(phos)[1] <- "SYMBOL"
+```
+
+PSites abundance of TFs targeted by these cofactors
+```{r echo=TRUE}
+modulus <- function(v) {
+  sqrt(sum(v^2))
+}
+# TFs were screend by SPM
+# Crebbp targeted TFs
+tf_ls <- st[st$V1 == "Crebbp",2]
+tp_phos <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp3 <- phos[phos$SYMBOL == i,]
+  tp3 <- tp3[!is.na(tp3$ENSEMBL),]
+  tp3.rownames <- tp3$PSite
+  tp3 <- as.matrix(tp3[,-c(1:4)])
+  if (nrow(tp3) > 0) {
+    judge <- c()
+    for (j in 1:nrow(tp3)) {
+      v1 <- as.numeric(round(tp3[j,1:10],5))
+      v2 <- c(rep(0,10))
+      v2[1:3] <- as.numeric(tp3[j,1:3])
+      spm <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+      judge <- c(judge,spm > 0.65) # SPM > 0.65
+    }
+    if (is.null(nrow(tp3[judge,]))) {
+      tp3 <- t(as.data.frame(tp3[judge,]))
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    } else {
+      tp3 <- tp3[judge,]
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    }
+  }
+}
+colorpalette <- colorRampPalette(rev(c("#00A087B2","white","Grey")))(30)
+pheatmap(tp_phos,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+# Smarca4 targeted TFs 
+tf_ls <- st[st$V1 == "Smarca4",2]
+tp_phos <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp3 <- phos[phos$SYMBOL == i,]
+  tp3 <- tp3[!is.na(tp3$ENSEMBL),]
+  tp3.rownames <- tp3$PSite
+  tp3 <- as.matrix(tp3[,-c(1:4)])
+  if (nrow(tp3) > 0) {
+    judge <- c()
+    for (j in 1:nrow(tp3)) {
+      v1 <- as.numeric(round(tp3[j,1:10],5))
+      v2 <- c(rep(0,10))
+      v2[1:3] <- as.numeric(tp3[j,1:3])
+      spm <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+      judge <- c(judge,spm > 0.65) # SPM > 0.65
+    }
+    if (is.null(nrow(tp3[judge,]))) {
+      tp3 <- t(as.data.frame(tp3[judge,]))
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    } else {
+      tp3 <- tp3[judge,]
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    }
+  }
+}
+colorpalette <- colorRampPalette(rev(c("#00A087B2","white","Grey")))(30)
+pheatmap(tp_phos,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+# Ncor1/2
+tf_ls <- st[st$V1 %in% c("Ncor1","Ncor2"),2]
+tp_phos <- array(dim = c(0,10))
+for (i in tf_ls) {
+  tp3 <- phos[phos$SYMBOL == i,]
+  tp3 <- tp3[!is.na(tp3$ENSEMBL),]
+  tp3.rownames <- tp3$PSite
+  tp3 <- as.matrix(tp3[,-c(1:4)])
+  if (nrow(tp3) > 0) {
+    judge <- c()
+    for (j in 1:nrow(tp3)) {
+      v1 <- as.numeric(round(tp3[j,1:10],5))
+      v2 <- c(rep(0,10))
+      v2[1:3] <- as.numeric(tp3[j,1:3])
+      spm <- (v1 %*% v2)/(modulus(v1)*modulus(v2))
+      judge <- c(judge,spm > 0.65) # SPM > 0.65
+    }
+    if (is.null(nrow(tp3[judge,]))) {
+      tp3 <- t(as.data.frame(tp3[judge,]))
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    } else {
+      tp3 <- tp3[judge,]
+      rownames(tp3) <- tp3.rownames[judge]
+      tp_phos <- rbind(tp_phos,tp3)
+    }
+  }
+}
+colorpalette <- colorRampPalette(rev(c("#00A087B2","white","Grey")))(30)
+pheatmap(tp_phos,color = colorpalette,cluster_col = FALSE,cluster_rows = FALSE,scale = "row",
+         cellwidth = 9,cellheight = 9,fontsize = 8)
+```
